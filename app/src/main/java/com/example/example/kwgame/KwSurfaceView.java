@@ -1,6 +1,7 @@
 package com.example.example.kwgame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
@@ -40,5 +41,9 @@ public class KwSurfaceView extends GLSurfaceView {
     public void surfaceDestroyed(SurfaceHolder holder) {
         super.surfaceDestroyed(holder);
         render.destroy();
+    }
+
+    public void setType(int itemid) {
+        render.setType(itemid);
     }
 }

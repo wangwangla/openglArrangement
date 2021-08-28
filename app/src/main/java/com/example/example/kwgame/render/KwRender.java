@@ -39,4 +39,8 @@ public class KwRender implements GLSurfaceView.Renderer {
     public void destroy() {
         listener.dispose();
     }
+
+    public void setType(int itemid1) {
+        listener.chageType(itemid1);
+    }
 }

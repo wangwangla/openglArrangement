@@ -7,4 +7,5 @@ public interface ApplicationListener {
     public void resume ();
     public void dispose ();
     void surfaceChanage(int width, int height);
+    public void chageType(int itemid1);
 }

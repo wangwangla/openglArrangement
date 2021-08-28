@@ -32,4 +32,9 @@ public class ApplicationAdapter implements ApplicationListener {
     public void surfaceChanage(int width, int height) {
 
     }
+
+    @Override
+    public void chageType(int itemid1) {
+
+    }
 }
