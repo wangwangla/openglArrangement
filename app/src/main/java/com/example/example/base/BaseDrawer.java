@@ -1,5 +1,6 @@
 package com.example.example.base;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.opengl.GLES20;
 
@@ -18,6 +19,8 @@ public abstract class BaseDrawer {
     protected int mProgram ;
     private Resources mRes;
     protected int COORDS_PER_VERTEX = 3;
+    protected int vertexStride = COORDS_PER_VERTEX * 4;
+    protected Context context;
 
     public BaseDrawer(){}
 
@@ -28,6 +31,10 @@ public abstract class BaseDrawer {
     public void create(){
        initData();
        createProgame();
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public void initData(){

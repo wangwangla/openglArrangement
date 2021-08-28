@@ -23,11 +23,12 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         listView = findViewById(R.id.list_view);
         String[] strArr = new String[] {
-                "画三角形",
-                "画三角形",
-                "画三角形",
-                "画三角形",
-                "画三角形" };
+                "uniform传值",
+                "attribute传值",
+                "数组结构",
+                "绑定属性",
+                "矩阵变换",
+                "图片绘制"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

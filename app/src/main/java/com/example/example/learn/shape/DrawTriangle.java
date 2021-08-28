@@ -1,13 +1,16 @@
-package com.example.example.learn;
+package com.example.example.learn.shape;
 
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
 
+/**
+ * 使用uniform传值
+ */
 public class DrawTriangle extends BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
-    private final int vertexStride = COORDS_PER_VERTEX * 4; // 每个顶点四个字节
+     // 每个顶点四个字节
     private int vertexCount=0;
 
    public DrawTriangle(){

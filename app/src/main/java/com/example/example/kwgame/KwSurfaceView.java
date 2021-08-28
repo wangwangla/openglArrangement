@@ -10,18 +10,20 @@ import com.example.example.kwgame.render.KwRender;
 
 public class KwSurfaceView extends GLSurfaceView {
     private KwRender render;
+    private Context context;
     public KwSurfaceView(Context context) {
         this(context,null);
     }
 
     public KwSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         init();
     }
 
     private void init(){
         setEGLContextClientVersion(2);
-        render = new KwRender();
+        render = new KwRender(context);
         setRenderer(render);
     }
 

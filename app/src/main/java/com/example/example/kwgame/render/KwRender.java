@@ -1,5 +1,6 @@
 package com.example.example.kwgame.render;
 
+import android.content.Context;
 import android.opengl.GLSurfaceView;
 
 import com.example.example.base.ApplicationListener;
@@ -10,8 +11,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class KwRender implements GLSurfaceView.Renderer {
     private ApplicationListener listener;
-    public KwRender(){
-        listener = new Game();
+    public KwRender(Context context){
+        listener = new Game(context);
     }
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {

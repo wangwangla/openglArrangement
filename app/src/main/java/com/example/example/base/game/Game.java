@@ -1,18 +1,30 @@
 package com.example.example.base.game;
 
+import android.content.Context;
 import android.opengl.GLES20;
 
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
-import com.example.example.learn.DrawTriangle;
+import com.example.example.image.ImageShow;
+import com.example.example.learn.shape.DrawTriangle;
+import com.example.example.learn.shape.DrawTriangle02;
+import com.example.example.learn.shape.DrawTriangle03;
+import com.example.example.learn.shape.DrawTriangle04;
+import com.example.example.learn.shape.DrawTriangle05;
 
 public class Game implements ApplicationListener {
     private BaseDrawer drawer;
     private Class aClass;
+    private Context context;
+    public Game(Context context) {
+        this.context = context;
+    }
+
     @Override
     public void create() {
         try {
             drawer = (BaseDrawer) aClass.newInstance();
+            drawer.setContext(context);
             drawer.create();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -56,8 +68,19 @@ public class Game implements ApplicationListener {
                 aClass = DrawTriangle.class;
                 break;
             case 1:
+                aClass = DrawTriangle02.class;
                 break;
             case 2:
+                aClass = DrawTriangle03.class;
+                break;
+            case 3:
+                aClass = DrawTriangle04.class;
+                break;
+            case 4:
+                aClass = DrawTriangle05.class;
+                break;
+            case 5:
+                aClass = ImageShow.class;
                 break;
         }
     }
