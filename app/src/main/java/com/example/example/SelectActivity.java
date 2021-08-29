@@ -31,7 +31,23 @@ public class SelectActivity extends AppCompatActivity {
                 "图片绘制",
                 "图片矩阵变换",
                 "图片变换",
-                "相機"
+                "调整亮度",
+                "相機",
+                "冷色调",
+                "暖色调",
+                "底片效果",
+                "抖动",
+                "放大",
+                "腐蚀",
+                "高斯1",
+                "高斯2",
+                "灰",
+                "灵魂出鞘",
+                "毛刺滤镜",
+                "HSV",
+                "九宫格",
+                "周期放大"
+
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);

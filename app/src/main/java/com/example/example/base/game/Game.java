@@ -9,6 +9,9 @@ import com.example.example.camera.MyCamera;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageShow01;
 import com.example.example.learn.image.ImageShow02;
+import com.example.example.learn.image.ImageShow03;
+import com.example.example.learn.image.ImageShow04;
+import com.example.example.learn.image.ImageShow05;
 import com.example.example.learn.shape.DrawTriangle;
 import com.example.example.learn.shape.DrawTriangle02;
 import com.example.example.learn.shape.DrawTriangle03;
@@ -92,7 +95,16 @@ public class Game implements ApplicationListener {
                 aClass = ImageShow02.class;
                 break;
             case 8:
+                aClass = ImageShow03.class;
+                break;
+            case 9:
                 aClass = MyCamera.class;
+                break;
+            case 10:
+                aClass = ImageShow04.class;
+                break;
+            case 11:
+                aClass = ImageShow05.class;
                 break;
         }
     }

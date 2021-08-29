@@ -5,9 +5,10 @@ import android.opengl.GLES20;
 import com.example.example.base.Filter;
 import com.example.example.utils.MatrixUtils;
 
-public class MatrixFilter extends Filter {
+public class BrightFilter extends Filter {
     private int glHMatrix;
-    public MatrixFilter(){
+    public BrightFilter(){
+        utils = new MatrixUtils();
         vertexShaderCode =
                 "attribute vec4 vPosition;" + //位置
                         "uniform mat4 vMatrix;"+
@@ -24,6 +25,9 @@ public class MatrixFilter extends Filter {
                         "void main(){\n" +
                         "    vec4 nColor=texture2D(vTexture,aCoordinate);\n" +
                         "    gl_FragColor=nColor;" +
+                        "   if(aCoordinate.x>0.5){" +
+                        "    gl_FragColor.rgb = vec3(gl_FragColor.rgb + vec3(0.6 * (-0.5)));" +
+                        "   }" +
                         "}";
     }
 

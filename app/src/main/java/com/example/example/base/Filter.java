@@ -3,14 +3,16 @@ package com.example.example.base;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.utils.MatrixUtils;
 
 public abstract class Filter extends BaseDrawer {
-    private int glHPosition;
-    private int glHTexture;
-    private int glHCoordinate;
+    protected int glHPosition;
+    protected int glHTexture;
+    protected int glHCoordinate;
     protected int texture;
 
     public Filter() {
+        utils = new MatrixUtils();
         triangleCoords = new float[]{
                 -1.0f, 1.0f,
                 -1.0f, -1.0f,
@@ -62,8 +64,8 @@ public abstract class Filter extends BaseDrawer {
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(glHPosition);
         GLES20.glEnableVertexAttribArray(glHCoordinate);
-//        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texture);
-//        GLES20.glUniform1i(glHTexture, 0);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texture);
+        GLES20.glUniform1i(glHTexture, 0);
         GLES20.glVertexAttribPointer(glHPosition, 2, GLES20.GL_FLOAT, false, 0, vertexBuffer);
         GLES20.glVertexAttribPointer(glHCoordinate, 2, GLES20.GL_FLOAT, false, 0, colorBuffer);
         addOtherRender();
