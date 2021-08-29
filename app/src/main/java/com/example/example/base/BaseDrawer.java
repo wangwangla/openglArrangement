@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.opengl.GLES20;
 
+import com.example.example.utils.MatrixUtils;
+
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -21,7 +23,7 @@ public abstract class BaseDrawer {
     protected int COORDS_PER_VERTEX = 3;
     protected int vertexStride = COORDS_PER_VERTEX * 4;
     protected Context context;
-
+    protected MatrixUtils utils;
     public BaseDrawer(){}
 
     public BaseDrawer(Resources resources){
@@ -122,5 +124,9 @@ public abstract class BaseDrawer {
             }
         }
         return shader;
+    }
+
+    public MatrixUtils getUtils() {
+        return utils;
     }
 }

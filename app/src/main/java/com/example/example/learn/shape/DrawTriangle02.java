@@ -44,12 +44,12 @@ public class DrawTriangle02 extends BaseDrawer{
         };
     }
 
-    @Override
-    public void create() {
-    super.create();
-    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
-    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
-    }
+   @Override
+   public void create() {
+        super.create();
+        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+        mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+   }
 
         @Override
         public void surfaceChange(int width, int height) {

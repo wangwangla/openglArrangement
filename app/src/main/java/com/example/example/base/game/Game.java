@@ -5,7 +5,10 @@ import android.opengl.GLES20;
 
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
-import com.example.example.image.ImageShow;
+import com.example.example.camera.MyCamera;
+import com.example.example.learn.image.ImageShow;
+import com.example.example.learn.image.ImageShow01;
+import com.example.example.learn.image.ImageShow02;
 import com.example.example.learn.shape.DrawTriangle;
 import com.example.example.learn.shape.DrawTriangle02;
 import com.example.example.learn.shape.DrawTriangle03;
@@ -81,6 +84,15 @@ public class Game implements ApplicationListener {
                 break;
             case 5:
                 aClass = ImageShow.class;
+                break;
+            case 6:
+                aClass = ImageShow01.class;
+                break;
+            case 7:
+                aClass = ImageShow02.class;
+                break;
+            case 8:
+                aClass = MyCamera.class;
                 break;
         }
     }

@@ -23,12 +23,16 @@ public class SelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         listView = findViewById(R.id.list_view);
         String[] strArr = new String[] {
-                "uniform传值",
-                "attribute传值",
-                "数组结构",
-                "绑定属性",
-                "矩阵变换",
-                "图片绘制"};
+                "图形uniform传值",
+                "图形attribute传值",
+                "图形数组结构",
+                "图形绑定属性",
+                "图形矩阵变换",
+                "图片绘制",
+                "图片矩阵变换",
+                "图片变换",
+                "相機"
+        };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
