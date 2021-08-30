@@ -8,16 +8,20 @@ import android.opengl.GLUtils;
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.ColdFilter;
+import com.example.example.base.filter.DipianFilter;
 import com.example.example.base.filter.WarmFilter;
 
 import java.io.IOException;
 
-public class ImageShow05 extends BaseDrawer {
+/**
+ * 底片效果
+ */
+public class ImageShow06 extends BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
 
-    public ImageShow05() {
-        filter = new WarmFilter();
+    public ImageShow06() {
+        filter = new DipianFilter();
     }
 
     @Override

@@ -7,17 +7,20 @@ import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.ColdFilter;
-import com.example.example.base.filter.WarmFilter;
+import com.example.example.base.filter.GaosiFilter;
+import com.example.example.base.filter.HuiFilter;
 
 import java.io.IOException;
 
-public class ImageShow05 extends BaseDrawer {
+/**
+ * 抖动效果
+ */
+public class ImageShow11 extends BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
 
-    public ImageShow05() {
-        filter = new WarmFilter();
+    public ImageShow11() {
+        filter = new HuiFilter();
     }
 
     @Override

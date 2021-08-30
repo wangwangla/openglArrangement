@@ -7,17 +7,21 @@ import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.ColdFilter;
-import com.example.example.base.filter.WarmFilter;
+import com.example.example.base.filter.DipianFilter;
+import com.example.example.base.filter.DoudongFilter;
+import com.example.example.base.filter.ScaleBigFilter;
 
 import java.io.IOException;
 
-public class ImageShow05 extends BaseDrawer {
+/**
+ * 抖动效果
+ */
+public class ImageShow08 extends BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
 
-    public ImageShow05() {
-        filter = new WarmFilter();
+    public ImageShow08() {
+        filter = new ScaleBigFilter();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.example.learn.image;
+package com.example.example.learn.function;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,17 +7,17 @@ import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.ColdFilter;
-import com.example.example.base.filter.WarmFilter;
+import com.example.example.base.filter.AlphaFilter;
+import com.example.example.base.filter.CommonFIlter;
+import com.example.example.base.filter.MatrixFilter;
 
 import java.io.IOException;
 
-public class ImageShow05 extends BaseDrawer {
-    private Bitmap mBitmap;
+public class AlphaDemo extends BaseDrawer {
     private Filter filter;
-
-    public ImageShow05() {
-        filter = new WarmFilter();
+    private Bitmap mBitmap;
+    public AlphaDemo() {
+        filter = new AlphaFilter();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class ImageShow05 extends BaseDrawer {
 
     @Override
     public void dispose() {
-
+        filter.dispose();
     }
 
     private int createTexture() {

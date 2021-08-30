@@ -46,7 +46,8 @@ public class SelectActivity extends AppCompatActivity {
                 "毛刺滤镜",
                 "HSV",
                 "九宫格",
-                "周期放大"
+                "周期放大",
+                "Alpha测试"
 
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);

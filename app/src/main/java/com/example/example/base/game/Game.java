@@ -1,17 +1,25 @@
 package com.example.example.base.game;
 
 import android.content.Context;
+import android.media.Image;
 import android.opengl.GLES20;
 
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
+import com.example.example.learn.function.AlphaDemo;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageShow01;
 import com.example.example.learn.image.ImageShow02;
 import com.example.example.learn.image.ImageShow03;
 import com.example.example.learn.image.ImageShow04;
 import com.example.example.learn.image.ImageShow05;
+import com.example.example.learn.image.ImageShow06;
+import com.example.example.learn.image.ImageShow07;
+import com.example.example.learn.image.ImageShow08;
+import com.example.example.learn.image.ImageShow09;
+import com.example.example.learn.image.ImageShow10;
+import com.example.example.learn.image.ImageShow11;
 import com.example.example.learn.shape.DrawTriangle;
 import com.example.example.learn.shape.DrawTriangle02;
 import com.example.example.learn.shape.DrawTriangle03;
@@ -105,6 +113,48 @@ public class Game implements ApplicationListener {
                 break;
             case 11:
                 aClass = ImageShow05.class;
+                break;
+            case 12:
+                aClass = ImageShow06.class;
+                break;
+            case 13:
+                aClass = ImageShow07.class;
+                break;
+            case 14:
+                aClass = ImageShow08.class;
+                break;
+            case 15:
+                aClass = ImageShow09.class;
+                break;
+            case 16:
+                aClass = ImageShow10.class;
+                break;
+            case 17:
+                aClass = ImageShow11.class;
+                break;
+            case 18 :
+                aClass = ImageShow11.class;
+                break;
+            case 19:
+                aClass = ImageShow11.class;
+                break;
+            case 20:
+                aClass = ImageShow11.class;
+                break;
+            case 21:
+                aClass = ImageShow11.class;
+                break;
+            case 22:
+                aClass = ImageShow11.class;
+                break;
+            case 23:
+                aClass = ImageShow11.class;
+                break;
+            case 24:
+                aClass = AlphaDemo.class;
+                break;
+            case 25:
+                aClass = AlphaDemo.class;
                 break;
         }
     }
