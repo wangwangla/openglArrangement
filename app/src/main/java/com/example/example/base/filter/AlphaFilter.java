@@ -2,6 +2,9 @@ package com.example.example.base.filter;
 
 import com.example.example.base.filter.MatrixFilter;
 
+/**
+ * 测试的结果就是，符合条件的使用，不符合的扔掉
+ */
 public class AlphaFilter extends MatrixFilter {
     public AlphaFilter(){
         fragmentShaderCode =

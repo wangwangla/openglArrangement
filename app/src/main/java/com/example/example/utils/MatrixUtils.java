@@ -4,11 +4,11 @@ import android.opengl.Matrix;
 
 public class MatrixUtils {
     //相机位置
-    private static float[] mViewMatrix=new float[16];
+    private float[] mViewMatrix=new float[16];
     //透视
-    private static float[] mProjectMatrix=new float[16];
+    private float[] mProjectMatrix=new float[16];
     //变换矩阵
-    private static float[] mMVPMatrix=new float[]{
+    private float[] mMVPMatrix=new float[]{
             1,0,0,0,
             0,1,0,0,
             0,0,1,0,

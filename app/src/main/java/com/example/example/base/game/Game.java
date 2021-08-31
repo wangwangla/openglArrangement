@@ -1,13 +1,14 @@
 package com.example.example.base.game;
 
 import android.content.Context;
-import android.media.Image;
 import android.opengl.GLES20;
 
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
-import com.example.example.learn.function.AlphaDemo;
+import com.example.example.learn.function.alpha.AlphaDemo;
+import com.example.example.learn.function.blend.BlendShow;
+import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageShow01;
 import com.example.example.learn.image.ImageShow02;
@@ -154,7 +155,10 @@ public class Game implements ApplicationListener {
                 aClass = AlphaDemo.class;
                 break;
             case 25:
-                aClass = AlphaDemo.class;
+                aClass = BlendShow.class;
+                break;
+            case 26:
+                aClass = DepTest.class;
                 break;
         }
     }

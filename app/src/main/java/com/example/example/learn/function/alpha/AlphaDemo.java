@@ -1,4 +1,4 @@
-package com.example.example.learn.function;
+package com.example.example.learn.function.alpha;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
