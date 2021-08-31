@@ -9,6 +9,7 @@ import com.example.example.camera.MyCamera;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
+import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageShow01;
 import com.example.example.learn.image.ImageShow02;
@@ -159,6 +160,9 @@ public class Game implements ApplicationListener {
                 break;
             case 26:
                 aClass = DepTest.class;
+                break;
+            case 27:
+                aClass = MoBanTest.class;
                 break;
         }
     }
