@@ -2,9 +2,11 @@ package com.example.example.base.abstra;
 
 import com.example.example.base.ApplicationListener;
 
+import javax.microedition.khronos.opengles.GL10;
+
 public class ApplicationAdapter implements ApplicationListener {
     @Override
-    public void create() {
+    public void create(GL10 gl10) {
 
     }
 

@@ -3,6 +3,8 @@ package com.example.example;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.example.learn.egl.EGLActivity;
+import com.example.example.learn.egl.EGLRender;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -51,7 +53,8 @@ public class SelectActivity extends AppCompatActivity {
                 "Blend（25）",
                 "深度测试（26）",
                 "模板测试（27）",
-                "EGL使用（28）"
+                "EGL使用（28）",
+                "回讀數據（29）"
 
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
@@ -61,7 +64,7 @@ public class SelectActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 System.out.println(i);
                 if (i == 28){
-                    Intent intent = new Intent(SelectActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SelectActivity.this, EGLActivity.class);
                     startActivity(intent);
                 }else {
                     Intent intent = new Intent(SelectActivity.this, MainActivity.class);

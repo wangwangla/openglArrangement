@@ -16,7 +16,7 @@ public class KwRender implements GLSurfaceView.Renderer {
     }
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
-        listener.create();
+        listener.create(gl10);
     }
 
     @Override

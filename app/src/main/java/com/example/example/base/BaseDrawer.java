@@ -11,6 +11,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+import javax.microedition.khronos.opengles.GL10;
+
 public abstract class BaseDrawer {
     protected float color[];
     protected float triangleCoords[];
@@ -24,6 +26,7 @@ public abstract class BaseDrawer {
     protected int vertexStride = COORDS_PER_VERTEX * 4;
     protected Context context;
     protected MatrixUtils utils;
+    public GL10 gl10;
     public BaseDrawer(){}
 
     public BaseDrawer(Resources resources){
@@ -128,5 +131,9 @@ public abstract class BaseDrawer {
 
     public MatrixUtils getUtils() {
         return utils;
+    }
+
+    public void setGL(GL10 gl10){
+        this.gl10 = gl10;
     }
 }

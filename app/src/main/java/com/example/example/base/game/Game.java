@@ -22,11 +22,14 @@ import com.example.example.learn.image.ImageShow08;
 import com.example.example.learn.image.ImageShow09;
 import com.example.example.learn.image.ImageShow10;
 import com.example.example.learn.image.ImageShow11;
+import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.DrawTriangle;
 import com.example.example.learn.shape.DrawTriangle02;
 import com.example.example.learn.shape.DrawTriangle03;
 import com.example.example.learn.shape.DrawTriangle04;
 import com.example.example.learn.shape.DrawTriangle05;
+
+import javax.microedition.khronos.opengles.GL10;
 
 public class Game implements ApplicationListener {
     private BaseDrawer drawer;
@@ -37,9 +40,11 @@ public class Game implements ApplicationListener {
     }
 
     @Override
-    public void create() {
+    public void create(GL10 gl10) {
         try {
             drawer = (BaseDrawer) aClass.newInstance();
+
+            drawer.setGL(gl10);
             drawer.setContext(context);
             drawer.create();
         } catch (IllegalAccessException e) {
@@ -163,6 +168,9 @@ public class Game implements ApplicationListener {
                 break;
             case 27:
                 aClass = MoBanTest.class;
+                break;
+            case 29:
+                aClass = ReadPixDemo.class;
                 break;
         }
     }
