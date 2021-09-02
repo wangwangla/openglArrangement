@@ -47,11 +47,11 @@ public class MatrixUtils {
 //            float[] projection=new float[16];
 //            float[] camera=new float[16];
             if(sWhImg>sWhView){
-                Matrix.frustumM(mProjectMatrix,0,
+                Matrix.orthoM(mProjectMatrix,0,
                         -1,1,-sWhImg/sWhView,
                         sWhImg/sWhView,1,3);
             }else{
-                Matrix.frustumM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
+                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
             }
             Matrix.setLookAtM(mViewMatrix,0,
                     0,0,2,

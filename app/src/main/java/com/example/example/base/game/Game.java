@@ -22,6 +22,7 @@ import com.example.example.learn.image.ImageShow08;
 import com.example.example.learn.image.ImageShow09;
 import com.example.example.learn.image.ImageShow10;
 import com.example.example.learn.image.ImageShow11;
+import com.example.example.learn.light.CureLisght;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.DrawTriangle;
 import com.example.example.learn.shape.DrawTriangle02;
@@ -171,6 +172,24 @@ public class Game implements ApplicationListener {
                 break;
             case 29:
                 aClass = ReadPixDemo.class;
+                break;
+            case 30:
+                aClass = ReadPixDemo.class;
+                break;
+            case 31:
+                aClass = ReadPixDemo.class;
+                break;
+            case 32:
+                aClass = ReadPixDemo.class;
+                break;
+            case 33:
+                aClass = ReadPixDemo.class;
+                break;
+            case 34:
+                aClass = ReadPixDemo.class;
+                break;
+            case 35:
+                aClass = CureLisght.class;
                 break;
         }
     }

@@ -81,6 +81,9 @@ public class ReadPixDemo extends BaseDrawer {
         return 0;
     }
 
+    /**
+     * 这个的处理就是将数据写出去，然后从屏幕上在读取回来。
+     */
     public void save(){
         IntBuffer ib = IntBuffer.allocate(mBitmap.getWidth() * mBitmap.getHeight());
         gl10.glReadPixels(0,0,mBitmap.getWidth(),mBitmap.getHeight(),

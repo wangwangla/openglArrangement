@@ -7,7 +7,7 @@ import com.example.example.base.BaseDrawer;
 /**
  * 使用uniform传值
  */
-public class DrawTriangle extends BaseDrawer {
+public class DrawTriangle  extends BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
      // 每个顶点四个字节
