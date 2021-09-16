@@ -39,6 +39,8 @@ public class ImageShow01 extends BaseDrawer {
                 mBitmap.getHeight(),
                 width,
                 height);
+
+
     }
 
     @Override

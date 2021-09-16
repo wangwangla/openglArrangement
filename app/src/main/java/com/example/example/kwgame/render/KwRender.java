@@ -1,6 +1,7 @@
 package com.example.example.kwgame.render;
 
 import android.content.Context;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
 import com.example.example.base.ApplicationListener;
@@ -21,6 +22,7 @@ public class KwRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 gl10, int i, int i1) {
+        System.out.println(i+"============"+i1);
         listener.surfaceChanage(i,i1);
     }
 

@@ -6,6 +6,8 @@ import com.example.example.base.BaseDrawer;
 
 /**
  * 使用uniform传值
+ * 1.    mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor")；
+ * 2.    GLES20.glUniform4fv(mColorHandle, 1, color, 0);
  */
 public class DrawTriangle  extends BaseDrawer {
     private int mPositionHandle;

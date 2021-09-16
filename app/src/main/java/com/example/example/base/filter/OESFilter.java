@@ -70,4 +70,15 @@ public class OESFilter extends Filter {
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
     }
+
+
+    public void calculateMatrix(int cameraId){
+        if(cameraId==1){
+            utils.flip(true,false);
+            utils.rotateZ(90);
+        }else{
+            utils.rotateZ(270);
+        }
+    }
+
 }

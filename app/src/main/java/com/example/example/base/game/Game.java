@@ -80,6 +80,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void surfaceChanage(int width, int height) {
+        GLES20.glViewport(0,0,width,height);
         drawer.surfaceChange(width,height);
     }
 

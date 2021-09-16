@@ -11,6 +11,10 @@ import com.example.example.base.filter.CommonFIlter;
 
 import java.io.IOException;
 
+/**
+ * 1.创建纹理
+ * 2.
+ */
 public class ImageShow extends BaseDrawer {
     private Filter filter;
     private Bitmap mBitmap;

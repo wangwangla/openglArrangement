@@ -5,7 +5,10 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 
 /**
- * 使用属性传值
+ * 绑定属性
+ * 1.替换下面一句话
+ * //    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+ *         GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
  */
 public class DrawTriangle04 extends BaseDrawer{
         private int mPositionHandle;

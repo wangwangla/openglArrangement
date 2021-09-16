@@ -39,13 +39,21 @@ public class MatrixUtils {
     }
 
 
-    public void getCenterInsideMatrix(int imgWidth,int imgHeight,int viewWidth,int
-            viewHeight){
+    /**
+     * 图片的宽度/高度大于屏幕，说明是宽视频  举个极端的例子
+     * 1.720x1280播放1280x720的视频
+     * 2.然后左右都为1，说明视频的宽度和屏幕一样
+     * 3.上下会留空出来，不拉伸的情况
+     * 4.上下liu
+     * @param imgWidth
+     * @param imgHeight
+     * @param viewWidth
+     * @param viewHeight
+     */
+    public void getCenterInsideMatrix(int imgWidth,int imgHeight,int viewWidth,int viewHeight){
         if(imgHeight>0&&imgWidth>0&&viewWidth>0&&viewHeight>0){
             float sWhView=(float)viewWidth/viewHeight;
             float sWhImg=(float)imgWidth/imgHeight;
-//            float[] projection=new float[16];
-//            float[] camera=new float[16];
             if(sWhImg>sWhView){
                 Matrix.orthoM(mProjectMatrix,0,
                         -1,1,-sWhImg/sWhView,

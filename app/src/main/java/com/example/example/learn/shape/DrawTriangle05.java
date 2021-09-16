@@ -6,7 +6,9 @@ import com.example.example.base.BaseDrawer;
 import com.example.example.utils.MatrixUtils;
 
 /**
- * 使用属性传值
+ * 使用矩阵变换
+ * 1. vMatrix = GLES20.glGetUniformLocation(mProgram,"vMatrix");
+ * 2. GLES20.glUniformMatrix4fv(vMatrix,1,false,utils.getmMVPMatrix(),0);
  */
 public class DrawTriangle05 extends BaseDrawer{
         private int mPositionHandle;

@@ -30,6 +30,7 @@ public class MyCamera extends BaseDrawer {
 
     @Override
     public void render() {
+
         instance.render();
        filter.render();
 
@@ -38,10 +39,11 @@ public class MyCamera extends BaseDrawer {
     @Override
     public void surfaceChange(int width, int height) {
         filter.change(
-                instance.getWidth(),
                 instance.getHight(),
+                instance.getWidth(),
                 width,
                 height);
+        ((OESFilter)(filter)).calculateMatrix(1);
     }
 
     @Override

@@ -5,7 +5,24 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 
 /**
- * 使用属性传值
+ * 使用數組結構
+ *
+ * 1.        triangleCoords = new float[]{
+ *                 0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,1.0F,// top
+ *                 -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
+ *                 0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
+ *         };
+ *
+ * 2.    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+ * 3.   GLES20.glEnableVertexAttribArray(mColorHandle);
+ *             GLES20.glVertexAttribPointer(
+ *                     mColorHandle,
+ *                     4,
+ *                     GLES20.GL_FLOAT,
+ *                     false,
+ *                     28,
+ *                     vertexBuffer
+ *             );
  */
 public class DrawTriangle03 extends BaseDrawer{
         private int mPositionHandle;

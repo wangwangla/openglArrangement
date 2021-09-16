@@ -61,7 +61,6 @@ public class SelectActivity extends AppCompatActivity {
                 "FBO使用(33)",
                 "3D(34)",
                 "光照(35)"
-
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);
