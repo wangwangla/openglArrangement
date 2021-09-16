@@ -42,7 +42,7 @@ public class SelectActivity extends AppCompatActivity {
                 "放大（14）",
                 "腐蚀（15）",
                 "高斯1（16）",
-                "高斯2（17）",
+                "高斯2（17）没有做",
                 "灰（18）",
                 "灵魂出鞘（19）",
                 "毛刺滤镜（20）",

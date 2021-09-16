@@ -22,6 +22,10 @@ import com.example.example.learn.image.ImageShow08;
 import com.example.example.learn.image.ImageShow09;
 import com.example.example.learn.image.ImageShow10;
 import com.example.example.learn.image.ImageShow11;
+import com.example.example.learn.image.ImageShow12;
+import com.example.example.learn.image.ImageShow13;
+import com.example.example.learn.image.ImageShow14;
+import com.example.example.learn.image.ImageShow15;
 import com.example.example.learn.light.CureLisght;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.DrawTriangle;
@@ -145,16 +149,16 @@ public class Game implements ApplicationListener {
                 aClass = ImageShow11.class;
                 break;
             case 19:
-                aClass = ImageShow11.class;
+                aClass = ImageShow12.class;
                 break;
             case 20:
-                aClass = ImageShow11.class;
+                aClass = ImageShow13.class;
                 break;
             case 21:
-                aClass = ImageShow11.class;
+                aClass = ImageShow14.class;
                 break;
             case 22:
-                aClass = ImageShow11.class;
+                aClass = ImageShow15.class;
                 break;
             case 23:
                 aClass = ImageShow11.class;

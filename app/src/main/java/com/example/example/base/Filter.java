@@ -60,7 +60,6 @@ public abstract class Filter extends BaseDrawer {
 
     @Override
     public void render() {
-  
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(glHPosition);
         GLES20.glEnableVertexAttribArray(glHCoordinate);
