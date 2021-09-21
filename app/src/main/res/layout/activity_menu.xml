@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <Button
+        android:id="@+id/lowexample"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="基础案例"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp">
+
+    </Button>
+
+    <Button
+        android:id="@+id/hightExample"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="高级案例"
+        app:layout_constraintBottom_toTopOf="@+id/lowexample"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp">
+
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
