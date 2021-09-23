@@ -15,14 +15,14 @@ public class MenuActivity extends AppCompatActivity {
         findViewById(R.id.lowexample).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,MainActivity.class);
+                Intent intent = new Intent(MenuActivity.this,SelectActivity.class);
                 startActivity(intent);
             }
         });
         findViewById(R.id.hightExample).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,MainActivity.class);
+                Intent intent = new Intent(MenuActivity.this,HightSelectActivity.class);
                 startActivity(intent);
             }
         });

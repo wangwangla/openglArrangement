@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="基础案例"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/hightExample"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp">
+        tools:layout_editor_absoluteX="0dp">
 
     </Button>
 
@@ -23,11 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="高级案例"
-        app:layout_constraintBottom_toTopOf="@+id/lowexample"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-16dp">
+        tools:layout_editor_absoluteX="30dp">
 
     </Button>
 

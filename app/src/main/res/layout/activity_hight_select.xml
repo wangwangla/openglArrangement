@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HightActivity">
-    <com.example.example.kwgame.KwSurfaceView
-        android:id="@+id/hightex"
+    tools:context=".HightSelectActivity">
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.example.example.kwgame.KwSurfaceView>
-
+    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

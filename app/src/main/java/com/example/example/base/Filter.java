@@ -72,6 +72,7 @@ public abstract class Filter extends BaseDrawer {
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
     }
 
+
     public abstract void addOtherRender() ;
 
     @Override
@@ -85,4 +86,8 @@ public abstract class Filter extends BaseDrawer {
     }
 
     public abstract void change(int imageWidth,int imageHight,int width,int hight);
+
+    public int getTexture(){
+        return texture;
+    }
 }

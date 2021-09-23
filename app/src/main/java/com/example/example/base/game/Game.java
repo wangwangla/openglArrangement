@@ -6,6 +6,8 @@ import android.opengl.GLES20;
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
+import com.example.example.hight.HImageShow01;
+import com.example.example.hight.carame.TextureViewYulan;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
@@ -49,7 +51,6 @@ public class Game implements ApplicationListener {
     public void create(GL10 gl10) {
         try {
             drawer = (BaseDrawer) aClass.newInstance();
-
             drawer.setGL(gl10);
             drawer.setContext(context);
             drawer.create();
@@ -63,8 +64,8 @@ public class Game implements ApplicationListener {
 
     @Override
     public void render() {
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-        GLES20.glClearColor(1,0,0,1);
+//        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+//        GLES20.glClearColor(1,0,0,1);
         drawer.render();
     }
 
@@ -197,6 +198,16 @@ public class Game implements ApplicationListener {
             case 35:
                 aClass = CureLisght.class;
                 break;
+            case 1000:
+                aClass = CureLisght.class;
+                break;
+            case 1001:
+                aClass = TextureViewYulan.class;
+                break;
+            case 1002:
+                aClass = HImageShow01.class;
+                break;
+
         }
     }
 }
