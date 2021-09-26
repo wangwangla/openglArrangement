@@ -2,6 +2,7 @@ package com.example.example;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.example.learn.egl.EGLActivity;
+import com.example.example.otherlearn.activity.TakePhotoActivity;
 
 public class HightSelectActivity extends AppCompatActivity {
     ListView listView;
@@ -75,7 +77,16 @@ public class HightSelectActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(HightSelectActivity.this, HightActivity.class);
+                Class activity = null;
+                switch (i){
+                    case 0:
+                        activity = TakePhotoActivity.class;
+                        break;
+                    default:
+                        activity = TakePhotoActivity.class;
+                        break;
+                }
+                Intent intent = new Intent(HightSelectActivity.this, activity);
                 intent.putExtra("itemid", i);
                 startActivity(intent);
             }

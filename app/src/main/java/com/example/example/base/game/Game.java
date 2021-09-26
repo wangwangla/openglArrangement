@@ -6,8 +6,6 @@ import android.opengl.GLES20;
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
-import com.example.example.hight.HImageShow01;
-import com.example.example.hight.carame.TextureViewYulan;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
@@ -202,10 +200,10 @@ public class Game implements ApplicationListener {
                 aClass = CureLisght.class;
                 break;
             case 1001:
-                aClass = TextureViewYulan.class;
+                aClass = CureLisght.class;
                 break;
             case 1002:
-                aClass = HImageShow01.class;
+                aClass = CureLisght.class;
                 break;
 
         }
