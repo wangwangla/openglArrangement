@@ -13,7 +13,6 @@ import com.example.example.otherlearn.opengles.view.base.OesView;
 
 public class CameraView extends OesView implements OnCameraListener {
     private final CameraManager cameraManager = new CameraManager();
-
     private final Activity activity;
 
     public CameraView(Context context) {

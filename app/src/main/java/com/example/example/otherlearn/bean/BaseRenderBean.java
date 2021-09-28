@@ -4,7 +4,9 @@ package com.example.example.otherlearn.bean;
 import java.io.Serializable;
 
 public class BaseRenderBean implements Serializable {
+//    類型
     private int type;
+//    名字
     private String name;
 
     public BaseRenderBean(int type, String name) {

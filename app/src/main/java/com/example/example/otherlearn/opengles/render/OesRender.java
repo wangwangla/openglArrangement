@@ -7,6 +7,9 @@ import com.example.example.otherlearn.opengles.render.base.BaseOesRender;
 import com.example.example.otherlearn.opengles.render.base.BaseRender;
 import com.example.example.otherlearn.opengles.render.base.OnSurfaceTextureListener;
 
+/**
+ * 将图片绘制到framebuffer   然后在进行显示
+ */
 public class OesRender implements Renderer {
     /**
      * 输入（FBO保存数据）

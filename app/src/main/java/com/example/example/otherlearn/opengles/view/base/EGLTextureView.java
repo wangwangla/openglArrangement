@@ -1051,6 +1051,7 @@ public class EGLTextureView extends TextureView implements TextureView.SurfaceTe
                 }
             }
 
+            private double time = 0;
             private void guardedRun() throws InterruptedException {
                 mEglHelper = new EglHelper(mEGLSurfaceViewWeakRef);
                 mHaveEglContext = false;
@@ -1074,13 +1075,18 @@ public class EGLTextureView extends TextureView implements TextureView.SurfaceTe
 
                     while (true) {
                         synchronized (sGLThreadManager) {
+                            time = System.currentTimeMillis();
                             while (true) {
+                                System.out.println("-------------------in");
+                                time = System.currentTimeMillis();
+                                System.out.println("");
                                 if (mShouldExit) {
                                     return;
                                 }
 
                                 if (!mEventQueue.isEmpty()) {
                                     event = mEventQueue.remove(0);
+                                    System.out.println("xxxxxxxxxxxxxxxxxxxxx-----------------------------------");
                                     break;
                                 }
 
@@ -1221,6 +1227,8 @@ public class EGLTextureView extends TextureView implements TextureView.SurfaceTe
                                         if (mWantRenderNotification) {
                                             wantRenderNotification = true;
                                         }
+
+                                        System.out.println("233333-----------------------------------");
                                         break;
                                     }
                                 } else {
@@ -1249,7 +1257,7 @@ public class EGLTextureView extends TextureView implements TextureView.SurfaceTe
                                 sGLThreadManager.wait();
                             }
                         } // end of synchronized(sGLThreadManager)
-
+                        System.out.println("out --------------------------------------------");
                         if (event != null) {
                             event.run();
                             event = null;

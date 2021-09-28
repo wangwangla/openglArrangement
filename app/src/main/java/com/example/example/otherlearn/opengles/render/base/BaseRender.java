@@ -156,13 +156,13 @@ public class BaseRender implements IRender {
         if (isCreate) {
             return;
         }
-        onCreatePre();
-        onClearColor();
-        onInitBlend();
-        onInitVertexBuffer();
-        onInitCoordinateBuffer();
-        onInitVbo();
-        onInitProgram();
+        onCreatePre();//准备
+        onClearColor();//清楚颜色
+        onInitBlend();//blend
+        onInitVertexBuffer();//顶点
+        onInitCoordinateBuffer();//纹理坐标
+        onInitVbo();//顶点缓存区
+        onInitProgram();//初速化prigram
         onCreateAfter();
         isCreate = true;
     }
@@ -277,10 +277,8 @@ public class BaseRender implements IRender {
     public void onInitProgram() {
         String vertexShaderCode = OpenGLESUtils.getShaderCode(context, vertexFilename);
         String fragShaderCode = OpenGLESUtils.getShaderCode(context, fragFilename);
-
         vertexShader = OpenGLESUtils.loadShader(GLES20.GL_VERTEX_SHADER, vertexShaderCode);
         fragShader = OpenGLESUtils.loadShader(GLES20.GL_FRAGMENT_SHADER, fragShaderCode);
-
         program = OpenGLESUtils.linkProgram(vertexShader, fragShader);
     }
 
