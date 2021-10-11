@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.example.hight.GaussianBlurBean;
+import com.example.example.hight.HImageShow01;
+import com.example.example.hight.carame.CarameActivity;
 import com.example.example.learn.egl.EGLActivity;
 import com.example.example.otherlearn.activity.TakePhotoActivity;
 
@@ -77,18 +80,21 @@ public class HightSelectActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Class activity = null;
                 switch (i){
-                    case 0:
-                        activity = TakePhotoActivity.class;
+                    case 0: {
+                        Class activity = HightActivity.class;
+                        Intent intent = new Intent(HightSelectActivity.this, activity);
+                        intent.putExtra("itemid", i);
+                        startActivity(intent);
                         break;
-                    default:
-                        activity = TakePhotoActivity.class;
+                    }
+                    case 1:
+
+                        Intent intent = new Intent(HightSelectActivity.this, TakePhotoActivity.class);
+                        intent.putExtra("itemid", i);
+                        startActivity(intent);
                         break;
                 }
-                Intent intent = new Intent(HightSelectActivity.this, activity);
-                intent.putExtra("itemid", i);
-                startActivity(intent);
             }
         });
     }

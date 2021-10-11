@@ -13,7 +13,6 @@ import java.util.List;
 
 public class Camera1 implements ICamera {
     private static final String TAG = "Camera1";
-
     /**
      * Camera
      */
@@ -30,7 +29,7 @@ public class Camera1 implements ICamera {
     private int facing = CameraConstants.facing.BACK;
 
     /**
-     * 旋转角度
+     * 旋转角度   旋转
      */
     private int displayOrientation = -1;
 
@@ -39,6 +38,11 @@ public class Camera1 implements ICamera {
      */
     private final List<OnCameraListener> onCameraListenerList = new ArrayList<>();
 
+    /**
+     * 打开相机
+     * @param activity
+     * @param surfaceTexture
+     */
     @Override
     public void openCamera(Activity activity, SurfaceTexture surfaceTexture) {
         openCamera(facing, activity, surfaceTexture);
@@ -48,15 +52,14 @@ public class Camera1 implements ICamera {
     public void openCamera(int facing, Activity activity, SurfaceTexture surfaceTexture) {
         // 先关闭相机
         closeCamera();
-
-        // 判断是否存在摄像头
+        // 判断是否存在摄像头   获取相机的个数
         int cameraNum = Camera.getNumberOfCameras();
         if (cameraNum <= 0) {
             onCameraError(new IllegalStateException("camera num <= 0"));
             return;
         }
 
-        // 检查传入的facing
+        // 设置相机
         int cameraIndex = -1;
         if (facing == CameraConstants.facing.BACK) {
             cameraIndex = Camera.CameraInfo.CAMERA_FACING_BACK;
@@ -68,7 +71,7 @@ public class Camera1 implements ICamera {
             return;
         }
 
-        // 判断摄像头个数，以决定使用哪个打开方式
+        // 判断摄像头个数，以决定使用哪个打开方式  如果只有一个就是唯一的哪一个
         if (cameraNum >= 2) {
             camera = Camera.open(cameraIndex);
         } else {
@@ -88,7 +91,8 @@ public class Camera1 implements ICamera {
             Camera.Parameters parameters = camera.getParameters();
             List<Camera.Size> previewSizeList = parameters.getSupportedPreviewSizes();
             if (cameraSize.getWidth() <= 0 || cameraSize.getHeight() <= 0) {
-                Camera.Size size = findTheBestSize(previewSizeList,
+                Camera.Size size = findTheBestSize(
+                        previewSizeList,
                         activity.getResources().getDisplayMetrics().widthPixels,
                         activity.getResources().getDisplayMetrics().heightPixels);
                 cameraSize.setWidth(size.width);
@@ -97,25 +101,31 @@ public class Camera1 implements ICamera {
 
             // 设置预览尺寸
             parameters.setPreviewSize(cameraSize.getWidth(), cameraSize.getHeight());
+            //图片尺寸
             parameters.setPictureSize(cameraSize.getWidth(),cameraSize.getHeight());
             // 这里设置使用的对焦模式
             if (this.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
                 parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
             }
-
             // 设置摄像头参数
             camera.setParameters(parameters);
             camera.setPreviewTexture(surfaceTexture);
+
+            //旋转
             if (displayOrientation < 0) {
                 displayOrientation = CameraUtils.getDisplayOrientation(activity, cameraIndex);
             }
             camera.setDisplayOrientation(displayOrientation);
+
+            //预览回调
             camera.setOneShotPreviewCallback(new Camera.PreviewCallback() {
                 @Override
                 public void onPreviewFrame(byte[] data, Camera camera) {
                     onCameraOpened(cameraSize, Camera1.this.facing);
                 }
             });
+
+            //开始预览
             camera.startPreview();
         } catch (IOException e) {
             onCameraError(e);
@@ -152,6 +162,10 @@ public class Camera1 implements ICamera {
         return bestSize;
     }
 
+    /**
+     * 如果相机原本没有打开就返回
+     * 如果开启了 ，那么就先停止绘制，然后回收一下相机
+     */
     @Override
     public void closeCamera() {
         if (camera == null) {
@@ -163,6 +177,7 @@ public class Camera1 implements ICamera {
         onCameraClosed();
     }
 
+    //切换相机
     @Override
     public void switchCamera() {
         if (facing == CameraConstants.facing.BACK) {
@@ -207,6 +222,9 @@ public class Camera1 implements ICamera {
         return displayOrientation;
     }
 
+    /**
+     * 关闭相机的时候删除所有的事件
+     */
     @Override
     public void releaseCamera() {
         closeCamera();

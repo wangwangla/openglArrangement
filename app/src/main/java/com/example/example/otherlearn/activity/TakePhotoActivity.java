@@ -26,12 +26,10 @@ import java.io.FileNotFoundException;
 
 
 public class TakePhotoActivity extends AppCompatActivity implements IActivityInit {
-
     private CameraView cameraView;
     private AppCompatButton btnTakePhoto;
     private final PhotoHelper photoHelper = new PhotoHelper();
     private String path;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".hight.carame.CarameActivity"
+            android:exported="true" />
+        <activity
             android:name=".otherlearn.activity.TakePhotoActivity"
             android:exported="true" />
         <activity
