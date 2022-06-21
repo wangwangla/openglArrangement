@@ -10,51 +10,45 @@ import com.example.example.utils.MatrixUtils;
  * 1. vMatrix = GLES20.glGetUniformLocation(mProgram,"vMatrix");
  * 2. GLES20.glUniformMatrix4fv(vMatrix,1,false,utils.getmMVPMatrix(),0);
  */
-public class DrawTriangle05 extends BaseDrawer{
-        private int mPositionHandle;
-        private int mColorHandle;
-        // 每个顶点四个字节
-        private int vertexCount=0;
-        private int vMatrix;
-        private MatrixUtils utils;
+public class MatrixUse extends BaseDrawer{
+    private int mPositionHandle;
+    private int mColorHandle;
+    // 每个顶点四个字节
+    private int vertexCount=0;
+    private int vMatrix;
+    private MatrixUtils utils;
 
-//    //相机位置
-//    private float[] mViewMatrix=new float[16];
-//    //透视
-//    private float[] mProjectMatrix=new float[16];
-//    //变换矩阵
-//    private float[] mMVPMatrix=new float[16];
-   public DrawTriangle05(){
-        vertexShaderCode =
-                "attribute vec4 vPosition;" +
-                        "uniform mat4 vMatrix;"+
-                        "attribute  vec4 aColor;" +
-                        "varying vec4 vColor;" +
-                        "void main() {" +
-                        "  " +
-                        "  gl_Position = vPosition * vMatrix;" +
-                        "  vColor = aColor;" +
-                        "}";
+       public MatrixUse(){
+            vertexShaderCode =
+                    "attribute vec4 vPosition;" +
+                            "uniform mat4 vMatrix;"+
+                            "attribute  vec4 aColor;" +
+                            "varying vec4 vColor;" +
+                            "void main() {" +
+                            "  " +
+                            "  gl_Position = vPosition * vMatrix;" +
+                            "  vColor = aColor;" +
+                            "}";
 
-        fragmentShaderCode =
-                "precision mediump float;" +
-                        "varying vec4 vColor;" +
-                        "void main() {" +
-                        "  gl_FragColor = vColor;" +
-                        "}";
-        triangleCoords = new float[]{
-                0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,1.0F,// top
-                -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
-                0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
-        };
-        vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
-        //三个顶点，需要指定3种颜色。
-        color = new float[]{
-                1.0f, 1.0f, 1.0f, 1.0f,
-                1.0f, 1.0f, 1.0f, 1.0f,
-                1.0f, 1.0f, 1.0f, 1.0f
-        };
-    }
+            fragmentShaderCode =
+                    "precision mediump float;" +
+                            "varying vec4 vColor;" +
+                            "void main() {" +
+                            "  gl_FragColor = vColor;" +
+                            "}";
+            triangleCoords = new float[]{
+                    0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,1.0F,// top
+                    -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
+                    0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
+            };
+            vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
+            //三个顶点，需要指定3种颜色。
+            color = new float[]{
+                    1.0f, 1.0f, 1.0f, 1.0f,
+                    1.0f, 1.0f, 1.0f, 1.0f,
+                    1.0f, 1.0f, 1.0f, 1.0f
+            };
+        }
 
     @Override
     public void create() {

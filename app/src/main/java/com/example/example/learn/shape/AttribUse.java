@@ -5,18 +5,21 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 
 /**
- * 绑定属性
- * 1.替换下面一句话
- * //    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
- *         GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
+ * 使用属性传值
+ *
+ * 1.mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+ * 2.          GLES20.glEnableVertexAttribArray(mColorHandle);
+ *             GLES20.glVertexAttribPointer(mColorHandle,4,GLES20.GL_FLOAT,false,16,colorBuffer);
+ *
+ * 3.
  */
-public class DrawTriangle04 extends BaseDrawer{
+public class AttribUse extends BaseDrawer{
         private int mPositionHandle;
         private int mColorHandle;
         // 每个顶点四个字节
         private int vertexCount=0;
 
-   public DrawTriangle04(){
+   public AttribUse(){
         vertexShaderCode =
                 "attribute vec4 vPosition;" +
                         "attribute  vec4 aColor;" +
@@ -34,11 +37,11 @@ public class DrawTriangle04 extends BaseDrawer{
                         "  gl_FragColor = vColor;" +
                         "}";
         triangleCoords = new float[]{
-                0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,1.0F,// top
-                -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
-                0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
+                0.5f,  0.5f, 0.0f, // top
+                -0.5f, -0.5f, 0.0f, // bottom left
+                0.5f, -0.5f, 0.0f  // bottom right
         };
-        vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
+        vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
         //三个顶点，需要指定3种颜色。
         color = new float[]{
                 1.0f, 1.0f, 1.0f, 1.0f,
@@ -47,13 +50,12 @@ public class DrawTriangle04 extends BaseDrawer{
         };
     }
 
-    @Override
-    public void create() {
-    super.create();
-//    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
-        GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
-    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
-    }
+   @Override
+   public void create() {
+        super.create();
+        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+        mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+   }
 
         @Override
         public void surfaceChange(int width, int height) {
@@ -69,29 +71,27 @@ public class DrawTriangle04 extends BaseDrawer{
         public void render() {
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(mPositionHandle);
-        vertexBuffer.position(0);
         //准备三角形的坐标数据
         GLES20.glVertexAttribPointer(
                 mPositionHandle,
                 COORDS_PER_VERTEX,
                 GLES20.GL_FLOAT,
                 false,
-                28,
+                vertexStride,
                 vertexBuffer);
         //设置绘制三角形的颜色
-            vertexBuffer.position(3);
             GLES20.glEnableVertexAttribArray(mColorHandle);
             GLES20.glVertexAttribPointer(
                     mColorHandle,
                     4,
                     GLES20.GL_FLOAT,
                     false,
-                    28,
-                    vertexBuffer
+                    16,
+                    colorBuffer
             );
 //        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
         //绘制三角形
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
         //禁止顶点数组的句柄
         GLES20.glDisableVertexAttribArray(mPositionHandle);
         GLES20.glDisableVertexAttribArray(mColorHandle);

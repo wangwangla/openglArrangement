@@ -5,32 +5,18 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 
 /**
- * 使用數組結構
- *
- * 1.        triangleCoords = new float[]{
- *                 0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,1.0F,// top
- *                 -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
- *                 0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
- *         };
- *
- * 2.    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
- * 3.   GLES20.glEnableVertexAttribArray(mColorHandle);
- *             GLES20.glVertexAttribPointer(
- *                     mColorHandle,
- *                     4,
- *                     GLES20.GL_FLOAT,
- *                     false,
- *                     28,
- *                     vertexBuffer
- *             );
+ * 绑定属性
+ * 1.替换下面一句话
+ * //    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+ *         GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
  */
-public class DrawTriangle03 extends BaseDrawer{
+public class BindAttribUse extends BaseDrawer{
         private int mPositionHandle;
         private int mColorHandle;
         // 每个顶点四个字节
         private int vertexCount=0;
 
-   public DrawTriangle03(){
+   public BindAttribUse(){
         vertexShaderCode =
                 "attribute vec4 vPosition;" +
                         "attribute  vec4 aColor;" +
@@ -64,7 +50,8 @@ public class DrawTriangle03 extends BaseDrawer{
     @Override
     public void create() {
     super.create();
-    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+//    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+        GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
     mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
     }
 

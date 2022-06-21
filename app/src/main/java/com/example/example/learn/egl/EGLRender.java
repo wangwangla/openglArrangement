@@ -18,6 +18,7 @@ public abstract class EGLRender{
     public abstract void surface();
     public abstract void onFrame();
     private SurfaceHolder holder;
+
     public EGLRender(SurfaceHolder holder){
         this.holder = holder;
     }
@@ -28,6 +29,7 @@ public abstract class EGLRender{
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
             thread = new EGLHandleThread(holder);
         }
+
         EGLListener listener = new EGLListener() {
             @Override
             public void create() {

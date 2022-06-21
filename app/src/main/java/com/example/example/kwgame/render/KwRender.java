@@ -15,6 +15,7 @@ public class KwRender implements GLSurfaceView.Renderer {
     public KwRender(Context context){
         listener = new Game(context);
     }
+
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
         listener.create(gl10);
@@ -22,7 +23,6 @@ public class KwRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 gl10, int i, int i1) {
-        System.out.println(i+"============"+i1);
         listener.surfaceChanage(i,i1);
     }
 

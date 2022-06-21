@@ -9,13 +9,13 @@ import com.example.example.base.BaseDrawer;
  * 1.    mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor")；
  * 2.    GLES20.glUniform4fv(mColorHandle, 1, color, 0);
  */
-public class DrawTriangle  extends BaseDrawer {
+public class UniformUse extends BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
      // 每个顶点四个字节
     private int vertexCount=0;
 
-   public DrawTriangle(){
+   public UniformUse(){
        vertexShaderCode =
                "attribute vec4 vPosition;" +
                        "void main() {" +
@@ -42,11 +42,6 @@ public class DrawTriangle  extends BaseDrawer {
         super.create();
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
         mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
-    }
-
-    @Override
-    public void surfaceChange(int width, int height) {
-        GLES20.glViewport(0,0,width,height);
     }
 
     @Override

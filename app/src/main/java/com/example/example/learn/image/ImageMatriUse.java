@@ -12,11 +12,11 @@ import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ImageShow01 extends BaseDrawer {
+public class ImageMatriUse extends BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
 
-    public ImageShow01() {
+    public ImageMatriUse() {
         filter = new MatrixFilter();
     }
 
@@ -39,8 +39,6 @@ public class ImageShow01 extends BaseDrawer {
                 mBitmap.getHeight(),
                 width,
                 height);
-
-
     }
 
     @Override

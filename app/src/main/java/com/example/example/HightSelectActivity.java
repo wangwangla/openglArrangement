@@ -2,7 +2,7 @@ package com.example.example;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.example.hight.GaussianBlurBean;
-import com.example.example.hight.HImageShow01;
-import com.example.example.hight.carame.CarameActivity;
-import com.example.example.learn.egl.EGLActivity;
 import com.example.example.otherlearn.activity.TakePhotoActivity;
 
 public class HightSelectActivity extends AppCompatActivity {

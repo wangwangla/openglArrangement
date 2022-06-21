@@ -27,15 +27,12 @@ public class EGLHandleThread extends HandlerThread {
     private EGLDisplay eglDisplay = EGL14.EGL_NO_DISPLAY;
     @SuppressLint("NewApi")
     private EGLContext eglContext = EGL14.EGL_NO_CONTEXT;
-    private int program;
-    private int vPosition;
-    private int uColor;
+
     private SurfaceHolder surfaceHolder;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            System.out.println("我爱你中国");
             isDraw = true;
             handler.sendEmptyMessageDelayed(0,5000);
         }
@@ -53,11 +50,17 @@ public class EGLHandleThread extends HandlerThread {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             eglDisplay = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY);
         }
-        //初始化得到主次版本
+
+        if (eglDisplay == EGL14.EGL_NO_DISPLAY){
+            return;
+        }
+        //初始化得到主次版本     初始化
         int []version = new int[2];
         if (!EGL14.eglInitialize(eglDisplay,version,0,version,1)){
             throw new RuntimeException("EGL error "+EGL14.eglGetError());
         }
+
+        //opengl 已经和屏幕连接上了，需要设置显示的相关配额    （我想要什么东西）
         int []configAttribs = {
                 EGL14.EGL_BUFFER_SIZE, 32,
                 EGL14.EGL_ALPHA_SIZE, 8,
@@ -70,16 +73,18 @@ public class EGLHandleThread extends HandlerThread {
                 EGL14.EGL_WINDOW_BIT,
                 EGL14.EGL_NONE
         };
+
         int [] numConfigs = new int[1];
         EGLConfig[] eglConfigs = new EGLConfig[1];
-        //选择自己需要的屏幕数据配置，可以自己选择，也可以自动选择，这个是自动渲染，将属性给它们
+        //选择自己需要的屏幕数据配置，可以自己选择，也可以自动选择，这个是自动选择
+        // ，将属性给它们
         if (EGL14.eglChooseConfig(eglDisplay,
-                configAttribs,
+                configAttribs,  //我要的配额
                 0,
-                eglConfigs,
+                eglConfigs,    // 返回的egl数据
                 0,
                 eglConfigs.length,
-                numConfigs,
+                numConfigs,     //达到要求的
                 0)){
 
         }
@@ -88,7 +93,12 @@ public class EGLHandleThread extends HandlerThread {
                 EGL14.EGL_CONTEXT_CLIENT_VERSION, 2,
                 EGL14.EGL_NONE
         };
-        eglContext = EGL14.eglCreateContext(eglDisplay, eglConfig, EGL14.EGL_NO_CONTEXT, contextAttribs, 0);
+
+
+        //创建EGLContext上下文
+        eglContext = EGL14.eglCreateContext(eglDisplay,
+                eglConfig,
+                EGL14.EGL_NO_CONTEXT, contextAttribs, 0);
         if (eglContext == EGL14.EGL_NO_CONTEXT) {
             throw new RuntimeException("EGL error " + EGL14.eglGetError());
         }
@@ -98,7 +108,10 @@ public class EGLHandleThread extends HandlerThread {
     @SuppressLint("NewApi")
     public void surfaceCreated(SurfaceHolder surface){
         final int[] surfaceAttribs = { EGL14.EGL_NONE };
+//        eglCreateWindowSurface()的第三个入参window是需要传入一个ANativeWindow对象
         eglSurface = EGL14.eglCreateWindowSurface(eglDisplay, eglConfig, surface, surfaceAttribs, 0);
+        //使用当前显示  每个线程都需要绑定一个上下文，才可以开始执行OpenGL ES指令，我们可以通过eglMakeCurrent
+        // 来为该线程绑定Surface和Context，值得注意一点的是一个EGLContext只能绑定到一个线程上面。
         EGL14.eglMakeCurrent(eglDisplay, eglSurface, eglSurface, eglContext);
         GLES20.glViewport(0,0,400,400);
         // 设置clear color颜色RGBA(这里仅仅是设置清屏时GLES20.glClear()用的颜色值而不是执行清屏)

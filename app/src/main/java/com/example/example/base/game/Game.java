@@ -6,14 +6,12 @@ import android.opengl.GLES20;
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
-import com.example.example.hight.HImageShow01;
-import com.example.example.hight.carame.TextureViewYulan;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.image.ImageShow;
-import com.example.example.learn.image.ImageShow01;
+import com.example.example.learn.image.ImageMatriUse;
 import com.example.example.learn.image.ImageShow02;
 import com.example.example.learn.image.ImageShow03;
 import com.example.example.learn.image.ImageShow04;
@@ -31,11 +29,11 @@ import com.example.example.learn.image.ImageShow15;
 import com.example.example.learn.image.ImageShow16;
 import com.example.example.learn.light.CureLisght;
 import com.example.example.learn.readpix.ReadPixDemo;
-import com.example.example.learn.shape.DrawTriangle;
-import com.example.example.learn.shape.DrawTriangle02;
-import com.example.example.learn.shape.DrawTriangle03;
-import com.example.example.learn.shape.DrawTriangle04;
-import com.example.example.learn.shape.DrawTriangle05;
+import com.example.example.learn.shape.UniformUse;
+import com.example.example.learn.shape.AttribUse;
+import com.example.example.learn.shape.AttribMultVUse;
+import com.example.example.learn.shape.BindAttribUse;
+import com.example.example.learn.shape.MatrixUse;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -94,25 +92,25 @@ public class Game implements ApplicationListener {
     public void chageType(int itemid1) {
         switch (itemid1){
             case 0:
-                aClass = DrawTriangle.class;
+                aClass = UniformUse.class;
                 break;
             case 1:
-                aClass = DrawTriangle02.class;
+                aClass = AttribUse.class;
                 break;
             case 2:
-                aClass = DrawTriangle03.class;
+                aClass = AttribMultVUse.class;
                 break;
             case 3:
-                aClass = DrawTriangle04.class;
+                aClass = BindAttribUse.class;
                 break;
             case 4:
-                aClass = DrawTriangle05.class;
+                aClass = MatrixUse.class;
                 break;
             case 5:
                 aClass = ImageShow.class;
                 break;
             case 6:
-                aClass = ImageShow01.class;
+                aClass = ImageMatriUse.class;
                 break;
             case 7:
                 aClass = ImageShow02.class;
@@ -201,12 +199,12 @@ public class Game implements ApplicationListener {
             case 1000:
                 aClass = CureLisght.class;
                 break;
-            case 1001:
-                aClass = HImageShow01.class;
-                break;
-            case 1002:
-                aClass = TextureViewYulan.class;
-                break;
+//            case 1001:
+//                aClass = HImageShow01.class;
+//                break;
+//            case 1002:
+//                aClass = TextureViewYulan.class;
+//                break;
 
         }
     }

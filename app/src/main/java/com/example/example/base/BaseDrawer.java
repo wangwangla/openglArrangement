@@ -79,7 +79,9 @@ public abstract class BaseDrawer {
 
     public abstract void render();
 
-    public abstract void surfaceChange(int width,int height);
+    public void surfaceChange(int width,int height){
+        GLES20.glViewport(0,0,width,height);
+    }
 
     public abstract void dispose();
 
