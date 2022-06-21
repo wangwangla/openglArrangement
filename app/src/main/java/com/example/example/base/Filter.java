@@ -11,13 +11,17 @@ public abstract class Filter extends BaseDrawer {
     protected int glHCoordinate;
     protected int texture;
 
+    /**
+     * 在libGdx中设置目标位置是直接给了position属性
+     */
     public Filter() {
         utils = new MatrixUtils();
+        float xxx = 2F;
         triangleCoords = new float[]{
-                -1.0f, 1.0f,
-                -1.0f, -1.0f,
-                1.0f, 1.0f,
-                1.0f, -1.0f
+                -1.0f, 1.0f + xxx,
+                -1.0f, -1.0f +xxx,
+                1.0f,1.0f+xxx,
+                1.0f,-1.0f+xxx
         };
         color = new float[]{
                 0.0f, 0.0f,
