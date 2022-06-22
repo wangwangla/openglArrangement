@@ -5,6 +5,10 @@ import android.opengl.GLES20;
 import com.example.example.base.Filter;
 import com.example.example.utils.MatrixUtils;
 
+/**
+ * 显示位置可以通过外面   也可以通过里面进行，   这给是通过里面
+ */
+
 public class MatrixFilter extends Filter {
     private int glHMatrix;
     public MatrixFilter(){
@@ -32,9 +36,12 @@ public class MatrixFilter extends Filter {
         glHMatrix = GLES20.glGetUniformLocation(mProgram,"vMatrix");
     }
 
+    float xx = 0;
+
     @Override
     public void addOtherRender() {
         if (utils != null) {
+            utils.rotateX(1);
             GLES20.glUniformMatrix4fv(glHMatrix, 1, false, utils.getmMVPMatrix(), 0);
         }
     }

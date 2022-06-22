@@ -137,5 +137,6 @@ public abstract class BaseDrawer {
 
     public void setGL(GL10 gl10){
         this.gl10 = gl10;
+
     }
 }

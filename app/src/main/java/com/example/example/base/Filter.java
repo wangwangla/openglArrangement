@@ -16,7 +16,7 @@ public abstract class Filter extends BaseDrawer {
      */
     public Filter() {
         utils = new MatrixUtils();
-        float xxx = 2F;
+        float xxx = 0F;
         triangleCoords = new float[]{
                 -1.0f, 1.0f + xxx,
                 -1.0f, -1.0f +xxx,
