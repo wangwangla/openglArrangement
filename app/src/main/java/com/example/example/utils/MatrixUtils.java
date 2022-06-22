@@ -59,13 +59,14 @@ public class MatrixUtils {
         if(imgHeight>0&&imgWidth>0&&viewWidth>0&&viewHeight>0){
             float sWhView=(float)viewWidth/viewHeight;
             float sWhImg=(float)imgWidth/imgHeight;
-//            if(sWhImg>sWhView){
-//                Matrix.orthoM(mProjectMatrix,0,
-//                        -1,1,-sWhImg/sWhView,
-//                        sWhImg/sWhView,1,3);
-//            }else{
-//                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
-//            }
+            if(sWhImg>sWhView){
+                Matrix.orthoM(mProjectMatrix,0,
+                        -1,1,-sWhImg/sWhView,
+                        sWhImg/sWhView,1,3);
+            }else{
+                Matrix.orthoM(mProjectMatrix,0,
+                        -1,1,-sWhView/sWhImg,sWhView/sWhImg,1,3);
+            }
 
 //            if(sWhImg>sWhView){
 //                Matrix.frustumM(mProjectMatrix,0,
@@ -74,12 +75,30 @@ public class MatrixUtils {
 //            }else{
 //                Matrix.frustumM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,13);
 //            }
-            if(sWhImg>sWhView){
-                Matrix.perspectiveM(mProjectMatrix,0,
-                        45,1,1,13);
+//            if(sWhImg>sWhView){
+//                Matrix.perspectiveM(mProjectMatrix,0,
+//                        45,1,1,13);
+//            }else{
+//                Matrix.perspectiveM(mProjectMatrix,0,
+//                        45,1,1,13);
+//            }
+            Matrix.setLookAtM(mViewMatrix,0,
+                    0,0,2,
+                    0,0,0,
+                    0,1,0);
+            Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
+        }
+    }
+
+    public void getCenterInsideMatrix1(int imgWidth,int imgHeight){
+        if(imgHeight>0&&imgWidth>0){
+            if(imgWidth>imgHeight){
+                Matrix.orthoM(mProjectMatrix,0,
+                    -1,1,-imgWidth/imgHeight,
+                        imgWidth/imgHeight,1,3);
             }else{
-                Matrix.perspectiveM(mProjectMatrix,0,
-                        45,1,1,13);
+                Matrix.orthoM(mProjectMatrix,0,
+                    -1,1,-imgHeight/imgWidth,imgHeight/imgWidth,1,3);
             }
             Matrix.setLookAtM(mViewMatrix,0,
                     0,0,2,
@@ -88,6 +107,7 @@ public class MatrixUtils {
             Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
         }
     }
+
 
     public float[] getmMVPMatrix() {
         Matrix.multiplyMM(mMVPMatrix,0,mTransformMatrix,0,mViewMatrix,0);

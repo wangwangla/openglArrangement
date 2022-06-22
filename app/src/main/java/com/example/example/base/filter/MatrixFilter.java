@@ -36,7 +36,6 @@ public class MatrixFilter extends Filter {
         glHMatrix = GLES20.glGetUniformLocation(mProgram,"vMatrix");
     }
 
-    float xx = 0;
 
     @Override
     public void addOtherRender() {

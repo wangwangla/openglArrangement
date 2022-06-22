@@ -13,7 +13,7 @@ public class UniformUse extends BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
      // 每个顶点四个字节
-    private int vertexCount=0;
+    private int vertexCount;
 
    public UniformUse(){
        vertexShaderCode =
@@ -28,6 +28,7 @@ public class UniformUse extends BaseDrawer {
                        "void main() {" +
                        "  gl_FragColor = vColor;" +
                        "}";
+
        triangleCoords = new float[]{
                0.5f,  0.5f, 0.0f, // top
                -0.5f, -0.5f, 0.0f, // bottom left

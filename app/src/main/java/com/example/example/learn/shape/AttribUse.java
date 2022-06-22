@@ -22,13 +22,13 @@ public class AttribUse extends BaseDrawer{
    public AttribUse(){
         vertexShaderCode =
                 "attribute vec4 vPosition;" +
-                        "attribute  vec4 aColor;" +
-                        "varying vec4 vColor;" +
-                        "void main() {" +
-                        "  " +
-                        "  gl_Position = vPosition;" +
-                        "  vColor = aColor;" +
-                        "}";
+                "attribute  vec4 aColor;" +
+                "varying vec4 vColor;" +
+                "void main() {" +
+                "  " +
+                "  gl_Position = vPosition;" +
+                "  vColor = aColor;" +
+                "}";
 
         fragmentShaderCode =
                 "precision mediump float;" +
@@ -45,7 +45,7 @@ public class AttribUse extends BaseDrawer{
         //三个顶点，需要指定3种颜色。
         color = new float[]{
                 1.0f, 1.0f, 1.0f, 1.0f,
-                1.0f, 1.0f, 1.0f, 1.0f,
+                0f, 1.0f, 1.0f, 1.0f,
                 1.0f, 1.0f, 1.0f, 1.0f
         };
     }

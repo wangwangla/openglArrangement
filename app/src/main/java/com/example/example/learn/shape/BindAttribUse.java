@@ -14,7 +14,7 @@ public class BindAttribUse extends BaseDrawer{
         private int mPositionHandle;
         private int mColorHandle;
         // 每个顶点四个字节
-        private int vertexCount=0;
+
 
    public BindAttribUse(){
         vertexShaderCode =
@@ -38,7 +38,7 @@ public class BindAttribUse extends BaseDrawer{
                 -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
                 0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
         };
-        vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
+
         //三个顶点，需要指定3种颜色。
         color = new float[]{
                 1.0f, 1.0f, 1.0f, 1.0f,

@@ -14,7 +14,7 @@ public class MatrixUse extends BaseDrawer{
     private int mPositionHandle;
     private int mColorHandle;
     // 每个顶点四个字节
-    private int vertexCount=0;
+
     private int vMatrix;
     private MatrixUtils utils;
 
@@ -41,7 +41,7 @@ public class MatrixUse extends BaseDrawer{
                     -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
                     0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
             };
-            vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
+
             //三个顶点，需要指定3种颜色。
             color = new float[]{
                     1.0f, 1.0f, 1.0f, 1.0f,
@@ -63,8 +63,7 @@ public class MatrixUse extends BaseDrawer{
         @Override
         public void surfaceChange(int width, int height) {
             GLES20.glViewport(0,0,width,height);
-
-           utils.getCenterInsideMatrix(width,height,width,height);
+           utils.getCenterInsideMatrix1(width,height);
 //        //相机位置
 //            float ratio=(float)width/height;
 ////        设置相机类型
