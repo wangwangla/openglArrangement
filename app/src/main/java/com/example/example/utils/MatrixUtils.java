@@ -64,8 +64,7 @@ public class MatrixUtils {
                         -1,1,-sWhImg/sWhView,
                         sWhImg/sWhView,1,3);
             }else{
-                Matrix.orthoM(mProjectMatrix,0,
-                        -1,1,-sWhView/sWhImg,sWhView/sWhImg,1,3);
+                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
             }
 
 //            if(sWhImg>sWhView){
@@ -110,7 +109,7 @@ public class MatrixUtils {
 
 
     public float[] getmMVPMatrix() {
-        Matrix.multiplyMM(mMVPMatrix,0,mTransformMatrix,0,mViewMatrix,0);
+        Matrix.multiplyMM(mMVPMatrix,0,mTransformMatrix,0,mMVPMatrix,0);
         return mMVPMatrix;
     }
 }

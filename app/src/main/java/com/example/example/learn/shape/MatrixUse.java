@@ -63,7 +63,8 @@ public class MatrixUse extends BaseDrawer{
         @Override
         public void surfaceChange(int width, int height) {
             GLES20.glViewport(0,0,width,height);
-           utils.getCenterInsideMatrix1(width,height);
+
+           utils.getCenterInsideMatrix(width,height,width,height);
 //        //相机位置
 //            float ratio=(float)width/height;
 ////        设置相机类型

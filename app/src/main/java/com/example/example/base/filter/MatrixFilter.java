@@ -40,7 +40,7 @@ public class MatrixFilter extends Filter {
     @Override
     public void addOtherRender() {
         if (utils != null) {
-            utils.rotateX(1);
+            utils.rotateX(0.01F);
             GLES20.glUniformMatrix4fv(glHMatrix, 1, false, utils.getmMVPMatrix(), 0);
         }
     }
