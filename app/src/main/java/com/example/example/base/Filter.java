@@ -18,9 +18,9 @@ public abstract class Filter extends BaseFilter {
         utils = new MatrixUtils();
         float xxx = 0;
         triangleCoords = new float[]{
-                -1.0f, 1.0f,
+                -1.0f+100, 1.0f+100,
                 -1.0f, -1.0f,
-                1.0f, 1.0f,
+                1.0f+100, 1.0f+100,
                 1.0f, -1.0f
         };
         color = new float[]{
