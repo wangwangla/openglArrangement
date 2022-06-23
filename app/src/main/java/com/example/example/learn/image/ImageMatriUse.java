@@ -1,5 +1,6 @@
 package com.example.example.learn.image;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
@@ -12,9 +13,13 @@ import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ImageMatriUse extends BaseDrawer {
+import javax.microedition.khronos.opengles.GL10;
+
+public class ImageMatriUse implements BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
+    private GL10 gl10;
+    private Context context;
 
     public ImageMatriUse() {
         filter = new MatrixFilter();
@@ -25,6 +30,11 @@ public class ImageMatriUse extends BaseDrawer {
         filter.create();
         filter.setTexture(createTexture());
         filter.setGL(gl10);
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -45,6 +55,21 @@ public class ImageMatriUse extends BaseDrawer {
     @Override
     public void dispose() {
 
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
+        this.gl10 = gl10;
+    }
+
+    @Override
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     private int createTexture() {

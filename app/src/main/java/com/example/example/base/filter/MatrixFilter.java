@@ -3,7 +3,6 @@ package com.example.example.base.filter;
 import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
-import com.example.example.utils.MatrixUtils;
 
 /**
  * 显示位置可以通过外面   也可以通过里面进行，   这给是通过里面
@@ -40,13 +39,13 @@ public class MatrixFilter extends Filter {
     @Override
     public void addOtherRender() {
         if (utils != null) {
-            utils.rotateX(0.01F);
+
             GLES20.glUniformMatrix4fv(glHMatrix, 1, false, utils.getmMVPMatrix(), 0);
         }
     }
 
     @Override
     public void change(int imageWidth, int imageHight,int width,int hight) {
-        utils.getCenterInsideMatrix(imageWidth,imageHight,width,hight);
+        utils.getCenterInsideMatrix2d(imageWidth,imageHight,width,hight);
     }
 }

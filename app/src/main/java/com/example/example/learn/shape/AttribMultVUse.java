@@ -3,6 +3,8 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
+import com.example.example.base.BaseFilter;
 
 /**
  * 使用數組結構
@@ -24,13 +26,13 @@ import com.example.example.base.BaseDrawer;
  *                     vertexBuffer
  *             );
  */
-public class AttribMultVUse extends BaseDrawer{
-        private int mPositionHandle;
-        private int mColorHandle;
-        // 每个顶点四个字节
-        private int vertexCount=0;
+public class AttribMultVUse extends BaseFilter implements BaseDrawer {
+    private int mPositionHandle;
+    private int mColorHandle;
+    // 每个顶点四个字节
 
-   public AttribMultVUse(){
+
+    public AttribMultVUse(){
         vertexShaderCode =
                 "attribute vec4 vPosition;" +
                         "attribute  vec4 aColor;" +
@@ -52,7 +54,7 @@ public class AttribMultVUse extends BaseDrawer{
                 -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,1.0F,// bottom left
                 0.5f, -0.5f, 0.0f , 1.0f, 1.0f, 1.0f ,1.0F// bottom right
         };
-        vertexCount = triangleCoords.length / (COORDS_PER_VERTEX+3);
+
         //三个顶点，需要指定3种颜色。
         color = new float[]{
                 1.0f, 1.0f, 1.0f, 1.0f,
@@ -63,23 +65,23 @@ public class AttribMultVUse extends BaseDrawer{
 
     @Override
     public void create() {
-    super.create();
-    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
-    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+        super.create();
+        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+        mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
     }
 
-        @Override
-        public void surfaceChange(int width, int height) {
-        GLES20.glViewport(0,0,width,height);
+    @Override
+    public void surfaceChange(int width, int height) {
+    GLES20.glViewport(0,0,width,height);
+}
+
+    @Override
+    public void dispose() {
+
     }
 
-        @Override
-        public void dispose() {
-
-    }
-
-        @Override
-        public void render() {
+    @Override
+    public void render() {
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         vertexBuffer.position(0);
@@ -108,5 +110,5 @@ public class AttribMultVUse extends BaseDrawer{
         //禁止顶点数组的句柄
         GLES20.glDisableVertexAttribArray(mPositionHandle);
         GLES20.glDisableVertexAttribArray(mColorHandle);
-   }
+    }
 }

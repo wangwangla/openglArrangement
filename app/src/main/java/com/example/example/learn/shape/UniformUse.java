@@ -3,13 +3,14 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseFilter;
 
 /**
  * 使用uniform传值
  * 1.    mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor")；
  * 2.    GLES20.glUniform4fv(mColorHandle, 1, color, 0);
  */
-public class UniformUse extends BaseDrawer {
+public class UniformUse extends BaseFilter implements BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
      // 每个顶点四个字节

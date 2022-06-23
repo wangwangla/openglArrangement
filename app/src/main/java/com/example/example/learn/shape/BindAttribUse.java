@@ -3,6 +3,8 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
+import com.example.example.base.BaseFilter;
 
 /**
  * 绑定属性
@@ -10,13 +12,13 @@ import com.example.example.base.BaseDrawer;
  * //    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
  *         GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
  */
-public class BindAttribUse extends BaseDrawer{
-        private int mPositionHandle;
-        private int mColorHandle;
-        // 每个顶点四个字节
+public class BindAttribUse extends BaseFilter implements BaseDrawer {
+    private int mPositionHandle;
+    private int mColorHandle;
+    // 每个顶点四个字节
 
 
-   public BindAttribUse(){
+    public BindAttribUse(){
         vertexShaderCode =
                 "attribute vec4 vPosition;" +
                         "attribute  vec4 aColor;" +
@@ -49,24 +51,24 @@ public class BindAttribUse extends BaseDrawer{
 
     @Override
     public void create() {
-    super.create();
-//    mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+        super.create();
+//      mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
         GLES20.glBindAttribLocation(mProgram,mPositionHandle,"vPosition");
-    mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
+        mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
     }
 
-        @Override
-        public void surfaceChange(int width, int height) {
+    @Override
+    public void surfaceChange(int width, int height) {
         GLES20.glViewport(0,0,width,height);
     }
 
-        @Override
-        public void dispose() {
+    @Override
+    public void dispose() {
 
     }
 
-        @Override
-        public void render() {
+    @Override
+    public void render() {
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         vertexBuffer.position(0);
@@ -95,5 +97,5 @@ public class BindAttribUse extends BaseDrawer{
         //禁止顶点数组的句柄
         GLES20.glDisableVertexAttribArray(mPositionHandle);
         GLES20.glDisableVertexAttribArray(mColorHandle);
-   }
+    }
 }

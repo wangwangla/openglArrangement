@@ -1,11 +1,13 @@
 package com.example.example.learn.function.alpha;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseFilter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.AlphaFilter;
 import com.example.example.base.filter.CommonFIlter;
@@ -13,9 +15,12 @@ import com.example.example.base.filter.MatrixFilter;
 
 import java.io.IOException;
 
-public class AlphaDemo extends BaseDrawer {
+import javax.microedition.khronos.opengles.GL10;
+
+public class AlphaDemo implements BaseDrawer {
     private Filter filter;
     private Bitmap mBitmap;
+    private Context context;
     public AlphaDemo() {
         filter = new AlphaFilter();
     }
@@ -24,6 +29,11 @@ public class AlphaDemo extends BaseDrawer {
     public void create() {
         filter.create();
         filter.setTexture(createTexture());
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -44,6 +54,21 @@ public class AlphaDemo extends BaseDrawer {
     @Override
     public void dispose() {
         filter.dispose();
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
+
+    }
+
+    @Override
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     private int createTexture() {

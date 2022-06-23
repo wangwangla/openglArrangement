@@ -7,7 +7,9 @@ import com.example.example.base.BaseDrawer;
 import com.example.example.learn.function.common.CommonShow;
 import com.example.example.learn.shape.AttribUse;
 
-public class MoBanTest extends BaseDrawer {
+import javax.microedition.khronos.opengles.GL10;
+
+public class MoBanTest implements BaseDrawer {
     private CommonShow srcShow;
     private AttribUse attribUse;
 
@@ -20,6 +22,11 @@ public class MoBanTest extends BaseDrawer {
     public void create() {
         srcShow.create();
         attribUse.create();
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -53,6 +60,16 @@ public class MoBanTest extends BaseDrawer {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
 
     }
 }

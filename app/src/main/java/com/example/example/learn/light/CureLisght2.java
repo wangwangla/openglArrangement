@@ -3,12 +3,13 @@ package com.example.example.learn.light;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseFilter;
 import com.example.example.utils.MatrixUtils;
 
 /**
  * 环境光
  */
-public class CureLisght2 extends BaseDrawer {
+public class CureLisght2 extends BaseFilter implements BaseDrawer {
     private int mPositionHandle;
     private int mColorHandle;
     // 每个顶点四个字节
@@ -93,7 +94,7 @@ public class CureLisght2 extends BaseDrawer {
     @Override
     public void surfaceChange(int width, int height) {
         GLES20.glViewport(0,0,width,height);
-        utils.getCenterInsideMatrix(width,height,width,height);
+        utils.getCenterInsideMatrix2d(width,height,width,height);
         utils.rotateY(10);
         utils.rotateX(10);
     }

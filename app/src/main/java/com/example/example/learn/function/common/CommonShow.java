@@ -1,5 +1,6 @@
 package com.example.example.learn.function.common;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
@@ -11,10 +12,13 @@ import com.example.example.base.filter.MatrixFilter;
 
 import java.io.IOException;
 
-public class CommonShow extends BaseDrawer {
+import javax.microedition.khronos.opengles.GL10;
+
+public class CommonShow implements BaseDrawer {
     private Bitmap mBitmap;
     private Filter filter;
     private String imagePath;
+    private Context context;
 
     public CommonShow(String path) {
         this.imagePath = path;
@@ -29,6 +33,11 @@ public class CommonShow extends BaseDrawer {
     public void create() {
         filter.create();
         filter.setTexture(createTexture());
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -49,6 +58,21 @@ public class CommonShow extends BaseDrawer {
     @Override
     public void dispose() {
 
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
+
+    }
+
+    @Override
+    public void setContext(Context context) {
+        this.context =context;
     }
 
     private int createTexture() {

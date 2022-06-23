@@ -6,7 +6,9 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 import com.example.example.learn.function.common.CommonShow;
 
-public class BlendShow extends BaseDrawer {
+import javax.microedition.khronos.opengles.GL10;
+
+public class BlendShow implements BaseDrawer {
     private CommonShow srcShow;
     private CommonShow dstShow;
 
@@ -19,6 +21,11 @@ public class BlendShow extends BaseDrawer {
     public void create() {
         srcShow.create();
         dstShow.create();
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -45,6 +52,16 @@ public class BlendShow extends BaseDrawer {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
 
     }
 }

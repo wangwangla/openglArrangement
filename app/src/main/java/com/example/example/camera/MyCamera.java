@@ -1,16 +1,18 @@
 package com.example.example.camera;
 
+import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseFilter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.OESFilter;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class MyCamera extends BaseDrawer {
+public class MyCamera implements BaseDrawer {
     private Filter filter;
     private CameraInstance instance;
     public MyCamera(){
@@ -26,6 +28,11 @@ public class MyCamera extends BaseDrawer {
         instance.open(1);
         instance.setPreviewTexture(new SurfaceTexture(textureID));
         instance.start();
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -48,6 +55,21 @@ public class MyCamera extends BaseDrawer {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
+
+    }
+
+    @Override
+    public void setContext(Context context) {
 
     }
 

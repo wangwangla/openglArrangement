@@ -44,6 +44,7 @@ public class MatrixUtils {
         Matrix.rotateM(mTransformMatrix,0,angle,0,0,1);
     }
 
+    float zom = 360;
     /**
      * 图片的宽度/高度大于屏幕，说明是宽视频  举个极端的例子
      * 1.720x1280播放1280x720的视频
@@ -55,16 +56,16 @@ public class MatrixUtils {
      * @param viewWidth
      * @param viewHeight
      */
-    public void getCenterInsideMatrix(int imgWidth,int imgHeight,int viewWidth,int viewHeight){
+    public void getCenterInsideMatrix2d(int imgWidth, int imgHeight, int viewWidth, int viewHeight){
         if(imgHeight>0&&imgWidth>0&&viewWidth>0&&viewHeight>0){
             float sWhView=(float)viewWidth/viewHeight;
             float sWhImg=(float)imgWidth/imgHeight;
             if(sWhImg>sWhView){
                 Matrix.orthoM(mProjectMatrix,0,
-                        -1,1,-sWhImg/sWhView,
-                        sWhImg/sWhView,1,3);
+                        -1 * zom,1* zom,-sWhImg/sWhView* zom,
+                        sWhImg/sWhView* zom,1,3);
             }else{
-                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
+                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg* zom,sWhView/sWhImg* zom,-1* zom,1* zom,1,3);
             }
 
 //            if(sWhImg>sWhView){
@@ -82,7 +83,7 @@ public class MatrixUtils {
 //                        45,1,1,13);
 //            }
             Matrix.setLookAtM(mViewMatrix,0,
-                    0,0,2,
+                    360,360,2,
                     0,0,0,
                     0,1,0);
             Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
@@ -93,11 +94,11 @@ public class MatrixUtils {
         if(imgHeight>0&&imgWidth>0){
             if(imgWidth>imgHeight){
                 Matrix.orthoM(mProjectMatrix,0,
-                    -1,1,-imgWidth/imgHeight,
+                    -2,2,-imgWidth/imgHeight,
                         imgWidth/imgHeight,1,3);
             }else{
                 Matrix.orthoM(mProjectMatrix,0,
-                    -1,1,-imgHeight/imgWidth,imgHeight/imgWidth,1,3);
+                        -imgHeight/imgWidth * 2,imgHeight/imgWidth * 2,-2,2,1,3);
             }
             Matrix.setLookAtM(mViewMatrix,0,
                     0,0,2,

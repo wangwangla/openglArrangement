@@ -5,6 +5,8 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 import com.example.example.learn.function.common.CommonShow;
 
+import javax.microedition.khronos.opengles.GL10;
+
 /**
  * 距离相机越远的， 深度值越大
  *
@@ -13,7 +15,7 @@ import com.example.example.learn.function.common.CommonShow;
  * 开启模板测试的时候，会进行深度比较，在绘制的时候，深度大的在后，深度小的在前
  *
  */
-public class DepTest extends BaseDrawer {
+public class DepTest implements BaseDrawer {
     private CommonShow srcShow;
     private CommonShow dstShow;
 
@@ -26,6 +28,11 @@ public class DepTest extends BaseDrawer {
     public void create() {
         srcShow.create();
         dstShow.create();
+    }
+
+    @Override
+    public void pause() {
+
     }
 
     @Override
@@ -58,6 +65,16 @@ public class DepTest extends BaseDrawer {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
 
     }
 }

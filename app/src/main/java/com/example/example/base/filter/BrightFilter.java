@@ -45,6 +45,6 @@ public class BrightFilter extends Filter {
 
     @Override
     public void change(int imageWidth, int imageHight,int width,int hight) {
-        utils.getCenterInsideMatrix(imageWidth,imageHight,width,hight);
+        utils.getCenterInsideMatrix2d(imageWidth,imageHight,width,hight);
     }
 }

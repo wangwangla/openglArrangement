@@ -6,6 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.DipianFilter;
 import com.example.example.base.filter.DoudongFilter;
@@ -16,7 +17,7 @@ import java.io.IOException;
 /**
  * 抖动效果
  */
-public class ImageShow08 extends BaseDrawer {
+public class ImageShow08 extends BaseDrawerAdapter {
     private Bitmap mBitmap;
     private Filter filter;
 

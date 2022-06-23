@@ -6,13 +6,14 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.ColdFilter;
 import com.example.example.base.filter.WarmFilter;
 
 import java.io.IOException;
 
-public class ImageShow05 extends BaseDrawer {
+public class ImageShow05 extends BaseDrawerAdapter {
     private Bitmap mBitmap;
     private Filter filter;
 

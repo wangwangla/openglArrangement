@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 import com.example.example.base.BaseDrawer;
 import com.example.example.utils.MatrixUtils;
 
-public abstract class Filter extends BaseDrawer {
+public abstract class Filter extends BaseFilter {
     protected int glHPosition;
     protected int glHTexture;
     protected int glHCoordinate;
@@ -16,12 +16,12 @@ public abstract class Filter extends BaseDrawer {
      */
     public Filter() {
         utils = new MatrixUtils();
-        float xxx = 0F;
+        float xxx = 0;
         triangleCoords = new float[]{
-                -1.0f, 1.0f + xxx,
-                -1.0f, -1.0f +xxx,
-                1.0f,1.0f+xxx,
-                1.0f,-1.0f+xxx
+                -1.0f, 1.0f,
+                -1.0f, -1.0f,
+                1.0f, 1.0f,
+                1.0f, -1.0f
         };
         color = new float[]{
                 0.0f, 0.0f,
@@ -75,7 +75,6 @@ public abstract class Filter extends BaseDrawer {
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
     }
-
 
     public abstract void addOtherRender() ;
 

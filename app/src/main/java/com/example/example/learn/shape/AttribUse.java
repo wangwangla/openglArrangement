@@ -3,6 +3,7 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseFilter;
 
 /**
  * 使用属性传值
@@ -13,11 +14,11 @@ import com.example.example.base.BaseDrawer;
  *
  * 3.
  */
-public class AttribUse extends BaseDrawer{
-        private int mPositionHandle;
-        private int mColorHandle;
-        // 每个顶点四个字节
-        private int vertexCount=0;
+public class AttribUse extends BaseFilter implements BaseDrawer {
+    private int mPositionHandle;
+    private int mColorHandle;
+    // 每个顶点四个字节
+    private int vertexCount=0;
 
    public AttribUse(){
         vertexShaderCode =
@@ -57,18 +58,18 @@ public class AttribUse extends BaseDrawer{
         mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
    }
 
-        @Override
-        public void surfaceChange(int width, int height) {
+    @Override
+    public void surfaceChange(int width, int height) {
         GLES20.glViewport(0,0,width,height);
     }
 
-        @Override
-        public void dispose() {
+    @Override
+    public void dispose() {
 
     }
 
-        @Override
-        public void render() {
+    @Override
+    public void render() {
         GLES20.glUseProgram(mProgram);
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         //准备三角形的坐标数据

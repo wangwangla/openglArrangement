@@ -6,6 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.JiugongGeFilter;
 import com.example.example.base.filter.MatrixFilter;
@@ -13,7 +14,7 @@ import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ImageShow15 extends BaseDrawer {
+public class ImageShow15 extends BaseDrawerAdapter {
     private Bitmap mBitmap;
     private Filter filter;
     public ImageShow15() {

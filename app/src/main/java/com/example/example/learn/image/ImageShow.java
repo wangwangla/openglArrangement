@@ -6,6 +6,8 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawer;
+import com.example.example.base.BaseDrawerAdapter;
+import com.example.example.base.BaseFilter;
 import com.example.example.base.Filter;
 import com.example.example.base.filter.CommonFIlter;
 
@@ -15,7 +17,7 @@ import java.io.IOException;
  * 1.创建纹理
  * 2.
  */
-public class ImageShow extends BaseDrawer {
+public class ImageShow extends BaseDrawerAdapter {
     private Filter filter;
     private Bitmap mBitmap;
     public ImageShow() {
@@ -36,7 +38,7 @@ public class ImageShow extends BaseDrawer {
     @Override
     public void surfaceChange(int width, int height) {
         GLES20.glViewport(0,0,width,height);
-        filter.surfaceChange(width,height);
+//        filter.surfaceChange(width,height);
     }
 
     @Override
