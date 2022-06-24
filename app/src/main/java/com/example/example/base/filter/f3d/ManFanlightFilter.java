@@ -6,6 +6,8 @@ import com.example.example.base.BaseFilter;
 
 public class ManFanlightFilter extends PingxingLightFilter {
     protected int glANormal;
+    protected int glULightPosition;
+    protected int glUDiffuseStrength;
 
     public ManFanlightFilter(){
         vertexShaderCode =
@@ -23,8 +25,6 @@ public class ManFanlightFilter extends PingxingLightFilter {
                         "uniform float uAmbientStrength;\n" +
 //                        散射光强度
                         "uniform float uDiffuseStrength;\n" +
-//                        镜面强度
-                        "uniform float uSpecularStrength;\n" +
 //                        光源的位置
                         "uniform vec3 uLightPosition;\n" +
 //
@@ -61,16 +61,9 @@ public class ManFanlightFilter extends PingxingLightFilter {
     @Override
     public void create() {
         super.create();
-
-        glAPosition = GLES20.glGetAttribLocation(glProgramId, "aPosition");
         glANormal = GLES20.glGetAttribLocation(glProgramId, "aNormal");
-        glUMatrix = GLES20.glGetUniformLocation(glProgramId, "uMatrix");
         glULightPosition = GLES20.glGetUniformLocation(glProgramId, "uLightPosition");
-        glUAmbientStrength = GLES20.glGetUniformLocation(glProgramId, "uAmbientStrength");
         glUDiffuseStrength = GLES20.glGetUniformLocation(glProgramId, "uDiffuseStrength");
-        glUSpecularStrength = GLES20.glGetUniformLocation(glProgramId, "uSpecularStrength");
-        glULightColor = GLES20.glGetUniformLocation(glProgramId, "uLightColor");
-        glUBaseColor = GLES20.glGetUniformLocation(glProgramId, "uBaseColor");
     }
 
 
