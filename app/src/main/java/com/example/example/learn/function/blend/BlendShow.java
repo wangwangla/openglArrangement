@@ -8,6 +8,9 @@ import com.example.example.learn.function.common.CommonShow;
 
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * 好好学习
+ */
 public class BlendShow implements BaseDrawer {
     private CommonShow srcShow;
     private CommonShow dstShow;

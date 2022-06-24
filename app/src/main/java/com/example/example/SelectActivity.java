@@ -55,12 +55,12 @@ public class SelectActivity extends AppCompatActivity {
                 "模板测试（27）",
                 "EGL使用（28）",
                 "回讀數據（29）",
-                "相机1（30）",
-                "相机2（31）",
-                "压缩纹理动画（32）",
-                "FBO使用(33)",
-                "3D(34)",
-                "光照(35)"
+//                "相机1（30）",
+//                "相机2（31）",
+//                "压缩纹理动画（32）",
+                "FBO使用(30)",
+                "3D(31)",
+                "光照(32)"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);

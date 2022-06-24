@@ -5,11 +5,9 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.example.example.base.BaseDrawer;
 import com.example.example.base.BaseDrawerAdapter;
-import com.example.example.base.BaseFilter;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.CommonFIlter;
+import com.example.example.base.filter.f2d.CommonFIlter;
 
 import java.io.IOException;
 
@@ -38,7 +36,6 @@ public class ImageShow extends BaseDrawerAdapter {
     @Override
     public void surfaceChange(int width, int height) {
         GLES20.glViewport(0,0,width,height);
-//        filter.surfaceChange(width,height);
     }
 
     @Override

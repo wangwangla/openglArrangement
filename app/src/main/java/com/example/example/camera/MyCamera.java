@@ -6,9 +6,8 @@ import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.OESFilter;
+import com.example.example.base.filter.f2d.OESFilter;
 
 import javax.microedition.khronos.opengles.GL10;
 

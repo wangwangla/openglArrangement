@@ -1,29 +1,27 @@
-package com.example.example.learn.function.alpha;
+package com.example.example.learn.image;
 
-import android.content.Context;
+import android.graphics.Bitmap;
 import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.AlphaFilter;
+import com.example.example.base.filter.f2d.FushiFilter;
 
-import javax.microedition.khronos.opengles.GL10;
-
-public class AlphaDemo extends ImageBaseDrawer {
+/**
+ * 抖动效果
+ */
+public class ImageFushi extends ImageBaseDrawer {
+    private Bitmap mBitmap;
     private Filter filter;
-    public AlphaDemo() {
-        filter = new AlphaFilter();
+
+    public ImageFushi() {
+        filter = new FushiFilter();
     }
 
     @Override
     public void create() {
         filter.create();
         filter.setTexture(createTexture());
-    }
-
-    @Override
-    public void pause() {
-
     }
 
     @Override
@@ -43,21 +41,6 @@ public class AlphaDemo extends ImageBaseDrawer {
 
     @Override
     public void dispose() {
-        filter.dispose();
-    }
 
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void setGL(GL10 gl10) {
-
-    }
-
-    @Override
-    public void setContext(Context context) {
-        this.context = context;
     }
 }

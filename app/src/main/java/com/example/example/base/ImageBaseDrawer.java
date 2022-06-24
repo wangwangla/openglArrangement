@@ -1,83 +1,18 @@
-package com.example.example.learn.function.common;
+package com.example.example.base;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.example.example.base.BaseDrawer;
-import com.example.example.base.Filter;
-import com.example.example.base.filter.f2d.MatrixFilter;
-
 import java.io.IOException;
 
-import javax.microedition.khronos.opengles.GL10;
+public class ImageBaseDrawer extends BaseDrawerAdapter {
+    protected Bitmap mBitmap;
 
-public class CommonShow implements BaseDrawer {
-    private Bitmap mBitmap;
-    private Filter filter;
-    private String imagePath;
-    private Context context;
-
-    public CommonShow(String path) {
-        this.imagePath = path;
-        filter = new MatrixFilter();
-    }
-
-    public Filter getFilter() {
-        return filter;
-    }
-
-    @Override
-    public void create() {
-        filter.create();
-        filter.setTexture(createTexture());
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void render() {
-        filter.render();
-    }
-
-    @Override
-    public void surfaceChange(int width, int height) {
-        GLES20.glViewport(0,0,width,height);
-        filter.change(
-                mBitmap.getWidth(),
-                mBitmap.getHeight(),
-                width,
-                height);
-    }
-
-    @Override
-    public void dispose() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void setGL(GL10 gl10) {
-
-    }
-
-    @Override
-    public void setContext(Context context) {
-        this.context =context;
-    }
-
-    private int createTexture() {
+    protected int createTexture() {
         try {
-            mBitmap = BitmapFactory.decodeStream(context.getAssets().open(imagePath+".png"));
+            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("text.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,4 +36,5 @@ public class CommonShow implements BaseDrawer {
         }
         return 0;
     }
+
 }

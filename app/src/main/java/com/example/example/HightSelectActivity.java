@@ -20,8 +20,8 @@ public class HightSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hight_select);
         listView = findViewById(R.id.list_view);
         String[] strArr = new String[]{
-                "测试环境（0）",
-                "TextureView相机预览（1）",
+                "测试环境(0)",
+                "3D（1）",
                 "均值模糊（2）",
                 "高斯模糊（3）",
                 "毛玻璃（4）",
@@ -85,7 +85,6 @@ public class HightSelectActivity extends AppCompatActivity {
                         break;
                     }
                     case 1:
-
                         Intent intent = new Intent(HightSelectActivity.this, TakePhotoActivity.class);
                         intent.putExtra("itemid", i);
                         startActivity(intent);

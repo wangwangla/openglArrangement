@@ -31,9 +31,6 @@ public class MoBanTest implements BaseDrawer {
 
     @Override
     public void render() {
-//        srcShow.render();
-
-
         GLES20.glEnable(GLES20.GL_STENCIL_TEST);
         GLES20.glStencilOp(GLES20.GL_KEEP, GLES20.GL_KEEP, GLES20.GL_REPLACE);//第一次绘制的像素的模版值 0+1 = 1
         GLES20.glStencilFunc(GLES20.GL_ALWAYS, 1, 0xEF);

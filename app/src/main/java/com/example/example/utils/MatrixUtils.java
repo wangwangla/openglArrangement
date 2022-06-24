@@ -44,7 +44,7 @@ public class MatrixUtils {
         Matrix.rotateM(mTransformMatrix,0,angle,0,0,1);
     }
 
-    float zom = 360;
+    float zom = 2;
     /**
      * 图片的宽度/高度大于屏幕，说明是宽视频  举个极端的例子
      * 1.720x1280播放1280x720的视频
@@ -63,32 +63,24 @@ public class MatrixUtils {
             if(sWhImg>sWhView){
                 Matrix.orthoM(mProjectMatrix,0,
                         -1 * zom,1* zom,-sWhImg/sWhView* zom,
-                        sWhImg/sWhView* zom,1,3);
+                        sWhImg/sWhView* zom,0,100);
             }else{
-                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg* zom,sWhView/sWhImg* zom,-1* zom,1* zom,1,3);
+                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg* zom,
+                        sWhView/sWhImg* zom,-1* zom,1* zom,1,100);
             }
-
-//            if(sWhImg>sWhView){
-//                Matrix.frustumM(mProjectMatrix,0,
-//                        -1,1,-sWhImg/sWhView,
-//                        sWhImg/sWhView,1,13);
-//            }else{
-//                Matrix.frustumM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,13);
-//            }
-//            if(sWhImg>sWhView){
-//                Matrix.perspectiveM(mProjectMatrix,0,
-//                        45,1,1,13);
-//            }else{
-//                Matrix.perspectiveM(mProjectMatrix,0,
-//                        45,1,1,13);
-//            }
-            Matrix.setLookAtM(mViewMatrix,0,
-                    360,360,2,
-                    0,0,0,
-                    0,1,0);
-            Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
+            lookAt(0,0,6,0,0,0,0,1,0);
         }
     }
+
+    public void lookAt( float eyeX,     float eyeY,     float eyeZ,
+                        float centerX,  float centerY,  float centerZ,
+                        float upX,      float upY,      float upZ){
+        Matrix.setLookAtM(mViewMatrix,0,
+                eyeX,eyeY,eyeZ,
+                centerX,centerY,centerZ,
+                upX,upY,upZ);
+    }
+
 
     public void getCenterInsideMatrix1(int imgWidth,int imgHeight){
         if(imgHeight>0&&imgWidth>0){
@@ -110,7 +102,10 @@ public class MatrixUtils {
 
 
     public float[] getmMVPMatrix() {
+        Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
         Matrix.multiplyMM(mMVPMatrix,0,mTransformMatrix,0,mMVPMatrix,0);
         return mMVPMatrix;
     }
+
+
 }

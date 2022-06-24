@@ -6,27 +6,29 @@ import android.opengl.GLES20;
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
+import com.example.example.learn.fbo.FBODemo;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.function.moban.MoBanTest;
+import com.example.example.learn.g3d.App.BoxLight;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageMatriUse;
-import com.example.example.learn.image.ImageShow02;
-import com.example.example.learn.image.ImageShow03;
-import com.example.example.learn.image.ImageShow04;
-import com.example.example.learn.image.ImageShow05;
-import com.example.example.learn.image.ImageShow06;
-import com.example.example.learn.image.ImageShow07;
-import com.example.example.learn.image.ImageShow08;
-import com.example.example.learn.image.ImageShow09;
-import com.example.example.learn.image.ImageShow10;
-import com.example.example.learn.image.ImageShow11;
-import com.example.example.learn.image.ImageShow12;
-import com.example.example.learn.image.ImageShow13;
-import com.example.example.learn.image.ImageShow14;
-import com.example.example.learn.image.ImageShow15;
-import com.example.example.learn.image.ImageShow16;
+import com.example.example.learn.image.ImageScale;
+import com.example.example.learn.image.ImageBright;
+import com.example.example.learn.image.ImageCold;
+import com.example.example.learn.image.ImageWarm;
+import com.example.example.learn.image.ImageDipian;
+import com.example.example.learn.image.ImageDoudong;
+import com.example.example.learn.image.ImageNinePatchAndScale;
+import com.example.example.learn.image.ImageFushi;
+import com.example.example.learn.image.ImageGaosi;
+import com.example.example.learn.image.ImageHui;
+import com.example.example.learn.image.ImageLingHuiChuQiao;
+import com.example.example.learn.image.ImageMaoci;
+import com.example.example.learn.image.ImageHsvConvert;
+import com.example.example.learn.image.ImageJiuGongGe;
+import com.example.example.learn.image.ImageZhouQiFangDa;
 import com.example.example.learn.light.CureLisght;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.UniformUse;
@@ -113,55 +115,55 @@ public class Game implements ApplicationListener {
                 aClass = ImageMatriUse.class;
                 break;
             case 7:
-                aClass = ImageShow02.class;
+                aClass = ImageScale.class;
                 break;
             case 8:
-                aClass = ImageShow03.class;
+                aClass = ImageBright.class;
                 break;
             case 9:
                 aClass = MyCamera.class;
                 break;
             case 10:
-                aClass = ImageShow04.class;
+                aClass = ImageCold.class;
                 break;
             case 11:
-                aClass = ImageShow05.class;
+                aClass = ImageWarm.class;
                 break;
             case 12:
-                aClass = ImageShow06.class;
+                aClass = ImageDipian.class;
                 break;
             case 13:
-                aClass = ImageShow07.class;
+                aClass = ImageDoudong.class;
                 break;
             case 14:
-                aClass = ImageShow08.class;
+                aClass = ImageNinePatchAndScale.class;
                 break;
             case 15:
-                aClass = ImageShow09.class;
+                aClass = ImageFushi.class;
                 break;
             case 16:
-                aClass = ImageShow10.class;
+                aClass = ImageGaosi.class;
                 break;
             case 17:
-                aClass = ImageShow11.class;
+                aClass = ImageHui.class;
                 break;
             case 18 :
-                aClass = ImageShow11.class;
+                aClass = ImageHui.class;
                 break;
             case 19:
-                aClass = ImageShow12.class;
+                aClass = ImageLingHuiChuQiao.class;
                 break;
             case 20:
-                aClass = ImageShow13.class;
+                aClass = ImageMaoci.class;
                 break;
             case 21:
-                aClass = ImageShow14.class;
+                aClass = ImageHsvConvert.class;
                 break;
             case 22:
-                aClass = ImageShow15.class;
+                aClass = ImageJiuGongGe.class;
                 break;
             case 23:
-                aClass = ImageShow16.class;
+                aClass = ImageZhouQiFangDa.class;
                 break;
             case 24:
                 aClass = AlphaDemo.class;
@@ -178,26 +180,26 @@ public class Game implements ApplicationListener {
             case 29:
                 aClass = ReadPixDemo.class;
                 break;
+//            case 30:
+//                aClass = ReadPixDemo.class;
+//                break;
+//            case 31:
+//                aClass = ReadPixDemo.class;
+//                break;
+//            case 32:
+//                aClass = ReadPixDemo.class;
+//                break;
+//            case 30:
+//                aClass = ReadPixDemo.class;
+//                break;
             case 30:
-                aClass = ReadPixDemo.class;
-                break;
-            case 31:
-                aClass = ReadPixDemo.class;
-                break;
-            case 32:
-                aClass = ReadPixDemo.class;
-                break;
-            case 33:
-                aClass = ReadPixDemo.class;
-                break;
-            case 34:
-                aClass = ReadPixDemo.class;
-                break;
-            case 35:
-                aClass = CureLisght.class;
+                aClass = FBODemo.class;
                 break;
             case 1000:
-                aClass = CureLisght.class;
+                aClass = BoxLight.class;
+                break;
+            case 1001:
+                aClass = BoxLight.class;
                 break;
 //            case 1001:
 //                aClass = HImageShow01.class;
