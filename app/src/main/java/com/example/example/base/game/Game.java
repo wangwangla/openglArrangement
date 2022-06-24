@@ -12,6 +12,8 @@ import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.g3d.App.BoxLight;
+import com.example.example.learn.g3d.App.NoLight;
+import com.example.example.learn.g3d.App.PingXingLight;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageMatriUse;
 import com.example.example.learn.image.ImageScale;
@@ -29,7 +31,6 @@ import com.example.example.learn.image.ImageMaoci;
 import com.example.example.learn.image.ImageHsvConvert;
 import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
-import com.example.example.learn.light.CureLisght;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.UniformUse;
 import com.example.example.learn.shape.AttribUse;
@@ -199,8 +200,12 @@ public class Game implements ApplicationListener {
                 aClass = BoxLight.class;
                 break;
             case 1001:
-                aClass = BoxLight.class;
+                aClass = NoLight.class;
                 break;
+            case 1002:
+                aClass = PingXingLight.class;
+                break;
+
 //            case 1001:
 //                aClass = HImageShow01.class;
 //                break;

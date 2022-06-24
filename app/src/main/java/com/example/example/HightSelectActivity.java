@@ -21,9 +21,9 @@ public class HightSelectActivity extends AppCompatActivity {
         listView = findViewById(R.id.list_view);
         String[] strArr = new String[]{
                 "测试环境(0)",
-                "3D（1）",
-                "均值模糊（2）",
-                "高斯模糊（3）",
+                "平行光（1）",
+                "环境光（2）",
+                "漫反射（3）",
                 "毛玻璃（4）",
                 "画中画（5）",
                 "运动模糊（6）",
@@ -76,20 +76,10 @@ public class HightSelectActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
-                    case 0: {
-                        Class activity = HightActivity.class;
-                        Intent intent = new Intent(HightSelectActivity.this, activity);
-                        intent.putExtra("itemid", i);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 1:
-                        Intent intent = new Intent(HightSelectActivity.this, TakePhotoActivity.class);
-                        intent.putExtra("itemid", i);
-                        startActivity(intent);
-                        break;
-                }
+                Class activity = HightActivity.class;
+                Intent intent = new Intent(HightSelectActivity.this, activity);
+                intent.putExtra("itemid", i);
+                startActivity(intent);
             }
         });
     }
