@@ -40,9 +40,9 @@ public class ManFanlightFilter extends PingxingLightFilter {
                         "\n" +
                         "//漫反射的计算\n" +
                         "vec4 diffuseColor(){\n" +
-                        "    //模型变换后的位置\n" +
+                        "    //模型变换后的位置   点的位置\n" +
                         "    vec3 fragPos=(uMatrix*aPosition).xyz;\n" +
-                        "    //光照方向\n" +
+                        "    //光照方向     光照的方向\n" +
                         "    vec3 direction=normalize(uLightPosition-fragPos);\n" +
                         "    //模型变换后的法线向量\n" +
                         "    vec3 normal=normalize(mat3(uMatrix)*aNormal);\n" +

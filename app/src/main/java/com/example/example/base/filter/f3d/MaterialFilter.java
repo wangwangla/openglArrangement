@@ -3,24 +3,15 @@ package com.example.example.base.filter.f3d;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseFilter;
-import com.example.example.utils.MatrixUtils;
 
-public class LightFilter extends BaseFilter {
-    private int glProgramId;
-    protected int glUMatrix;
-    protected int glULightPosition;
-    protected int glAPosition;
-    protected int glANormal;
-    protected int glUAmbientStrength;
-    protected int glUDiffuseStrength;
-    protected int glUSpecularStrength;
-    protected int glUBaseColor;
-    protected int glULightColor;
-    float lx = 0f;
-    float ly = 0.8f;
-    float lz = -1f;
-
-    public LightFilter() {
+/**
+ * 加入材质
+ */
+public class MaterialFilter extends LightFilter {
+    int materialAmbient;
+    int materialDiffuse;
+    int materialspecular;
+    public MaterialFilter(){
         vertexShaderCode =
                 //顶点坐标
                 "attribute vec4 aPosition;\n" +
@@ -40,6 +31,12 @@ public class LightFilter extends BaseFilter {
                         "uniform float uSpecularStrength;\n" +
 //                        光源的位置
                         "uniform vec3 uLightPosition;\n" +
+                        "" +
+                        "uniform vec3 materialAmbient; \n" +
+
+                        "uniform vec3 materialDiffuse;\n" +
+
+                        "uniform vec3 materialspecular;\n" +
 //
                         "varying vec4 vColor;\n" +
                         "\n" +
@@ -88,87 +85,17 @@ public class LightFilter extends BaseFilter {
                         "}\n\n" +
                         "void main(){\n" +
                         "    gl_Position=uMatrix*aPosition;\n" +
-                        "    vColor=(ambientColor() + diffuseColor() + specularColor())* uBaseColor;\n" +
+                        "    vColor=(ambientColor() * materialAmbient + diffuseColor() * materialDiffuse+ materialspecular * specularColor())* uBaseColor;\n" +
                         "}";
-
-        fragmentShaderCode =
-                "precision mediump float;" +
-                        "varying vec4 vColor;" +
-                        "void main() {" +
-                        "  gl_FragColor = vColor;" +
-                        "}";
-        triangleCoords = new float[]{
-                -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-                0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-                -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-                -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-
-                -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-                -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-                -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-
-                -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
-                -0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-                -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-                -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-                -0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
-                -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
-
-                0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
-                0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-                0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-                0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-                0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
-                0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
-
-                -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
-                0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-                -0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-                -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
-
-                -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-                -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-                -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f
-        };
-        color = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
     }
+
 
     @Override
     public void create() {
         super.create();
-        utils = new MatrixUtils();
-        glProgramId = mProgram;
-        glAPosition = GLES20.glGetAttribLocation(glProgramId, "aPosition");
-        glANormal = GLES20.glGetAttribLocation(glProgramId, "aNormal");
-        glUMatrix = GLES20.glGetUniformLocation(glProgramId, "uMatrix");
-        glULightPosition = GLES20.glGetUniformLocation(glProgramId, "uLightPosition");
-        glUAmbientStrength = GLES20.glGetUniformLocation(glProgramId, "uAmbientStrength");
-        glUDiffuseStrength = GLES20.glGetUniformLocation(glProgramId, "uDiffuseStrength");
-        glUSpecularStrength = GLES20.glGetUniformLocation(glProgramId, "uSpecularStrength");
-        glULightColor = GLES20.glGetUniformLocation(glProgramId, "uLightColor");
-        glUBaseColor = GLES20.glGetUniformLocation(glProgramId, "uBaseColor");
-    }
-
-    @Override
-    public void surfaceChange(int width, int height) {
-        GLES20.glViewport(0, 0, width, height);
-        utils.getCenterInsideMatrix2d(width, height, width, height);
-        utils.rotateX(10);
-    }
-
-    @Override
-    public void dispose() {
-
+        materialAmbient = GLES20.glGetUniformLocation(mProgram, "materialAmbient");
+        materialDiffuse = GLES20.glGetUniformLocation(mProgram, "materialDiffuse");
+        materialspecular = GLES20.glGetUniformLocation(mProgram, "materialspecular");
     }
 
     @Override
@@ -185,6 +112,18 @@ public class LightFilter extends BaseFilter {
         GLES20.glUniform1f(glUSpecularStrength, 0.8F);
         //光源颜色
         GLES20.glUniform3f(glULightColor, 1.0f, 0.0f, 0.0f);
+
+//        int materialAmbient;
+//        int materialDiffuse;
+//        int materialspecular;
+        GLES20.glUniform1f(materialAmbient, 1.0f);
+
+        GLES20.glUniform1f(materialDiffuse, 1.0f);
+
+        GLES20.glUniform1f(materialspecular, 1.0f);
+
+
+
         //物体颜色
         GLES20.glUniform4f(glUBaseColor, 1.0f, 1.0f, 1.0f, 1.0f);
         //光源位置
