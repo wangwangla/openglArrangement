@@ -37,16 +37,13 @@ public class DepTest implements BaseDrawer {
 
     @Override
     public void render() {
-        GLES20.glEnable(GLES20.GL_STENCIL_TEST);
-        GLES20.glStencilFunc(GLES20.GL_ALWAYS, 1, 0xFF); //所有片段都要写入模板缓冲
-        GLES20.glStencilOp(GLES20.GL_KEEP, GLES20.GL_KEEP, GLES20.GL_REPLACE);//若模板测试和深度测试都通过了，将片段对应的模板值替换为1
-        GLES20.glStencilMask(0xFF);
+        //开启深度测试
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        //怎样的值可以过  怎样的不可以过
+        GLES20.glDepthFunc(GLES20.GL_LESS);
         dstShow.render();
-        GLES20.glStencilFunc(GLES20.GL_NOTEQUAL, 1, 0xFF);//当片段的模板值不为 1 时，片段通过测试进行渲染
-        //禁用模板写入和深度测试
-        GLES20.glStencilMask(0x00);
+        srcShow.render();
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
-         srcShow.render();
     }
 
     @Override
