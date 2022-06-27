@@ -28,6 +28,7 @@ public class DepTest implements BaseDrawer {
     public void create() {
         srcShow.create();
         dstShow.create();
+        dstShow.moveZ(-1);
     }
 
     @Override
@@ -39,9 +40,9 @@ public class DepTest implements BaseDrawer {
     public void render() {
         //开启深度测试
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-        //怎样的值可以过  怎样的不可以过
-        GLES20.glDepthFunc(GLES20.GL_LESS);
+        GLES20.glDepthFunc(GLES20.GL_ALWAYS);
         dstShow.render();
+
         srcShow.render();
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
     }

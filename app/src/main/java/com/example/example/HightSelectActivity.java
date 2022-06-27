@@ -24,7 +24,7 @@ public class HightSelectActivity extends AppCompatActivity {
                 "平行光（1）",
                 "环境光（2）",
                 "漫反射（3）",
-                "毛玻璃（4）",
+                "（4）",
                 "画中画（5）",
                 "运动模糊（6）",
                 "蓝线挑战横向（7）",

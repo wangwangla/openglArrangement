@@ -16,7 +16,7 @@ public class UniformUse extends BaseFilter implements BaseDrawer {
      // 每个顶点四个字节
     private int vertexCount;
 
-   public UniformUse(){
+    public UniformUse(){
        vertexShaderCode =
                "attribute vec4 vPosition;" +
                        "void main() {" +
@@ -37,7 +37,7 @@ public class UniformUse extends BaseFilter implements BaseDrawer {
        };
        vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
        color = new float[]{ 1.0f, 1.0f, 1.0f, 1.0f };
-   }
+    }
 
     @Override
     public void create() {
