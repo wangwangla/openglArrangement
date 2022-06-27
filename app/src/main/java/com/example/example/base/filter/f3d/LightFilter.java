@@ -173,8 +173,13 @@ public class LightFilter extends BaseFilter {
 
     @Override
     public void render() {
-        utils.rotateY(0.1F);
+
         GLES20.glUseProgram(mProgram);
+
+
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        GLES20.glDepthFunc(GLES20.GL_GREATER);
+
         vertexBuffer.position(0);
         //准备三角形的坐标数据
         //环境光强度

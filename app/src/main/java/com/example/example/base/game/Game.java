@@ -32,11 +32,14 @@ import com.example.example.learn.image.ImageHsvConvert;
 import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
 import com.example.example.learn.readpix.ReadPixDemo;
+import com.example.example.learn.shape.BufferUse;
 import com.example.example.learn.shape.UniformUse;
 import com.example.example.learn.shape.AttribUse;
 import com.example.example.learn.shape.AttribMultVUse;
 import com.example.example.learn.shape.BindAttribUse;
 import com.example.example.learn.shape.MatrixUse;
+
+import java.nio.Buffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -95,7 +98,8 @@ public class Game implements ApplicationListener {
     public void chageType(int itemid1) {
         switch (itemid1){
             case 0:
-                aClass = UniformUse.class;
+//                aClass = UniformUse.class;
+                aClass = BufferUse.class;
                 break;
             case 1:
                 aClass = AttribUse.class;

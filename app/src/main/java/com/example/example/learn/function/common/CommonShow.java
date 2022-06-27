@@ -35,6 +35,10 @@ public class CommonShow implements BaseDrawer {
         filter.setTexture(createTexture());
     }
 
+    public void moveZ(float z){
+        filter.moveZ(z);
+    }
+
     @Override
     public void pause() {
 

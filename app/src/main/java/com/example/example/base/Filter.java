@@ -111,4 +111,8 @@ public abstract class Filter extends BaseFilter {
     public void lookAt(){
 
     }
+
+    public void moveZ(float z){
+        utils.translate(0,0,1);
+    }
 }
