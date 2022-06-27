@@ -32,6 +32,7 @@ import com.example.example.learn.image.ImageHsvConvert;
 import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
 import com.example.example.learn.readpix.ReadPixDemo;
+import com.example.example.learn.shape.BufferIndexUse;
 import com.example.example.learn.shape.BufferUse;
 import com.example.example.learn.shape.UniformUse;
 import com.example.example.learn.shape.AttribUse;
@@ -68,8 +69,8 @@ public class Game implements ApplicationListener {
 
     @Override
     public void render() {
-//        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-//        GLES20.glClearColor(1,0,0,1);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+        GLES20.glClearColor(1,0,0,1);
         drawer.render();
     }
 
@@ -99,7 +100,8 @@ public class Game implements ApplicationListener {
         switch (itemid1){
             case 0:
 //                aClass = UniformUse.class;
-                aClass = BufferUse.class;
+//                aClass = BufferUse.class;
+                aClass = BufferIndexUse.class;
                 break;
             case 1:
                 aClass = AttribUse.class;

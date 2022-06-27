@@ -7,7 +7,7 @@ import com.example.example.base.BaseDrawer;
 import com.example.example.base.BaseFilter;
 
 /**
- * shiy
+ * 使用buffer
  */
 public class BufferUse extends ArrayBuffer implements BaseDrawer {
     private int mPositionHandle;

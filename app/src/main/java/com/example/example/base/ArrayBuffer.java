@@ -77,13 +77,14 @@ public class ArrayBuffer {
         return floatBuffer;
     }
 
-    protected void loadbuffer(int [] triangleCoords, IntBuffer floatBuffer) {
+    protected IntBuffer loadbuffer(int [] triangleCoords) {
         ByteBuffer bb = ByteBuffer.allocateDirect(
                 triangleCoords.length * 4);
         bb.order(ByteOrder.nativeOrder());
-        floatBuffer = bb.asIntBuffer();
-        floatBuffer.put(triangleCoords);
-        floatBuffer.position(0);
+        IntBuffer intBuffer = bb.asIntBuffer();
+        intBuffer.put(triangleCoords);
+        intBuffer.position(0);
+        return intBuffer;
     }
 
     protected int vb[];
