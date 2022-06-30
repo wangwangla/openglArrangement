@@ -26,6 +26,7 @@ public class MatrixUtils {
     //沿X、Y、Z轴方向进行平移变换的方法
     public void translate(float x,float y,float z) {
         Matrix.translateM(mTransformMatrix, 0, x, y, z);
+
     }
 
     public void scale(float x,float y){
@@ -96,14 +97,16 @@ public class MatrixUtils {
                     0,0,2,
                     0,0,0,
                     0,1,0);
-            Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
         }
     }
 
 
     public float[] getmMVPMatrix() {
-        Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
-        Matrix.multiplyMM(mMVPMatrix,0,mTransformMatrix,0,mMVPMatrix,0);
+        for (int i = 0; i < mMVPMatrix.length; i++) {
+            mMVPMatrix[i] = 0;
+        }
+        Matrix.multiplyMM(mMVPMatrix,0,mViewMatrix,0,mTransformMatrix,0);
+        Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mMVPMatrix,0);
         return mMVPMatrix;
     }
 

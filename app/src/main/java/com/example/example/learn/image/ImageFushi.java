@@ -11,7 +11,6 @@ import com.example.example.base.filter.f2d.FushiFilter;
  * 抖动效果
  */
 public class ImageFushi extends ImageBaseDrawer {
-    private Bitmap mBitmap;
     private Filter filter;
 
     public ImageFushi() {

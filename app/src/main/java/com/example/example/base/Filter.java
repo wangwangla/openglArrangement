@@ -112,7 +112,7 @@ public abstract class Filter extends BaseFilter {
 
     }
 
-    public void moveZ(float z){
-        utils.translate(0,0,1);
+    public void move(float x,float y,float z){
+        utils.translate(x,y,z);
     }
 }

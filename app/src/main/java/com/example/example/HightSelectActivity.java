@@ -21,7 +21,7 @@ public class HightSelectActivity extends AppCompatActivity {
         listView = findViewById(R.id.list_view);
         String[] strArr = new String[]{
                 "测试环境(0)",
-                "平行光（1）",
+                "无光（1）",
                 "环境光（2）",
                 "漫反射（3）",
                 "（4）",

@@ -35,8 +35,8 @@ public class CommonShow implements BaseDrawer {
         filter.setTexture(createTexture());
     }
 
-    public void moveZ(float z){
-        filter.moveZ(z);
+    public void move(float x, float y, float z){
+        filter.move(x,y,z);
     }
 
     @Override
@@ -57,6 +57,7 @@ public class CommonShow implements BaseDrawer {
                 mBitmap.getHeight(),
                 width,
                 height);
+
     }
 
     @Override

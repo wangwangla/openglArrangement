@@ -12,6 +12,8 @@ import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.g3d.App.BoxLight;
+import com.example.example.learn.g3d.App.ManFanSheLight;
+import com.example.example.learn.g3d.App.ManTieTuLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
 import com.example.example.learn.image.ImageShow;
@@ -70,7 +72,7 @@ public class Game implements ApplicationListener {
     @Override
     public void render() {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-        GLES20.glClearColor(1,0,0,1);
+        GLES20.glClearColor(0,0,0,1);
         drawer.render();
     }
 
@@ -210,6 +212,12 @@ public class Game implements ApplicationListener {
                 break;
             case 1002:
                 aClass = PingXingLight.class;
+                break;
+            case 1003:
+                aClass = ManFanSheLight.class;
+                break;
+            case 1004:
+                aClass = ManTieTuLight.class;
                 break;
 
 //            case 1001:

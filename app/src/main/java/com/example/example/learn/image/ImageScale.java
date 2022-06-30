@@ -28,6 +28,7 @@ public class ImageScale extends BaseDrawerAdapter {
     @Override
     public void render() {
         filter.render();
+
     }
 
     @Override
@@ -37,9 +38,8 @@ public class ImageScale extends BaseDrawerAdapter {
                 mBitmap.getWidth(),
                 mBitmap.getHeight(),
                 width,
-                height);
-        MatrixUtils utils = filter.getUtils();
-        utils.scale(0.3F,0.4F);
+                height);        MatrixUtils utils = filter.getUtils();
+        utils.translate(0,0,1);
     }
 
     @Override

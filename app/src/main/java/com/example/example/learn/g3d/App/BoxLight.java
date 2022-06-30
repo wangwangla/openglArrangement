@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.filter.f3d.LightFilter;
+import com.example.example.utils.MatrixUtils;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -26,6 +27,8 @@ public class BoxLight implements BaseDrawer {
     @Override
     public void render() {
         filter.render();
+        MatrixUtils utils = filter.getUtils();
+        utils.rotateX(1);
     }
 
     @Override
