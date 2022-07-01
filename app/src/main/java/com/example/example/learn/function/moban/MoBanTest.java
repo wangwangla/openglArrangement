@@ -31,16 +31,14 @@ public class MoBanTest implements BaseDrawer {
 
     @Override
     public void render() {
+        //开启模板测试
         GLES20.glEnable(GLES20.GL_STENCIL_TEST);
         GLES20.glStencilOp(GLES20.GL_KEEP, GLES20.GL_KEEP, GLES20.GL_REPLACE);//第一次绘制的像素的模版值 0+1 = 1
-
-        //模板为1就通过，否则就丢弃
-        GLES20.glStencilFunc(GLES20.GL_ALWAYS, 1, 0xEF);
+        GLES20.glStencilFunc(GLES20.GL_ALWAYS, 1, 0xFF);
         attribUse.render();
-        GLES20.glStencilFunc(GLES20.GL_NOTEQUAL, 0x1, 0xFF);//等于1 通过测试 ,就是上次绘制的图 的范围 才通过测试。
+        GLES20.glStencilFunc(GLES20.GL_EQUAL, 0x1, 0xFF);//等于1 通过测试 ,就是上次绘制的图 的范围 才通过测试。
         GLES20.glStencilOp(GLES20.GL_KEEP, GLES20.GL_KEEP, GLES20.GL_KEEP);//没有通过测试的，保留原来的，也就是保留上一次的值。
         srcShow.render();
-//
         GLES20.glDisable(GLES20.GL_STENCIL_TEST);
     }
 

@@ -6,6 +6,7 @@ import android.opengl.GLES20;
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
+import com.example.example.hight.MixTexture;
 import com.example.example.learn.fbo.FBODemo;
 import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
@@ -71,7 +72,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void render() {
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT|GLES20.GL_DEPTH_BUFFER_BIT|GLES20.GL_STENCIL_BUFFER_BIT);
         GLES20.glClearColor(0,0,0,1);
         drawer.render();
     }
@@ -218,6 +219,9 @@ public class Game implements ApplicationListener {
                 break;
             case 1004:
                 aClass = ManTieTuLight.class;
+                break;
+            case 1005:
+                aClass = MixTexture.class;
                 break;
 
 //            case 1001:

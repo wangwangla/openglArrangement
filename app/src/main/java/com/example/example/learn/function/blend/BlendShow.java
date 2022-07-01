@@ -36,6 +36,8 @@ public class BlendShow implements BaseDrawer {
         GLES20.glEnable(GLES20.GL_BLEND);
         GLES20.glBlendFunc(GLES20.GL_ONE, GLES20.GL_ONE_MINUS_DST_COLOR);
         srcShow.render();
+        GLES20.glEnable(GLES20.GL_ALPHA);
+        GLES20.glBlendFunc(GLES20.GL_ONE, GLES20.GL_ONE_MINUS_DST_ALPHA);
         dstShow.render();
     }
 

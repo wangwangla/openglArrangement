@@ -43,6 +43,10 @@ public class MatrixFilter extends Filter {
         }
     }
 
+    public void setScale(float x,float y){
+        utils.scale(x,y);
+    }
+
     @Override
     public void change(int imageWidth, int imageHight,int width,int hight) {
         utils.getCenterInsideMatrix2d(imageWidth,imageHight,width,hight);

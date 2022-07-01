@@ -51,6 +51,14 @@ public abstract class Filter extends BaseFilter {
         this.texture = texture;
     }
 
+    public void setScale(float x,float y){
+        utils.scale(x,y);
+    }
+
+    public void rotation(){
+        utils.rotateX(10);
+    }
+
     @Override
     public void create() {
         super.create();
@@ -69,6 +77,7 @@ public abstract class Filter extends BaseFilter {
         GLES20.glEnableVertexAttribArray(glHCoordinate);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texture);
         GLES20.glUniform1i(glHTexture, 0);
+
         GLES20.glVertexAttribPointer(glHPosition, 2, GLES20.GL_FLOAT, false, 0, vertexBuffer);
         GLES20.glVertexAttribPointer(glHCoordinate, 2, GLES20.GL_FLOAT, false, 0, colorBuffer);
         addOtherRender();
