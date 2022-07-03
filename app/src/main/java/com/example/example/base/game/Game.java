@@ -223,14 +223,6 @@ public class Game implements ApplicationListener {
             case 1005:
                 aClass = MixTexture.class;
                 break;
-
-//            case 1001:
-//                aClass = HImageShow01.class;
-//                break;
-//            case 1002:
-//                aClass = TextureViewYulan.class;
-//                break;
-
         }
     }
 }

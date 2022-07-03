@@ -17,7 +17,7 @@ public class MatrixFilter extends Filter {
                         "attribute vec2 vCoordinate;\n" +    // 纹理
                         "varying vec2 aCoordinate;\n" +      //  传递纹理   片段着色器
                         "void main(){\n" +
-                        "    gl_Position=vPosition * vMatrix;\n" +
+                        "    gl_Position=vMatrix*vPosition;\n" +
                         "    aCoordinate=vCoordinate;\n" +
                         "}";
         fragmentShaderCode =

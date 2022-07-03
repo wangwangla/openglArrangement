@@ -38,8 +38,11 @@ public class ImageScale extends BaseDrawerAdapter {
                 mBitmap.getWidth(),
                 mBitmap.getHeight(),
                 width,
-                height);        MatrixUtils utils = filter.getUtils();
-        utils.translate(0,0,1);
+                height);
+        MatrixUtils utils = filter.getUtils();
+        utils.translate(0,1,0);
+
+
     }
 
     @Override
