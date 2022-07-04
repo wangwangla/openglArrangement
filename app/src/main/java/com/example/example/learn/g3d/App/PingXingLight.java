@@ -7,6 +7,8 @@ import com.example.example.base.filter.f3d.PingxingLightFilter;
  */
 public class PingXingLight extends Base3DDrawder {
     public PingXingLight(){
+//        SharedLibraryLoader
+//        System.loadLibrary();
         filter = new PingxingLightFilter();
     }
 }

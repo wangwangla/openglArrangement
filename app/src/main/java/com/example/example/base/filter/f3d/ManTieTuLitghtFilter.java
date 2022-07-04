@@ -96,7 +96,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "}\n\n" +
                         "void main(){\n" +
                         "    gl_Position=uMatrix*aPosition;\n" +
-                        "    vColor=(ambientColor() + diffuseColor() + specularColor())* uBaseColor;\n" +
+                        "    vColor=texture2D(vTexture, vCoordinate);\n" +
                         "}";
 
         fragmentShaderCode =
