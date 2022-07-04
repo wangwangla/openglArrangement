@@ -2,10 +2,11 @@ package com.example.example.base.filter.f3d;
 
 import android.opengl.GLES20;
 import com.example.example.base.BaseFilter;
+import com.example.example.base.Filter;
 import com.example.example.utils.MatrixUtils;
 
 //无光源
-public class NoLightFilter extends BaseFilter {
+public class NoLightFilter extends Filter {
     protected int glProgramId;
     protected int glUMatrix;
     protected int glAPosition;
@@ -87,6 +88,11 @@ public class NoLightFilter extends BaseFilter {
     }
 
     @Override
+    public void getLocation() {
+
+    }
+
+    @Override
     public void surfaceChange(int width, int height) {
         GLES20.glViewport(0, 0, width, height);
         utils.getCenterInsideMatrix2d(width, height, width, height);
@@ -96,6 +102,11 @@ public class NoLightFilter extends BaseFilter {
 
     @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void change(int imageWidth, int imageHight, int width, int hight) {
 
     }
 
@@ -112,5 +123,10 @@ public class NoLightFilter extends BaseFilter {
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 6);
         //禁止顶点数组的句柄
         GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
+    }
+
+    @Override
+    public void addOtherRender() {
+
     }
 }

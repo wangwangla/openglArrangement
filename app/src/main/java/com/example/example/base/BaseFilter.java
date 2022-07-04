@@ -27,6 +27,7 @@ public abstract class BaseFilter {
     protected Context context;
     protected MatrixUtils utils;
     public GL10 gl10;
+    protected int texture;
     public BaseFilter(){}
 
     public BaseFilter(Resources resources){
@@ -138,5 +139,15 @@ public abstract class BaseFilter {
     public void setGL(GL10 gl10){
         this.gl10 = gl10;
 
+    }
+
+
+    public int getTexture(){
+        return texture;
+    }
+
+
+    public void setTexture(int texture) {
+        this.texture = texture;
     }
 }

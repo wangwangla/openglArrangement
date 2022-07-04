@@ -27,7 +27,7 @@ public class DepTest implements BaseDrawer {
     @Override
     public void create() {
         srcShow.create();
-        srcShow.getFilter().move(0,0,3);
+        
         dstShow.create();
         srcShow.getFilter().setScale(2,1);
         srcShow.getFilter().rotation();

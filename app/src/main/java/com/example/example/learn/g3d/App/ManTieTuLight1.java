@@ -1,62 +1,33 @@
-package com.example.example.learn.image;
+package com.example.example.learn.g3d.App;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.example.example.base.BaseDrawerAdapter;
-import com.example.example.base.Filter;
-import com.example.example.base.filter.f2d.MatrixFilter;
+import com.example.example.base.filter.f3d.ManTieTuLitghtFilter;
 import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ImageScale extends BaseDrawerAdapter {
+public class ManTieTuLight1 extends Base3DDrawder {
     private Bitmap mBitmap;
-    private Filter filter;
-    public ImageScale() {
-        filter = new MatrixFilter();
+    public ManTieTuLight1(){
+        filter = new ManTieTuLitghtFilter();
+
     }
 
     @Override
     public void create() {
-        filter.create();
+        super.create();
         filter.setTexture(createTexture());
-    }
-
-    @Override
-    public void render() {
-        filter.render();
         MatrixUtils utils = filter.getUtils();
-//        utils.translate(0,2,0);
-        utils.rotateZ(1);
-
-    }
-
-    @Override
-    public void surfaceChange(int width, int height) {
-        GLES20.glViewport(0,0,width,height);
-        filter.change(
-                mBitmap.getWidth(),
-                mBitmap.getHeight(),
-                width,
-                height);
-        MatrixUtils utils = filter.getUtils();
-//        utils.translate(0,2,0);
-        utils.rotateX(30);
-    }
-
-
-
-    @Override
-    public void dispose() {
-
+        utils.rotateY(10);
     }
 
     private int createTexture() {
         try {
-            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("text.png"));
+            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("dst.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

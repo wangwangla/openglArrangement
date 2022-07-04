@@ -15,6 +15,7 @@ import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.g3d.App.BoxLight;
 import com.example.example.learn.g3d.App.ManFanSheLight;
 import com.example.example.learn.g3d.App.ManTieTuLight;
+import com.example.example.learn.g3d.App.MaterialLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
 import com.example.example.learn.image.ImageShow;
@@ -222,6 +223,12 @@ public class Game implements ApplicationListener {
                 break;
             case 1005:
                 aClass = MixTexture.class;
+                break;
+            case 1006:
+                aClass = MaterialLight.class;
+                break;
+            case 1007:
+                aClass = ManTieTuLight.class;
                 break;
         }
     }

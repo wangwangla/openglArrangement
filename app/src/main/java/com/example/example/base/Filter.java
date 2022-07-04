@@ -9,7 +9,6 @@ public abstract class Filter extends BaseFilter {
     protected int glHPosition;
     protected int glHTexture;
     protected int glHCoordinate;
-    protected int texture;
 
     /**
      * 在libGdx中设置目标位置是直接给了position属性
@@ -47,9 +46,6 @@ public abstract class Filter extends BaseFilter {
                         "}";
     }
 
-    public void setTexture(int texture) {
-        this.texture = texture;
-    }
 
     public void setScale(float x,float y){
         utils.scale(x,y);
@@ -112,10 +108,6 @@ public abstract class Filter extends BaseFilter {
     }
 
     public abstract void change(int imageWidth,int imageHight,int width,int hight);
-
-    public int getTexture(){
-        return texture;
-    }
 
     public void lookAt(){
 

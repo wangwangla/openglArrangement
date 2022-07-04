@@ -7,7 +7,6 @@ import com.example.example.base.Filter;
 /**
  * 显示位置可以通过外面   也可以通过里面进行，   这给是通过里面
  */
-
 public class MatrixFilter extends Filter {
     private int glHMatrix;
     public MatrixFilter(){
