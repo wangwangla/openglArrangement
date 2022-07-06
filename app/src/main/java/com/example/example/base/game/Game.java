@@ -18,6 +18,7 @@ import com.example.example.learn.g3d.App.ManTieTuLight;
 import com.example.example.learn.g3d.App.MaterialLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
+import com.example.example.learn.g3d.App.SunLight;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageMatriUse;
 import com.example.example.learn.image.ImageScale;
@@ -229,6 +230,9 @@ public class Game implements ApplicationListener {
                 break;
             case 1007:
                 aClass = ManTieTuLight.class;
+                break;
+            case 1008:
+                aClass = SunLight.class;
                 break;
         }
     }
