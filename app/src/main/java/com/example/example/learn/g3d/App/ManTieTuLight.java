@@ -27,7 +27,7 @@ public class ManTieTuLight extends Base3DDrawder {
 
     private int createTexture() {
         try {
-            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("dst.png"));
+            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("345.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
