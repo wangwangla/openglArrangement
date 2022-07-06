@@ -2,6 +2,7 @@ package com.example.example.base.game;
 
 import android.content.Context;
 import android.opengl.GLES20;
+import android.util.Log;
 
 import com.example.example.base.ApplicationListener;
 import com.example.example.base.BaseDrawer;
@@ -15,6 +16,7 @@ import com.example.example.learn.function.moban.MoBanTest;
 import com.example.example.learn.g3d.App.BoxLight;
 import com.example.example.learn.g3d.App.ManFanSheLight;
 import com.example.example.learn.g3d.App.ManTieTuLight;
+import com.example.example.learn.g3d.App.ManTieTuLight1;
 import com.example.example.learn.g3d.App.MaterialLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
@@ -233,6 +235,10 @@ public class Game implements ApplicationListener {
                 break;
             case 1008:
                 aClass = SunLight.class;
+                break;
+            case 1009:
+                Log.d("kw","-------------------------1009");
+                aClass = ManTieTuLight1.class;
                 break;
         }
     }
