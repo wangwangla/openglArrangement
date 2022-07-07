@@ -13,10 +13,10 @@ import com.example.example.learn.function.alpha.AlphaDemo;
 import com.example.example.learn.function.blend.BlendShow;
 import com.example.example.learn.function.dep.DepTest;
 import com.example.example.learn.function.moban.MoBanTest;
-import com.example.example.learn.g3d.App.BoxLight;
+import com.example.example.learn.g3d.App.FinishShapeLight;
 import com.example.example.learn.g3d.App.ManFanSheLight;
-import com.example.example.learn.g3d.App.ManTieTuLight;
-import com.example.example.learn.g3d.App.ManTieTuLight1;
+import com.example.example.learn.g3d.App.TieTu3D;
+import com.example.example.learn.g3d.App.TieTu3DLight;
 import com.example.example.learn.g3d.App.MaterialLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
@@ -40,14 +40,10 @@ import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.BufferIndexUse;
-import com.example.example.learn.shape.BufferUse;
-import com.example.example.learn.shape.UniformUse;
 import com.example.example.learn.shape.AttribUse;
 import com.example.example.learn.shape.AttribMultVUse;
 import com.example.example.learn.shape.BindAttribUse;
 import com.example.example.learn.shape.MatrixUse;
-
-import java.nio.Buffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -210,7 +206,7 @@ public class Game implements ApplicationListener {
                 aClass = FBODemo.class;
                 break;
             case 1000:
-                aClass = BoxLight.class;
+                aClass = FinishShapeLight.class;
                 break;
             case 1001:
                 aClass = NoLight.class;
@@ -222,7 +218,7 @@ public class Game implements ApplicationListener {
                 aClass = ManFanSheLight.class;
                 break;
             case 1004:
-                aClass = ManTieTuLight.class;
+                aClass = TieTu3D.class;
                 break;
             case 1005:
                 aClass = MixTexture.class;
@@ -231,14 +227,14 @@ public class Game implements ApplicationListener {
                 aClass = MaterialLight.class;
                 break;
             case 1007:
-                aClass = ManTieTuLight.class;
+                aClass = TieTu3D.class;
                 break;
             case 1008:
                 aClass = SunLight.class;
                 break;
             case 1009:
                 Log.d("kw","-------------------------1009");
-                aClass = ManTieTuLight1.class;
+                aClass = TieTu3DLight.class;
                 break;
         }
     }

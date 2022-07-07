@@ -29,7 +29,7 @@ public class HightSelectActivity extends AppCompatActivity {
                 "不同材质（6）",
                 "3d贴图（7）",
                 "蓝线挑战纵向（8）",
-                "保留帧（9）",
+                "3D贴图（9）",
                 "录像(10)",
                 "打开手机相册（11）",
                 "转场1:混合（12）",

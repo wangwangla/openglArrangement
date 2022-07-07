@@ -1,39 +1,35 @@
 package com.example.example.learn.g3d.App;
 
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.example.example.base.filter.f3d.ManTieTuLitghtFilter1;
+import com.example.example.base.filter.f3d.ManTieTuLitghtFilter;
 import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ManTieTuLight1 extends Base3DDrawder{
+/**
+ *
+ */
+public class TieTu3D extends Base3DDrawder {
     private Bitmap mBitmap;
-    public ManTieTuLight1(){
-        filter = new ManTieTuLitghtFilter1();
+    public TieTu3D(){
+        filter = new ManTieTuLitghtFilter();
     }
 
     @Override
     public void create() {
         super.create();
-
         filter.setTexture(createTexture());
-    }
-
-    @Override
-    public void render() {
         MatrixUtils utils = filter.getUtils();
-        utils.rotateY(1);
-        super.render();
+        utils.rotateY(10);
     }
 
     private int createTexture() {
         try {
-            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("12.png"));
+            mBitmap = BitmapFactory.decodeStream(context.getAssets().open("345.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

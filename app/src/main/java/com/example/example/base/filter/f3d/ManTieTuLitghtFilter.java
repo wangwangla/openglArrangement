@@ -3,7 +3,10 @@ package com.example.example.base.filter.f3d;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseFilter;
+import com.example.example.base.Filter;
 import com.example.example.utils.MatrixUtils;
+
+import javax.microedition.khronos.opengles.GL;
 
 public class ManTieTuLitghtFilter extends BaseFilter {
     private int glProgramId;
@@ -15,9 +18,10 @@ public class ManTieTuLitghtFilter extends BaseFilter {
     protected int glUDiffuseStrength;
     protected int glUSpecularStrength;
     protected int glUBaseColor;
-    protected int vCoordinate;
-    protected int vTexture;
-//    protected int glULightColor;
+    protected int glULightColor;
+
+    protected int glHTexture;
+    protected int glHCoordinate;
     float lx = 0f;
     float ly = 0.8f;
     float lz = -1f;
@@ -26,9 +30,6 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         vertexShaderCode =
                 //顶点坐标
                 "attribute vec4 aPosition;\n" +
-                        "attribute vec2 vCoordinate;\n" +    // 纹理
-                        "varying vec2 aCoordinate;\n" +      //  传递纹理   片段着色器
-
 //
                         "attribute vec3 aNormal;\n" +
 //                        矩阵变换
@@ -36,7 +37,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
 //                        颜色
                         "uniform vec4 uBaseColor;\n" +
 //                        光的颜色
-//                        "uniform vec3 uLightColor;\n" +
+                        "uniform vec3 uLightColor;\n" +
 //                        环境光强度
                         "uniform float uAmbientStrength;\n" +
 //                        散射光强度
@@ -45,17 +46,17 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "uniform float uSpecularStrength;\n" +
 //                        光源的位置
                         "uniform vec3 uLightPosition;\n" +
+
+                        "attribute vec2 vCoordinate;\n" +    // 纹理
+                        "varying vec2 xxxxx;\n" +
 //
                         "varying vec4 vColor;\n" +
-
-//                        "varying vec4 vColor;\n" +
-                        "uniform sampler2D vTexture;\n" +
                         "\n" +
                         "//在片元着色器中计算光照会获得更好更真实的光照效果，但是会比较耗性能\n" +
                         "\n" +
                         "//环境光的计算\n" +
                         "vec4 ambientColor(){\n" +
-                        "    vec3 ambient = texture2D(vTexture, vCoordinate).rgb;\n" +
+                        "    vec3 ambient = uAmbientStrength * uLightColor;\n" +
                         "    return vec4(ambient,1.0);\n" +
                         "}\n" +
                         "\n" +
@@ -70,7 +71,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "    //max(cos(入射角)，0)\n" +
                         "    float diff = max(dot(normal,direction), 0.0);\n" +
                         "    //材质的漫反射系数*max(cos(入射角)，0)*光照颜色\n" +
-                        "    vec3 diffuse=uDiffuseStrength * diff * texture2D(vTexture, vCoordinate).rgb;\n" +
+                        "    vec3 diffuse=uDiffuseStrength * diff * uLightColor;\n" +
                         "    return vec4(diffuse,1.0);\n" +
                         "}\n" +
                         "\n" +
@@ -91,19 +92,22 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "    float diff=pow(max(dot(normal,hafVector),0.0),4.0);\n" +
                         "    //材质的镜面反射系数*max(0,cos(反射向量与观察向量夹角)^粗糙度*光照颜色\n" +
                         "    //材质的镜面反射系数*max(0,cos(半向量与法向量的夹角)^粗糙度*光照颜色\n" +
-                        "    vec3 specular=uSpecularStrength*diff*texture2D(vTexture, vCoordinate).rgb;\n" +
+                        "    vec3 specular=uSpecularStrength*diff*uLightColor;\n" +
                         "    return vec4(specular,1.0);\n" +
                         "}\n\n" +
                         "void main(){\n" +
                         "    gl_Position=uMatrix*aPosition;\n" +
-                        "    vColor=texture2D(vTexture, vCoordinate);\n" +
+                        "    xxxxx=vCoordinate;\n" +
+                        "    vColor=(ambientColor() + diffuseColor() + specularColor());\n" +
                         "}";
 
         fragmentShaderCode =
                 "precision mediump float;" +
                         "varying vec4 vColor;" +
+                        "uniform sampler2D vTexture;\n" +
+                        "varying vec2 xxxxx;\n" +
                         "void main() {" +
-                        "  gl_FragColor = vColor;" +
+                        "  gl_FragColor = vColor*texture2D(vTexture,xxxxx);" +
                         "}";
         triangleCoords = new float[]{
                 -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,     0.0f,0.0f,
@@ -156,6 +160,9 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         super.create();
         utils = new MatrixUtils();
         glProgramId = mProgram;
+        glHCoordinate = GLES20.glGetAttribLocation(mProgram, "vCoordinate");
+        glHTexture = GLES20.glGetUniformLocation(mProgram, "vTexture");
+
         glAPosition = GLES20.glGetAttribLocation(glProgramId, "aPosition");
         glANormal = GLES20.glGetAttribLocation(glProgramId, "aNormal");
         glUMatrix = GLES20.glGetUniformLocation(glProgramId, "uMatrix");
@@ -163,8 +170,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         glUAmbientStrength = GLES20.glGetUniformLocation(glProgramId, "uAmbientStrength");
         glUDiffuseStrength = GLES20.glGetUniformLocation(glProgramId, "uDiffuseStrength");
         glUSpecularStrength = GLES20.glGetUniformLocation(glProgramId, "uSpecularStrength");
-        vTexture = GLES20.glGetUniformLocation(glProgramId,"vTexture");
-        vCoordinate = GLES20.glGetUniformLocation(glProgramId, "vCoordinate");
+        glULightColor = GLES20.glGetUniformLocation(glProgramId, "uLightColor");
         glUBaseColor = GLES20.glGetUniformLocation(glProgramId, "uBaseColor");
     }
 
@@ -182,19 +188,24 @@ public class ManTieTuLitghtFilter extends BaseFilter {
 
     @Override
     public void render() {
+        utils.rotateY(1);
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
         GLES20.glUseProgram(mProgram);
 
         vertexBuffer.position(0);
         //准备三角形的坐标数据
         //环境光强度
+        GLES20.glBindTexture(glHTexture,texture);
+
+        GLES20.glEnableVertexAttribArray(glHCoordinate);
         GLES20.glUniform1f(glUAmbientStrength, 0.5F);
         //漫反射光强度
         GLES20.glUniform1f(glUDiffuseStrength, 0.3F);
         //镜面光强度
         GLES20.glUniform1f(glUSpecularStrength, 0.8F);
         //光源颜色
-//        GLES20.glUniform3f(glULightColor, 1.0f, 0.0f, 0.0f);
+        GLES20.glUniform3f(glULightColor, 1.0f, 1.0f, 1.0f);
         //物体颜色
         GLES20.glUniform4f(glUBaseColor, 1.0f, 1.0f, 1.0f, 1.0f);
         //光源位置
@@ -204,22 +215,15 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         GLES20.glVertexAttribPointer(glAPosition, 3, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
         //传入法线信息
         GLES20.glEnableVertexAttribArray(glANormal);
-
         vertexBuffer.position(3);
         GLES20.glVertexAttribPointer(glANormal, 3, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
-
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texture);
-        GLES20.glUniform1i(vTexture, 0);
-
         vertexBuffer.position(6);
-        GLES20.glEnableVertexAttribArray(vCoordinate);
-        GLES20.glVertexAttribPointer(vCoordinate,2, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
+        GLES20.glVertexAttribPointer(glHCoordinate, 2, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
 
-
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 8);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 6);
         //禁止顶点数组的句柄
         GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
 
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
+        GLES20.glBindTexture(glHTexture,0);
     }
 }

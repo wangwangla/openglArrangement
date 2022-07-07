@@ -131,6 +131,8 @@ public class ManTieTuLitghtFilter1  extends Filter{
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 8);
             //禁止顶点数组的句柄
         GLES20.glBindTexture(glHTexture,0);
+        GLES20.glDisableVertexAttribArray(glAPosition);
+        GLES20.glDisableVertexAttribArray(glHCoordinate);
     }
 
     @Override

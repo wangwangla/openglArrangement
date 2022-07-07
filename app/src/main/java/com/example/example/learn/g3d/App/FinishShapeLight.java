@@ -12,8 +12,10 @@ import javax.microedition.khronos.opengles.GL10;
 
 /**
  * 加深度测试
+ *
+ * 一个完整的光照案例
  */
-public class BoxLight implements BaseDrawer {
+public class FinishShapeLight implements BaseDrawer {
     private LightFilter filter;
     private GL10 gl10;
     private Context context;
