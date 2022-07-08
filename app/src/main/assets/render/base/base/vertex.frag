@@ -1,7 +1,18 @@
-attribute vec4 aPos;
-attribute vec2 aCoordinate;
-varying vec2 vCoordinate;
+attribute vec3 aPos;
+attribute vec3 aNormal;
+attribute vec2 aTexCoords;
+
+varying vec3 FragPos;
+varying vec3 Normal;
+varying vec3 TexCoords;
+
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+
 void main(){
-    vCoordinate = aCoordinate;
-    gl_Position = aPos;
+    FragPos = vec3(model * vec4(aPos,1.0));
+    Normal = mat3(transpose(inverse(model)))*aNormal;
+    TexCoords = aTexCoords;
+    gl_Position = projection * view * vec4(FragPos,1.0);
 }
