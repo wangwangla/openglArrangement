@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.ColdFilter;
+import com.example.example.filter.f2d.ColdFilter;
 
 public class ImageCold extends ImageBaseDrawer {
     private Filter filter;

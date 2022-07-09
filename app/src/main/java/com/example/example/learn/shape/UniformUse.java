@@ -1,73 +1,63 @@
 package com.example.example.learn.shape;
 
+import android.content.Context;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
 import com.example.example.base.BaseFilter;
+import com.example.example.base.Filter;
+import com.example.example.filter.f2d.UniformUseFilter;
+
+import javax.microedition.khronos.opengles.GL10;
 
 /**
  * 使用uniform传值
  * 1.    mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor")；
  * 2.    GLES20.glUniform4fv(mColorHandle, 1, color, 0);
  */
-public class UniformUse extends BaseFilter implements BaseDrawer {
-    private int mPositionHandle;
-    private int mColorHandle;
-     // 每个顶点四个字节
-    private int vertexCount;
-
+public class UniformUse implements BaseDrawer {
+    private BaseFilter filter;
     public UniformUse(){
-       vertexShaderCode =
-               "attribute vec4 vPosition;" +
-                       "void main() {" +
-                       "  gl_Position = vPosition;" +
-                       "}";
-
-       fragmentShaderCode =
-               "precision mediump float;" +
-                       "uniform vec4 vColor;" +
-                       "void main() {" +
-                       "  gl_FragColor = vColor;" +
-                       "}";
-
-       triangleCoords = new float[]{
-               0.5f,  0.5f, 0.0f, // top
-               -0.5f, -0.5f, 0.0f, // bottom left
-               0.5f, -0.5f, 0.0f  // bottom right
-       };
-       vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
-       color = new float[]{ 1.0f, 1.0f, 1.0f, 1.0f };
+        filter = new UniformUseFilter();
     }
 
     @Override
     public void create() {
-        super.create();
-        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
-        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+        filter.create();
     }
 
     @Override
-    public void dispose() {
-
+    public void pause() {
+        filter.pause();
     }
 
     @Override
     public void render() {
-        GLES20.glUseProgram(mProgram);
-        GLES20.glEnableVertexAttribArray(mPositionHandle);
-        //准备三角形的坐标数据
-        GLES20.glVertexAttribPointer(
-                mPositionHandle,
-                COORDS_PER_VERTEX,
-                GLES20.GL_FLOAT,
-                false,
-                vertexStride,
-                vertexBuffer);
-        //设置绘制三角形的颜色
-        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
-        //绘制三角形
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
-        //禁止顶点数组的句柄
-        GLES20.glDisableVertexAttribArray(mPositionHandle);
+        filter.render();
+    }
+
+    @Override
+    public void surfaceChange(int width, int height) {
+        filter.surfaceChange(width,height);
+    }
+
+    @Override
+    public void dispose() {
+        filter.dispose();
+    }
+
+    @Override
+    public void resume() {
+        filter.resume();
+    }
+
+    @Override
+    public void setGL(GL10 gl10) {
+
+    }
+
+    @Override
+    public void setContext(Context context) {
+
     }
 }

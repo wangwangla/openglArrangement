@@ -1,17 +1,10 @@
 package com.example.example.hight;
 
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.opengl.GLES20;
 
-import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseDrawerAdapter;
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.CommonFIlter;
-import com.example.example.base.filter.hight.MixFilter;
-
-import javax.microedition.khronos.opengles.GL10;
+import com.example.example.filter.hight.MixFilter;
 
 public class MixTexture extends ImageBaseDrawer {
     private Filter filter;

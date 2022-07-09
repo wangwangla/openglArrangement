@@ -4,10 +4,9 @@ import android.content.Context;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.filter.f3d.LightFilter;
+import com.example.example.filter.f3d.LightFilter;
 import com.example.example.utils.MatrixUtils;
 
-import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
 /**

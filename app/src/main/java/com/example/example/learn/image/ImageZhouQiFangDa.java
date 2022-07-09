@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.ZhouqiFangdaFilter;
+import com.example.example.filter.f2d.ZhouqiFangdaFilter;
 
 public class ImageZhouQiFangDa extends ImageBaseDrawer {
     private Filter filter;

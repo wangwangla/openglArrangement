@@ -5,8 +5,8 @@ import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.FboFilter;
-import com.example.example.base.filter.f2d.FboFilter1;
+import com.example.example.filter.f2d.FboFilter;
+import com.example.example.filter.f2d.FboFilter1;
 
 import javax.microedition.khronos.opengles.GL10;
 

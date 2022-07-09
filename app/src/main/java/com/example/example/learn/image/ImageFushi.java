@@ -1,11 +1,10 @@
 package com.example.example.learn.image;
 
-import android.graphics.Bitmap;
 import android.opengl.GLES20;
 
 import com.example.example.base.Filter;
 import com.example.example.base.ImageBaseDrawer;
-import com.example.example.base.filter.f2d.FushiFilter;
+import com.example.example.filter.f2d.FushiFilter;
 
 /**
  * 抖动效果

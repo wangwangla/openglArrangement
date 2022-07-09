@@ -7,7 +7,7 @@ import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawerAdapter;
 import com.example.example.base.Filter;
-import com.example.example.base.filter.f2d.MatrixFilter;
+import com.example.example.filter.f2d.MatrixFilter;
 import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
