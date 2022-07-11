@@ -66,4 +66,8 @@ public class FinishShapeLight implements BaseDrawer {
     public void setContext(Context context) {
         this.context = context;
     }
+
+    public LightFilter getFilter() {
+        return filter;
+    }
 }
