@@ -227,15 +227,12 @@ public class Game implements ApplicationListener {
                 aClass = MaterialLight.class;
                 break;
             case 1007:
-                aClass = TieTu3D.class;
+                aClass = TieTu3DLight.class;
                 break;
             case 1008:
                 aClass = SunLight.class;
                 break;
-            case 1009:
-                Log.d("kw","-------------------------1009");
-                aClass = TieTu3DLight.class;
-                break;
+
         }
     }
 }
