@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-import com.example.example.base.filter.f3d.ManTieTuLitghtFilter1;
+import com.example.example.filter.f3d.ManTieTuLitghtFilter1;
 import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;

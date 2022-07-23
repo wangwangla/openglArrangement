@@ -88,6 +88,8 @@ public class BufferUse extends ArrayBuffer implements BaseDrawer {
                 16,
                 colorBuffer
         );
+        GLES20.glVertexAttribPointer(mColorHandle,
+                4,GLES20.GL_FLOAT,false,15,0);
 //        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
         //绘制三角形
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);

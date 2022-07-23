@@ -1,7 +1,6 @@
 package com.example.example.learn.g3d.App;
 
-import com.example.example.base.filter.f3d.ManFanlightFilter;
-import com.example.example.base.filter.f3d.PingxingLightFilter;
+import com.example.example.filter.f3d.ManFanlightFilter;
 
 /**
  * 漫反射

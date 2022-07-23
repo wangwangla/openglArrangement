@@ -29,6 +29,8 @@ public class ArrayBuffer {
     protected Context context;
     protected MatrixUtils utils;
     public GL10 gl10;
+    protected int vb[];
+
     public ArrayBuffer(){}
 
     public ArrayBuffer(Resources resources){
@@ -47,20 +49,9 @@ public class ArrayBuffer {
     public void initData(){
         vertexBuffer = loadbuffer(triangleCoords);
         colorBuffer = loadbuffer(color);
-//        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(color.length*4);
-//        byteBuffer.order(ByteOrder.nativeOrder());
-//        colorBuffer = byteBuffer.asFloatBuffer();
-//        colorBuffer.put(color);
-//        colorBuffer.position(0);
-
-
         vb = new int[1];
         GLES20.glGenBuffers(1,vb,0);
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER,vb[0]);
-        //分配空间
-//        GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER,triangleCoords.length * 4,null,GLES20.GL_STATIC_DRAW);
-//        //设置值
-//        GLES20.glBufferSubData(GLES20.GL_ARRAY_BUFFER,0,triangleCoords.length*4,vertexBuffer);
         //合为一个
         GLES20.glBufferData(GLES20.GL_ARRAY_BUFFER,triangleCoords.length * 4,vertexBuffer,GLES20.GL_STATIC_DRAW);
 
@@ -86,8 +77,6 @@ public class ArrayBuffer {
         intBuffer.position(0);
         return intBuffer;
     }
-
-    protected int vb[];
 
     public void createProgame(){
         int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER,vertexShaderCode);
@@ -173,6 +162,5 @@ public class ArrayBuffer {
 
     public void setGL(GL10 gl10){
         this.gl10 = gl10;
-
     }
 }
