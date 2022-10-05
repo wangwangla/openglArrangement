@@ -12,18 +12,18 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class FBODemo extends ImageBaseDrawer {
     private FboFilter fboFilter;
-//    private Filter textureFilter;
+    private Filter textureFilter;
 
     public FBODemo() {
         fboFilter = new FboFilter();
-//        textureFilter = new FboFilter1();
+        textureFilter = new FboFilter1();
     }
 
     @Override
     public void create() {
         fboFilter.create();
         fboFilter.setTexture(createTexture());
-//        textureFilter.create();
+        textureFilter.create();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class FBODemo extends ImageBaseDrawer {
     @Override
     public void render() {
         fboFilter.render();
-//        textureFilter.render(fboFilter.getTextur());
+        textureFilter.render(fboFilter.getTextur());
     }
 
     @Override
@@ -45,11 +45,11 @@ public class FBODemo extends ImageBaseDrawer {
                 mBitmap.getHeight(),
                 width,
                 height);
-//        textureFilter.change(
-//                mBitmap.getWidth(),
-//                mBitmap.getHeight(),
-//                width,
-//                height);
+        textureFilter.change(
+                mBitmap.getWidth(),
+                mBitmap.getHeight(),
+                width,
+                height);
     }
 
     @Override
