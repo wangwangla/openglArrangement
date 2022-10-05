@@ -19,6 +19,7 @@ import com.example.example.learn.g3d.App.MaterialLight;
 import com.example.example.learn.g3d.App.NoLight;
 import com.example.example.learn.g3d.App.PingXingLight;
 import com.example.example.learn.g3d.App.SunLight;
+import com.example.example.learn.image.ImageMove;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageMatriUse;
 import com.example.example.learn.image.ImageTransform;
@@ -199,6 +200,9 @@ public class Game implements ApplicationListener {
                 break;
             case 32:
                 aClass = BufferIndexUse.class;
+                break;
+            case 33:
+                aClass = ImageMove.class;
                 break;
 //            case 30:
 //                aClass = ReadPixDemo.class;

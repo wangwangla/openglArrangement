@@ -54,7 +54,8 @@ public class SelectActivity extends AppCompatActivity {
                 "回讀數據（29）",
                 "FBO(30)",
                 "Buffer的使用（31）",
-                "BufferIndex使用（32）"
+                "BufferIndex使用（32）",
+                "移动（33）"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strArr);
         listView.setAdapter(adapter);
