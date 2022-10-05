@@ -4,8 +4,12 @@ import android.opengl.GLES20;
 
 import com.example.example.base.filter.Filter;
 
+import javax.microedition.khronos.opengles.GL;
+
 public class MixFilter extends Filter {
     protected int glHTexture1;
+    private int tett = 0;
+
     public MixFilter(){
         fragmentShaderCode =
                 "precision mediump float;\n" +
@@ -18,6 +22,10 @@ public class MixFilter extends Filter {
                         "}";
     }
 
+    public void setTexture1(int text){
+        tett  =text;
+    }
+
     @Override
     public void getLocation() {
         glHTexture1 = GLES20.glGetUniformLocation(mProgram, "vTexture1");
@@ -25,7 +33,9 @@ public class MixFilter extends Filter {
 
     @Override
     public void addOtherRender() {
-        GLES20.glUniform1i(glHTexture, 0);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, tett);
+        GLES20.glUniform1i(glHTexture1, 1);
     }
 
     @Override

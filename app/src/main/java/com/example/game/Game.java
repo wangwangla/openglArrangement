@@ -40,6 +40,8 @@ import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.AttribUse;
 import com.example.example.learn.shape.AttribMultVUse;
 import com.example.example.learn.shape.BindAttribUse;
+import com.example.example.learn.shape.BufferIndexUse;
+import com.example.example.learn.shape.BufferUse;
 import com.example.example.learn.shape.MatrixUse;
 import com.example.example.learn.shape.UniformUse;
 import com.example.game.base.ApplicationListener;
@@ -104,8 +106,6 @@ public class Game implements ApplicationListener {
         switch (itemid1){
             case 0:
                 aClass = UniformUse.class;
-//                aClass = BufferUse.class;
-//                aClass = BufferIndexUse.class;
                 break;
             case 1:
                 aClass = AttribUse.class;
@@ -195,8 +195,10 @@ public class Game implements ApplicationListener {
                 aClass = FBODemo.class;
                 break;
             case 31:
+                aClass = BufferUse.class;
                 break;
             case 32:
+                aClass = BufferIndexUse.class;
                 break;
 //            case 30:
 //                aClass = ReadPixDemo.class;

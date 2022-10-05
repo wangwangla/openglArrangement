@@ -7,7 +7,7 @@ import com.example.example.base.ImageBaseDrawer;
 import com.example.example.filter.hight.MixFilter;
 
 public class MixTexture extends ImageBaseDrawer {
-    private Filter filter;
+    private MixFilter filter;
 
     public MixTexture() {
         filter = new MixFilter();
@@ -17,6 +17,7 @@ public class MixTexture extends ImageBaseDrawer {
     public void create() {
         filter.create();
         filter.setTexture(createTexture());
+        filter.setTexture1(createTexture("345.png"));
     }
 
     @Override
