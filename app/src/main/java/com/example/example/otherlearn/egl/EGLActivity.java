@@ -1,4 +1,4 @@
-package com.example.example.learn.egl;
+package com.example.example.otherlearn.egl;
 
 import android.os.Bundle;
 

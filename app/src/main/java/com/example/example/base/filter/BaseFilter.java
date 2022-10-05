@@ -1,4 +1,4 @@
-package com.example.example.base;
+package com.example.example.base.filter;
 
 import android.content.Context;
 import android.content.res.Resources;

@@ -4,7 +4,6 @@ import android.opengl.GLES20;
 
 import com.example.example.base.ArrayBuffer;
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
 
 /**
  * 使用buffer

@@ -3,8 +3,7 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseDrawerAdapter;
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 
 /**
  * 绑定属性

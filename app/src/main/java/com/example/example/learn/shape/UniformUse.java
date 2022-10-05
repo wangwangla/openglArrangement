@@ -1,11 +1,9 @@
 package com.example.example.learn.shape;
 
 import android.content.Context;
-import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
-import com.example.example.base.Filter;
+import com.example.example.base.filter.BaseFilter;
 import com.example.example.filter.f2d.UniformUseFilter;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -17,6 +15,7 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class UniformUse implements BaseDrawer {
     private BaseFilter filter;
+
     public UniformUse(){
         filter = new UniformUseFilter();
     }

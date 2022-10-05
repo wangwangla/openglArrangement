@@ -3,14 +3,14 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 
 /**
  * 使用属性传值
  *
  * 1.mColorHandle = GLES20.glGetAttribLocation(mProgram, "aColor");
- * 2.          GLES20.glEnableVertexAttribArray(mColorHandle);
- *             GLES20.glVertexAttribPointer(mColorHandle,4,GLES20.GL_FLOAT,false,16,colorBuffer);
+ * 2.GLES20.glEnableVertexAttribArray(mColorHandle);
+ *   GLES20.glVertexAttribPointer(mColorHandle,4,GLES20.GL_FLOAT,false,16,colorBuffer);
  *
  * 3.
  */

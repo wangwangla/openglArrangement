@@ -2,6 +2,7 @@ package com.example.game.kwgame;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
@@ -26,6 +27,7 @@ public class KwSurfaceView extends GLSurfaceView {
         setEGLContextClientVersion(2);
         render = new KwRender(context);
         setRenderer(render);
+        this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
 
     @Override

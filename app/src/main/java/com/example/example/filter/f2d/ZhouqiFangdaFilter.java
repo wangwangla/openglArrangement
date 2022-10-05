@@ -28,7 +28,7 @@ public class ZhouqiFangdaFilter extends MatrixFilter {
                         "\n" +
                         "    // 顶点坐标x/y 分别乘以放大系数[1.0,1.3]\n" +
                         "    gl_Position = vec4(vPosition.x * amplitude, vPosition.y * amplitude, vPosition.zw);" +
-                        "aCoordinate=vCoordinate;" +
+                        "       aCoordinate=vCoordinate;" +
                         "}";
 
 

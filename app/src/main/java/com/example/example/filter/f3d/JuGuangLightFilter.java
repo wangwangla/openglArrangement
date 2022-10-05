@@ -2,7 +2,7 @@ package com.example.example.filter.f3d;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 import com.example.example.utils.MatrixUtils;
 
 /**

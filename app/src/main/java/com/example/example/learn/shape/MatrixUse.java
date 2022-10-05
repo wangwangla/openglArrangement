@@ -3,7 +3,7 @@ package com.example.example.learn.shape;
 import android.opengl.GLES20;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 import com.example.example.utils.MatrixUtils;
 
 /**
@@ -25,7 +25,7 @@ public class MatrixUse extends BaseFilter implements BaseDrawer {
                         "varying vec4 vColor;" +
                         "void main() {" +
                         "  " +
-                        "  gl_Position = vPosition * vMatrix;" +
+                        "  gl_Position = vMatrix*vPosition;" +
                         "  vColor = aColor;" +
                         "}";
 

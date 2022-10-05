@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".learn.egl.EGLActivity">
+    tools:context=".otherlearn.egl.EGLActivity">
     <SurfaceView
         android:id="@+id/egl_surface"
         android:layout_width="match_parent"

@@ -1,8 +1,8 @@
-package com.example.example.base;
+package com.example.example.base.filter;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.BaseDrawer;
+import com.example.example.base.filter.BaseFilter;
 import com.example.example.utils.MatrixUtils;
 
 public abstract class Filter extends BaseFilter {
@@ -42,7 +42,7 @@ public abstract class Filter extends BaseFilter {
                         "varying vec2 aCoordinate;\n" +
                         "void main(){\n" +
                         "    vec4 nColor=texture2D(vTexture,aCoordinate);\n" +
-                        "    gl_FragColor=nColor;" +
+                        "    gl_FragColor=vec4(nColor.rgb,0);" +
                         "}";
     }
 

@@ -3,7 +3,7 @@ package com.example.example.learn.g3d.App;
 import android.content.Context;
 
 import com.example.example.base.BaseDrawer;
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 
 import javax.microedition.khronos.opengles.GL10;
 

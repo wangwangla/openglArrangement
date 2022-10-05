@@ -86,12 +86,14 @@ public class MatrixUtils {
     public void getCenterInsideMatrix1(int imgWidth,int imgHeight){
         if(imgHeight>0&&imgWidth>0){
             if(imgWidth>imgHeight){
+                float ra = imgWidth*1.0F / imgHeight;
                 Matrix.orthoM(mMatrixProjection,0,
-                    -2,2,-imgWidth/imgHeight,
-                        imgWidth/imgHeight,1,3);
+                    -2,2,-ra*2,
+                        ra*2,1,3);
             }else{
-                Matrix.orthoM(mMatrixProjection,0,
-                        -imgHeight/imgWidth * 2,imgHeight/imgWidth * 2,-2,2,1,3);
+                float v = imgWidth * 1.0F / imgHeight;
+                Matrix.orthoM(mMatrixProjection,0,-v
+                        * 2,v * 2,-2,2,1,3);
             }
             Matrix.setLookAtM(mMatrixCamera,0,
                     0,0,2,

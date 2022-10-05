@@ -6,7 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawerAdapter;
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 import com.example.example.filter.f2d.MaociFilter;
 
 import java.io.IOException;

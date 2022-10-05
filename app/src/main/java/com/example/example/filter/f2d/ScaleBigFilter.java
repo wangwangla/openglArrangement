@@ -15,14 +15,14 @@ public class ScaleBigFilter extends MatrixFilter {
                         "void main(){\n" +
                         "vec2 uv = aCoordinate;" +
                         "       if(uv.x <= 0.5){" +
-                        "   uv.x =uv.x * 2.0;" +
+                        "       uv.x =uv.x * 2.0;" +
                         "}else{" +
-                        "   uv.x = (uv.x - 0.5)*2.0;" +
+                        "      uv.x = (uv.x - 0.5)*2.0;" +
                         "}" +
                         "if(uv.y <= 0.5){" +
-                        "   uv.y = uv.y * 2.0;" +
+                        "     uv.y = uv.y * 2.0;" +
                         "}else{" +
-                        "   uv.y = (uv.y - 0.5) * 2.0;" +
+                        "     uv.y = (uv.y - 0.5) * 2.0;" +
                         "}" +
                         "vec4 nnn;" +
                         "if((aCoordinate.x-0.5) * (aCoordinate.x-0.5) + (aCoordinate.y-0.5) * (aCoordinate.y-0.5) < 0.25){" +

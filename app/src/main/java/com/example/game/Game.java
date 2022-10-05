@@ -2,7 +2,7 @@ package com.example.game;
 
 import android.content.Context;
 import android.opengl.GLES20;
-import android.util.Log;
+
 import com.example.example.base.BaseDrawer;
 import com.example.example.camera.MyCamera;
 import com.example.example.hight.MixTexture;
@@ -21,7 +21,7 @@ import com.example.example.learn.g3d.App.PingXingLight;
 import com.example.example.learn.g3d.App.SunLight;
 import com.example.example.learn.image.ImageShow;
 import com.example.example.learn.image.ImageMatriUse;
-import com.example.example.learn.image.ImageScale;
+import com.example.example.learn.image.ImageTransform;
 import com.example.example.learn.image.ImageBright;
 import com.example.example.learn.image.ImageCold;
 import com.example.example.learn.image.ImageWarm;
@@ -37,11 +37,9 @@ import com.example.example.learn.image.ImageHsvConvert;
 import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
 import com.example.example.learn.readpix.ReadPixDemo;
-import com.example.example.learn.shape.BufferIndexUse;
 import com.example.example.learn.shape.AttribUse;
 import com.example.example.learn.shape.AttribMultVUse;
 import com.example.example.learn.shape.BindAttribUse;
-import com.example.example.learn.shape.BufferUse;
 import com.example.example.learn.shape.MatrixUse;
 import com.example.example.learn.shape.UniformUse;
 import com.example.game.base.ApplicationListener;
@@ -76,7 +74,7 @@ public class Game implements ApplicationListener {
         GLES20.glClear(
                 GLES20.GL_COLOR_BUFFER_BIT|GLES20.GL_DEPTH_BUFFER_BIT|
                 GLES20.GL_STENCIL_BUFFER_BIT);
-        GLES20.glClearColor(1,1,1,1);
+        GLES20.glClearColor(0,0,0,1);
         drawer.render();
     }
 
@@ -106,8 +104,8 @@ public class Game implements ApplicationListener {
         switch (itemid1){
             case 0:
                 aClass = UniformUse.class;
-                aClass = BufferUse.class;
-                aClass = BufferIndexUse.class;
+//                aClass = BufferUse.class;
+//                aClass = BufferIndexUse.class;
                 break;
             case 1:
                 aClass = AttribUse.class;
@@ -128,7 +126,7 @@ public class Game implements ApplicationListener {
                 aClass = ImageMatriUse.class;
                 break;
             case 7:
-                aClass = ImageScale.class;
+                aClass = ImageTransform.class;
                 break;
             case 8:
                 aClass = ImageBright.class;
@@ -193,6 +191,13 @@ public class Game implements ApplicationListener {
             case 29:
                 aClass = ReadPixDemo.class;
                 break;
+            case 30:
+                aClass = FBODemo.class;
+                break;
+            case 31:
+                break;
+            case 32:
+                break;
 //            case 30:
 //                aClass = ReadPixDemo.class;
 //                break;
@@ -205,9 +210,6 @@ public class Game implements ApplicationListener {
 //            case 30:
 //                aClass = ReadPixDemo.class;
 //                break;
-            case 30:
-                aClass = FBODemo.class;
-                break;
             case 1000:
                 aClass = FinishShapeLight.class;
                 break;

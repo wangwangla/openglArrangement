@@ -1,4 +1,4 @@
-package com.example.example;
+package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,9 @@ import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.View;
 
-import com.example.example.kwgame.KwSurfaceView;
+import com.example.example.R;
+import com.example.game.kwgame.KwSurfaceView;
+
 
 public class MainActivity extends AppCompatActivity {
     private KwSurfaceView surfaceView;

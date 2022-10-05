@@ -18,7 +18,7 @@ public class DoudongFilter extends MatrixFilter {
                         "    // 颜色偏移步长\n" +
                         "    float offset = 0.02;\n" +
                         "\n" +
-                        "    // 进度[0,1]\n" +
+                        "    // 进度[0,1]     求进度\n" +
                         "    float progress = mod(time, duration) / duration; // 0~1\n" +
                         "    // 颜色偏移值范围[0,0.02]\n" +
                         "    vec2 offsetCoords = vec2(offset, offset) * progress;\n" +

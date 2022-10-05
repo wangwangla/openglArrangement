@@ -3,7 +3,7 @@ package com.example.example.filter.f2d;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 import com.example.example.utils.MatrixUtils;
 
 public class OESFilter extends Filter {

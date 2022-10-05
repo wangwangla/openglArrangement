@@ -1,6 +1,6 @@
 package com.example.example.filter.f2d;
 
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 
 public class BufferUseFilter extends BaseFilter {
     @Override

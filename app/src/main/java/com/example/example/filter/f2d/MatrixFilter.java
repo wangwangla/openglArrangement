@@ -2,7 +2,7 @@ package com.example.example.filter.f2d;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 
 /**
  * 显示位置可以通过外面   也可以通过里面进行，   这给是通过里面

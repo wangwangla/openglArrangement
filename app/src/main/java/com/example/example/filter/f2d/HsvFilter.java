@@ -21,12 +21,12 @@ public class HsvFilter extends MatrixFilter {
                         "    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);\n" +
                         "}" +
                         "void main(){\n" +
-                        "vec2 p = aCoordinate.xy;" +
-                        "vec3 a = rgb2hsv(texture2D(vTexture, p).rgb);" +
-                        //值的范围是0~1
-                        "   vec3 m = a;" +
-//                        "   m.x=m.x+0.2;" +
-                        "gl_FragColor = vec4(hsv2rgb(m), 1.0);" +
+                        "       vec2 p = aCoordinate.xy;" +
+                        "       vec3 a = rgb2hsv(texture2D(vTexture, p).rgb);" +
+                                //值的范围是0~1
+                        "       vec3 m = a;" +
+//                        "     m.x=m.x+0.2;" +
+                        "        gl_FragColor = vec4(hsv2rgb(m), 1.0);" +
                         "}";
     }
 }

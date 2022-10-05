@@ -2,8 +2,11 @@ package com.example.example.filter.f2d;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.BaseFilter;
+import com.example.example.base.filter.BaseFilter;
 
+/**
+ * uniform使用
+ */
 public class UniformUseFilter extends BaseFilter {
     private int mPositionHandle;
     private int mColorHandle;

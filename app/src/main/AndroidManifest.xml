@@ -21,20 +21,20 @@
             android:name=".otherlearn.activity.TakePhotoActivity"
             android:exported="true" />
         <activity
-            android:name=".HightSelectActivity"
+            android:name="com.example.android.HightSelectActivity"
             android:exported="true" />
         <activity
-            android:name=".HightActivity"
+            android:name="com.example.android.HightActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.android.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".learn.egl.EGLActivity"
+            android:name=".otherlearn.egl.EGLActivity"
             android:label="@string/title_activity_egl"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MenuActivity"
+            android:name="com.example.android.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectActivity" />
+        <activity android:name="com.example.android.SelectActivity" />
     </application>
 
 </manifest>

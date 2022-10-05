@@ -2,7 +2,7 @@ package com.example.example.hight;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 import com.example.example.base.ImageBaseDrawer;
 import com.example.example.filter.hight.MixFilter;
 

@@ -1,16 +1,5 @@
-package com.example.example.learn.egl;
+package com.example.example.otherlearn.egl;
 import android.annotation.SuppressLint;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLSurface;
-import android.opengl.GLES10;
-import android.opengl.GLES20;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
-import android.view.Display;
 import android.view.SurfaceHolder;
 
 public abstract class EGLRender{

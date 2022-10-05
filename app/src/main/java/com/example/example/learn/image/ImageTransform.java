@@ -6,16 +6,16 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 import com.example.example.base.BaseDrawerAdapter;
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 import com.example.example.filter.f2d.MatrixFilter;
 import com.example.example.utils.MatrixUtils;
 
 import java.io.IOException;
 
-public class ImageScale extends BaseDrawerAdapter {
+public class ImageTransform extends BaseDrawerAdapter {
     private Bitmap mBitmap;
     private Filter filter;
-    public ImageScale() {
+    public ImageTransform() {
         filter = new MatrixFilter();
     }
 
@@ -29,8 +29,7 @@ public class ImageScale extends BaseDrawerAdapter {
     public void render() {
         filter.render();
         MatrixUtils utils = filter.getUtils();
-//        utils.translate(0,2,0);
-        utils.rotateZ(1);
+//        utils.rotateZ(1);
 
     }
 
@@ -44,7 +43,9 @@ public class ImageScale extends BaseDrawerAdapter {
                 height);
         MatrixUtils utils = filter.getUtils();
 //        utils.translate(0,2,0);
-        utils.rotateX(30);
+        //缩放  旋转
+        utils.rotateY(60);
+        utils.scale(4,1);
     }
 
 

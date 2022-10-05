@@ -1,11 +1,12 @@
-package com.example.example;
+package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.example.kwgame.KwSurfaceView;
+import com.example.example.R;
+import com.example.game.kwgame.KwSurfaceView;
 
 public class HightActivity extends AppCompatActivity {
     private KwSurfaceView surfaceView;

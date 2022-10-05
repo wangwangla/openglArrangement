@@ -3,8 +3,6 @@ package com.example.example.camera;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 
-import com.example.example.base.Constant;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;

@@ -15,7 +15,7 @@ import java.nio.IntBuffer;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
-public class ArrayBuffer {
+public class ArrayBuffer implements BaseDrawer{
     protected float color[];
     protected float triangleCoords[];
     protected String fragmentShaderCode;
@@ -108,6 +108,10 @@ public class ArrayBuffer {
         GLES20.glViewport(0,0,width,height);
     }
 
+    @Override
+    public void dispose() {
+
+    }
 
 
     public void resume() {

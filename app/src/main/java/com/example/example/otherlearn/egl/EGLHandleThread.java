@@ -1,4 +1,4 @@
-package com.example.example.learn.egl;
+package com.example.example.otherlearn.egl;
 
 
 import android.annotation.SuppressLint;
@@ -12,14 +12,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.util.Log;
 import android.view.SurfaceHolder;
-
-import androidx.annotation.RequiresApi;
-
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 
 public class EGLHandleThread extends HandlerThread {
     private EGLConfig eglConfig = null;

@@ -3,7 +3,7 @@ package com.example.example.learn.function.alpha;
 import android.content.Context;
 import android.opengl.GLES20;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 import com.example.example.base.ImageBaseDrawer;
 import com.example.example.filter.f2d.AlphaFilter;
 

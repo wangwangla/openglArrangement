@@ -2,7 +2,7 @@ package com.example.example.filter.hight;
 
 import android.opengl.GLES20;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 
 public class MixFilter extends Filter {
     protected int glHTexture1;

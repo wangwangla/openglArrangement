@@ -1,4 +1,4 @@
-package com.example.example;
+package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.example.otherlearn.activity.TakePhotoActivity;
+import com.example.example.R;
 
 public class HightSelectActivity extends AppCompatActivity {
     ListView listView;

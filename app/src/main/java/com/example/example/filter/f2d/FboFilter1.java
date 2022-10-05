@@ -1,6 +1,6 @@
 package com.example.example.filter.f2d;
 
-import com.example.example.base.Filter;
+import com.example.example.base.filter.Filter;
 
 public class FboFilter1 extends Filter {
 
