@@ -37,6 +37,7 @@ import com.example.example.learn.image.ImageMaoci;
 import com.example.example.learn.image.ImageHsvConvert;
 import com.example.example.learn.image.ImageJiuGongGe;
 import com.example.example.learn.image.ImageZhouQiFangDa;
+import com.example.example.learn.pat.PDemo;
 import com.example.example.learn.readpix.ReadPixDemo;
 import com.example.example.learn.shape.AttribUse;
 import com.example.example.learn.shape.AttribMultVUse;
@@ -203,6 +204,9 @@ public class Game implements ApplicationListener {
                 break;
             case 33:
                 aClass = ImageMove.class;
+                break;
+            case 34:
+                aClass  = PDemo.class;
                 break;
 //            case 30:
 //                aClass = ReadPixDemo.class;

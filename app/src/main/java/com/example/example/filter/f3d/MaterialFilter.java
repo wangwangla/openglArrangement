@@ -121,7 +121,7 @@ public class MaterialFilter extends LightFilter {
 
         GLES20.glUniform3f(materialDiffuse, 0.5f, 0.5f, 0.5f);
 //
-        GLES20.glUniform3f(materialspecular, 0.5f, 0.5f, 0.5f);
+        GLES20.glUniform3f(materialspecular, 0f, 0f, 0);
 
 
 

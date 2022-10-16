@@ -17,8 +17,6 @@ public class NoLightFilter extends Filter {
             "attribute vec4 aPosition;\n" +
             "uniform mat4 uMatrix;\n" +
             "uniform vec4 uBaseColor;\n" +
-            "uniform vec3 uLightColor;\n" +
-            "uniform float uAmbientStrength;\n" +
             "varying vec4 vColor;\n" +
             "void main(){\n" +
             "    gl_Position=uMatrix*aPosition;\n" +

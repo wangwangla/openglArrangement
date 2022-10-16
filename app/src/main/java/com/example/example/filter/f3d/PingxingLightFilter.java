@@ -11,7 +11,6 @@ public class PingxingLightFilter extends NoLightFilter {
         vertexShaderCode =
                 //顶点坐标
                 "attribute vec4 aPosition;\n" +
-                        "attribute vec3 aNormal;\n" +
 //                        矩阵变换
                         "uniform mat4 uMatrix;\n" +
 //                        颜色
@@ -20,12 +19,6 @@ public class PingxingLightFilter extends NoLightFilter {
                         "uniform vec3 uLightColor;\n" +
 //                        环境光强度
                         "uniform float uAmbientStrength;\n" +
-//                        散射光强度
-                        "uniform float uDiffuseStrength;\n" +
-//                        镜面强度
-                        "uniform float uSpecularStrength;\n" +
-//                        光源的位置
-                        "uniform vec3 uLightPosition;\n" +
                         "varying vec4 vColor;\n" +
                         "//环境光的计算\n" +
                         "vec4 ambientColor(){\n" +

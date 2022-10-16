@@ -3,7 +3,6 @@ package com.example.example.filter.f3d;
 import android.opengl.GLES20;
 
 public class ManFanlightFilter extends PingxingLightFilter {
-    protected int glANormal;
     protected int glULightPosition;
     protected int glUDiffuseStrength;
 
@@ -59,7 +58,6 @@ public class ManFanlightFilter extends PingxingLightFilter {
     @Override
     public void create() {
         super.create();
-        glANormal = GLES20.glGetAttribLocation(glProgramId, "aNormal");
         glULightPosition = GLES20.glGetUniformLocation(glProgramId, "uLightPosition");
         glUDiffuseStrength = GLES20.glGetUniformLocation(glProgramId, "uDiffuseStrength");
     }
