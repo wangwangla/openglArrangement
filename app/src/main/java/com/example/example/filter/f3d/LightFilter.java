@@ -57,6 +57,7 @@ public class LightFilter extends BaseFilter {
                 "    //光照方向\n" +
                 "    vec3 direction=normalize(uLightPosition-fragPos);\n" +
                 "    //模型变换后的法线向量\n" +
+                        //mat3(transpose(inverse(model))) * aNormal
                 "    vec3 normal=normalize(mat3(uMatrix)*aNormal);\n" +
                 "    //max(cos(入射角)，0)\n" +
                 "    float diff = max(dot(normal,direction), 0.0);\n" +
