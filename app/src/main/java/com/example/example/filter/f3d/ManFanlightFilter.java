@@ -3,6 +3,7 @@ package com.example.example.filter.f3d;
 import android.opengl.GLES20;
 
 public class ManFanlightFilter extends PingxingLightFilter {
+    protected int glANormal;
     protected int glULightPosition;
     protected int glUDiffuseStrength;
 
@@ -58,6 +59,7 @@ public class ManFanlightFilter extends PingxingLightFilter {
     @Override
     public void create() {
         super.create();
+        glANormal = GLES20.glGetAttribLocation(glProgramId,"aNormal");
         glULightPosition = GLES20.glGetUniformLocation(glProgramId, "uLightPosition");
         glUDiffuseStrength = GLES20.glGetUniformLocation(glProgramId, "uDiffuseStrength");
     }
@@ -82,9 +84,13 @@ public class ManFanlightFilter extends PingxingLightFilter {
         GLES20.glUniform4f(glUBaseColor, 1.0f, 1.0f, 1.0f, 1.0f);
         //传入顶点信息
         GLES20.glEnableVertexAttribArray(glAPosition);
+        GLES20.glEnableVertexAttribArray(glANormal);
         GLES20.glVertexAttribPointer(glAPosition, 3, GLES20.GL_FLOAT, false, 6 * 4, vertexBuffer);
+        GLES20.glVertexAttribPointer(glANormal, 3, GLES20.GL_FLOAT, false, 6 * 4, vertexBuffer);
+        GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 6);
         //禁止顶点数组的句柄
-        GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
+        GLES20.glDisableVertexAttribArray(glANormal);
+        GLES20.glDisableVertexAttribArray(glAPosition);
     }
 }

@@ -7,6 +7,11 @@ public class PingxingLightFilter extends NoLightFilter {
     protected int glUAmbientStrength;
     protected int glULightColor;
 
+    /**
+     * 1.基础颜色
+     * 2.光的颜色
+     * 3.光的强度
+     */
     public PingxingLightFilter() {
         vertexShaderCode =
                 //顶点坐标

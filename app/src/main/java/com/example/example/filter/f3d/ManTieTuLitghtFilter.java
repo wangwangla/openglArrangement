@@ -95,7 +95,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "void main(){\n" +
                         "    gl_Position=uMatrix*aPosition;\n" +
                         "    xxxxx=vCoordinate;\n" +
-                        "    vColor=(ambientColor() + diffuseColor() + specularColor());\n" +
+                        "    vColor=(ambientColor() + diffuseColor() + specularColor())*uBaseColor;\n" +
                         "}";
 
         fragmentShaderCode =
@@ -107,47 +107,49 @@ public class ManTieTuLitghtFilter extends BaseFilter {
                         "  gl_FragColor = vColor*texture2D(vTexture,xxxxx);" +
                         "}";
         triangleCoords = new float[]{
-                -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,     0.0f,0.0f,
-                0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,      1.0f,0.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,       1.0f,1.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,       1.0f,1.0f,
-                -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,      0.0f,1.0f,
-                -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,     0.0f,0.0f,
 
-                -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,       0.0f,0.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,        1.0f,0.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,         1.0f,1.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,         1.0f,1.0f,
-                -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,        0.0f,1.0f,
-                -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,       0.0f,0.0f,
 
-                -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,       1.0f,0.0f,
-                -0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f,      1.0f,1.0f,
-                -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,     0.0f,1.0f,
-                -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,     0.0f,1.0f,
-                -0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f,      0.0f,0.0f,
-                -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,       1.0f,0.0f,
+                -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+                0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
+                0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+                0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+                -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
+                -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
 
-                0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,         1.0f,0.0f,
-                0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,        1.0f,1.0f,
-                0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,       0.0f,1.0f,
-                0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,       0.0f,1.0f,
-                0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,        0.0f,0.0f,
-                0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,         1.0f,0.0f,
+                -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+                0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
+                0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+                0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+                -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
+                -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
 
-                -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f,1.0f,
-                0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,  1.0f,1.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,   1.0f,0.0f,
-                0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,   1.0f,0.0f,
-                -0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,  0.0f,0.0f,
-                -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f,1.0f,
+                -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+                -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+                -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+                -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+                -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+                -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-                -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,   0.0f,1.0f,
-                0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,    1.0f,1.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,     1.0f,0.0f,
-                0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,     1.0f,0.0f,
-                -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,    0.0f,0.0f,
-                -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,   0.0f,1.0f
+                0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+                0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+                0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+                0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+                0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+                0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+
+                -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+                0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
+                0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+                0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+                -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
+                -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+
+                -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
+                0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
+                0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+                0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+                -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
+                -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
         };
         color = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
     }
@@ -193,8 +195,8 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         vertexBuffer.position(0);
         //准备三角形的坐标数据
         //环境光强度
-        GLES20.glBindTexture(glHTexture,texture);
-
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, texture);
+        GLES20.glUniform1i(glHTexture, 0);
         GLES20.glEnableVertexAttribArray(glHCoordinate);
         GLES20.glUniform1f(glUAmbientStrength, 0.5F);
         //漫反射光强度
@@ -204,7 +206,7 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         //光源颜色
         GLES20.glUniform3f(glULightColor, 1.0f, 1.0f, 1.0f);
         //物体颜色
-        GLES20.glUniform4f(glUBaseColor, 1.0f, 1.0f, 1.0f, 1.0f);
+        GLES20.glUniform4f(glUBaseColor, 0.0f, 1.0f, 1.0f, 1.0f);
         //光源位置
         GLES20.glUniform3f(glULightPosition, lx, ly, lz);
         //传入顶点信息
@@ -216,11 +218,14 @@ public class ManTieTuLitghtFilter extends BaseFilter {
         GLES20.glVertexAttribPointer(glANormal, 3, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
         vertexBuffer.position(6);
         GLES20.glVertexAttribPointer(glHCoordinate, 2, GLES20.GL_FLOAT, false, 8 * 4, vertexBuffer);
+        GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
 
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, triangleCoords.length / 6);
         //禁止顶点数组的句柄
-        GLES20.glUniformMatrix4fv(glUMatrix, 1, false, utils.getmMVPMatrix(), 0);
 
-        GLES20.glBindTexture(glHTexture,0);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,0);
+        GLES20.glDisableVertexAttribArray(glAPosition);
+        GLES20.glDisableVertexAttribArray(glANormal);
+
     }
 }
