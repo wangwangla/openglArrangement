@@ -28,3 +28,9 @@
     "Blend",
     "深度测试"
     "模板测试"
+
+以后不在更新，手机运行太慢了，大部分时间都花在运行上，使用libgdx，虽然封装了，但是本仓库基本都包含了，该有的都有了。
+
+libGdx可以在桌面运行  更能专心学opengl
+
+[Libgdx版本](https://github.com/wangGame/gdx-test)
