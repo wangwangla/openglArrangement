@@ -20,8 +20,9 @@ public class EGLHandleThread extends HandlerThread {
     private EGLDisplay eglDisplay = EGL14.EGL_NO_DISPLAY;
     @SuppressLint("NewApi")
     private EGLContext eglContext = EGL14.EGL_NO_CONTEXT;
-
+    private EGLSurface eglSurface;
     private SurfaceHolder surfaceHolder;
+    private boolean isDraw;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -97,12 +98,15 @@ public class EGLHandleThread extends HandlerThread {
         }
     }
 
-    EGLSurface eglSurface;
     @SuppressLint("NewApi")
     public void surfaceCreated(SurfaceHolder surface){
         final int[] surfaceAttribs = { EGL14.EGL_NONE };
 //        eglCreateWindowSurface()的第三个入参window是需要传入一个ANativeWindow对象
-        eglSurface = EGL14.eglCreateWindowSurface(eglDisplay, eglConfig, surface, surfaceAttribs, 0);
+        eglSurface = EGL14.eglCreateWindowSurface(
+                eglDisplay,
+                eglConfig,
+                surface,
+                surfaceAttribs, 0);
         //使用当前显示  每个线程都需要绑定一个上下文，才可以开始执行OpenGL ES指令，我们可以通过eglMakeCurrent
         // 来为该线程绑定Surface和Context，值得注意一点的是一个EGLContext只能绑定到一个线程上面。
         EGL14.eglMakeCurrent(eglDisplay, eglSurface, eglSurface, eglContext);
@@ -112,7 +116,6 @@ public class EGLHandleThread extends HandlerThread {
         isDraw = true;
     }
 
-    private boolean isDraw;
     @SuppressLint("NewApi")
     @Override
     public synchronized void start() {
@@ -124,8 +127,11 @@ public class EGLHandleThread extends HandlerThread {
                 surfaceCreated(surfaceHolder);
                 listener.create();
                 listener.surface();
+                //为什么使用循环？？ 因为线程的原因
                 while (true){
                     if(isDraw) {
+                        //为了更加健壮  可以判断上下文等是否正确，如果不正确，那就重新获取
+
                         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
                         GLES20.glClearColor(1.0f, 0, 0, 1.0f);
                         listener.onFrame();

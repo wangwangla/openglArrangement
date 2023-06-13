@@ -132,6 +132,10 @@ public abstract class BaseFilter {
         return shader;
     }
 
+    protected void getGetAttribLocation(String name){
+
+    }
+
     public MatrixUtils getUtils() {
         return utils;
     }
