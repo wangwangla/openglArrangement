@@ -39,8 +39,10 @@ public class UniformUseFilter extends BaseFilter {
     @Override
     public void create() {
         super.create();
-        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
-        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+//        mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
+//        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+        mPositionHandle = getGetAttribLocation("vPosition");
+        mColorHandle = getGetUniformLocation("vColor");
     }
 
     @Override
@@ -50,7 +52,7 @@ public class UniformUseFilter extends BaseFilter {
 
     @Override
     public void render() {
-        GLES20.glUseProgram(mProgram);
+        super.render();
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         //准备三角形的坐标数据
         GLES20.glVertexAttribPointer(

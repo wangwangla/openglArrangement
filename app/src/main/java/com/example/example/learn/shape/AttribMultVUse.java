@@ -92,7 +92,7 @@ public class AttribMultVUse extends BaseFilter implements BaseDrawer {
                 false,
                 28,
                 vertexBuffer);
-        //设置绘制三角形的颜色
+        //设置绘制三角形的颜色   感觉可以省略
             vertexBuffer.position(3);
             GLES20.glEnableVertexAttribArray(mColorHandle);
             GLES20.glVertexAttribPointer(

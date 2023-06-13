@@ -18,10 +18,12 @@ public abstract class BaseFilter {
     protected float triangleCoords[];
     protected String fragmentShaderCode;
     protected String vertexShaderCode;
+
     protected FloatBuffer vertexBuffer;
     protected FloatBuffer colorBuffer;
     protected int mProgram ;
     private Resources mRes;
+    //几个点    点乘以字符占用
     protected int COORDS_PER_VERTEX = 3;
     protected int vertexStride = COORDS_PER_VERTEX * 4;
     protected Context context;
@@ -44,17 +46,29 @@ public abstract class BaseFilter {
     }
 
     public void initData(){
+//        ByteBuffer bb = ByteBuffer.allocateDirect(
+//                triangleCoords.length * 4);
+//        bb.order(ByteOrder.nativeOrder());
+//        vertexBuffer = bb.asFloatBuffer();
+//        vertexBuffer.put(triangleCoords);
+//        vertexBuffer.position(0);
+//        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(color.length*4);
+//        byteBuffer.order(ByteOrder.nativeOrder());
+//        colorBuffer = byteBuffer.asFloatBuffer();
+//        colorBuffer.put(color);
+//        colorBuffer.position(0);
+        vertexBuffer = floatbuffer(triangleCoords);
+        colorBuffer =  floatbuffer(color);
+    }
+
+    public FloatBuffer floatbuffer(float[] triangleCoords){
         ByteBuffer bb = ByteBuffer.allocateDirect(
                 triangleCoords.length * 4);
         bb.order(ByteOrder.nativeOrder());
-        vertexBuffer = bb.asFloatBuffer();
+        FloatBuffer vertexBuffer = bb.asFloatBuffer();
         vertexBuffer.put(triangleCoords);
         vertexBuffer.position(0);
-        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(color.length*4);
-        byteBuffer.order(ByteOrder.nativeOrder());
-        colorBuffer = byteBuffer.asFloatBuffer();
-        colorBuffer.put(color);
-        colorBuffer.position(0);
+        return vertexBuffer;
     }
 
     public void createProgame(){
@@ -70,6 +84,7 @@ public abstract class BaseFilter {
             String s = GLES20.glGetProgramInfoLog(mProgram);
             System.out.println(s);
         }
+        //连接完就可以删除  顶点着色
         GLES20.glDeleteShader(vertexShader);
         GLES20.glDeleteShader(fragmentShader);
     }
@@ -78,7 +93,9 @@ public abstract class BaseFilter {
 
     }
 
-    public void render(){}
+    public void render(){
+        GLES20.glUseProgram(mProgram);
+    }
 
     public void surfaceChange(int width,int height){
         GLES20.glViewport(0,0,width,height);
@@ -132,8 +149,12 @@ public abstract class BaseFilter {
         return shader;
     }
 
-    protected void getGetAttribLocation(String name){
+    protected int getGetAttribLocation(String name){
+        return GLES20.glGetAttribLocation(mProgram,name);
+    }
 
+    protected int getGetUniformLocation(String name){
+        return GLES20.glGetUniformLocation(mProgram,name);
     }
 
     public MatrixUtils getUtils() {
